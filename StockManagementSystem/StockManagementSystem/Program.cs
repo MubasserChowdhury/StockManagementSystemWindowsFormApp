@@ -9,7 +9,7 @@ namespace StockManagementSystem
 {
     static class Program
     {
-        /// <summary>
+        /// <summary>E:\Visual_studio\Project\StockManagementSystemWindowsFormApp-master\StockManagementSystem\StockManagementSystem\UI\
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
@@ -17,7 +17,8 @@ namespace StockManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HomeUi());
+             Application.Run(new HomeUi());
+            // Application.Run(new SupplierUi());
         }
     }
 }

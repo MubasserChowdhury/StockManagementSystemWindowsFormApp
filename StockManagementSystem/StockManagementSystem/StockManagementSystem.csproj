@@ -46,45 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Manager\CategoryManager.cs" />
-    <Compile Include="Manager\CustomerManager.cs" />
-    <Compile Include="Manager\ProductManager.cs" />
-    <Compile Include="Model\Customer.cs" />
-    <Compile Include="Model\Product.cs" />
+    <Compile Include="Manager\SupplierManager.cs" />
+    <Compile Include="Model\Supplier.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\CategoryRepository.cs" />
-    <Compile Include="Repository\CustomerRepository.cs" />
-    <Compile Include="Repository\ProductRepository.cs" />
-    <Compile Include="UI\AddCustomerUi.cs">
+    <Compile Include="Repository\SupplierRepository.cs" />
+    <Compile Include="UI\AddSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\AddCustomerUi.Designer.cs">
-      <DependentUpon>AddCustomerUi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\AddProductUi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\AddProductUi.Designer.cs">
-      <DependentUpon>AddProductUi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CategoryUi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\CategoryUi.Designer.cs">
-      <DependentUpon>CategoryUi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CustomerUi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\CustomerUi.Designer.cs">
-      <DependentUpon>CustomerUi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\HomeInfoUi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\HomeInfoUi.Designer.cs">
-      <DependentUpon>HomeInfoUi.cs</DependentUpon>
+    <Compile Include="UI\AddSupplier.Designer.cs">
+      <DependentUpon>AddSupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\HomeUi.cs">
       <SubType>Form</SubType>
@@ -92,13 +63,12 @@
     <Compile Include="UI\HomeUi.designer.cs">
       <DependentUpon>HomeUi.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ProductUi.cs">
+    <Compile Include="UI\SupplierUi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ProductUi.Designer.cs">
-      <DependentUpon>ProductUi.cs</DependentUpon>
+    <Compile Include="UI\SupplierUi.Designer.cs">
+      <DependentUpon>SupplierUi.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\ProductViewModel.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -107,30 +77,18 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UI\AddCustomerUi.resx">
-      <DependentUpon>AddCustomerUi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\AddProductUi.resx">
-      <DependentUpon>AddProductUi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\CategoryUi.resx">
-      <DependentUpon>CategoryUi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\CustomerUi.resx">
-      <DependentUpon>CustomerUi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\HomeInfoUi.resx">
-      <DependentUpon>HomeInfoUi.cs</DependentUpon>
+    <EmbeddedResource Include="UI\AddSupplier.resx">
+      <DependentUpon>AddSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\HomeUi.resx">
       <DependentUpon>HomeUi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ProductUi.resx">
-      <DependentUpon>ProductUi.cs</DependentUpon>
+    <EmbeddedResource Include="UI\SupplierUi.resx">
+      <DependentUpon>SupplierUi.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\StockManagementSystem.Model.Category.datasource" />
-    <None Include="Properties\DataSources\StockManagementSystem.Model.Customer.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.ViewModel.ProductViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -145,6 +103,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifying-glass.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
