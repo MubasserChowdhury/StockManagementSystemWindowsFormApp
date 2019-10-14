@@ -30,6 +30,14 @@ namespace StockManagementSystem.UI
 
         private void categoryButton_Click(object sender, EventArgs e)
         {
+            activePanel.Height = categoryButton.Height;
+            activePanel.Top = categoryButton.Top;
+
+            CategoryUi categoryUi=new CategoryUi();
+            categoryUi.TopLevel = false;
+            mainPanel.Controls.Add(categoryUi);
+            categoryUi.BringToFront();
+            categoryUi.Show();
 
         }
 
@@ -78,16 +86,9 @@ namespace StockManagementSystem.UI
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void supplierButton_Click(object sender, EventArgs e)
-        {
-            activePanel.Height = supplierButton.Height;
-            activePanel.Top = supplierButton.Top;
+    
+        
 
-            SupplierUi supplierUi =new SupplierUi();
-            supplierUi.TopLevel = false;
-            mainPanel.Controls.Add(supplierUi);
-            supplierUi.BringToFront();
-            supplierUi.Show();
-        }
+
     }
 }
