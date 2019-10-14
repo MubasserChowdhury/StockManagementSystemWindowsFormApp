@@ -30,22 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeUi));
             this.topPanel = new System.Windows.Forms.Panel();
+            this.minimizeButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
             this.sidePanel = new System.Windows.Forms.Panel();
+            this.timeLabel = new System.Windows.Forms.Label();
+            this.activePanel = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.customerButton = new System.Windows.Forms.Button();
             this.productButton = new System.Windows.Forms.Button();
+            this.homeButton = new System.Windows.Forms.Button();
             this.categoryButton = new System.Windows.Forms.Button();
             this.dashBoardButton = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.activePanel = new System.Windows.Forms.Panel();
-            this.closeButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.homeButton = new System.Windows.Forms.Button();
-            this.timeLabel = new System.Windows.Forms.Label();
-            this.minimizeButton = new System.Windows.Forms.Button();
             this.topPanel.SuspendLayout();
             this.sidePanel.SuspendLayout();
             this.SuspendLayout();
@@ -57,10 +57,39 @@
             this.topPanel.Controls.Add(this.closeButton);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
+            this.topPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(1366, 45);
+            this.topPanel.Size = new System.Drawing.Size(1024, 37);
             this.topPanel.TabIndex = 0;
             this.topPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseMove);
+            // 
+            // minimizeButton
+            // 
+            this.minimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.minimizeButton.FlatAppearance.BorderSize = 0;
+            this.minimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("minimizeButton.Image")));
+            this.minimizeButton.Location = new System.Drawing.Point(964, 14);
+            this.minimizeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minimizeButton.Name = "minimizeButton";
+            this.minimizeButton.Size = new System.Drawing.Size(17, 11);
+            this.minimizeButton.TabIndex = 0;
+            this.minimizeButton.UseVisualStyleBackColor = true;
+            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            // 
+            // closeButton
+            // 
+            this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeButton.FlatAppearance.BorderSize = 0;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
+            this.closeButton.Location = new System.Drawing.Point(998, 10);
+            this.closeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(17, 20);
+            this.closeButton.TabIndex = 0;
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // sidePanel
             // 
@@ -78,10 +107,31 @@
             this.sidePanel.Controls.Add(this.dashBoardButton);
             this.sidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidePanel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sidePanel.Location = new System.Drawing.Point(0, 45);
+            this.sidePanel.Location = new System.Drawing.Point(0, 37);
+            this.sidePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.sidePanel.Name = "sidePanel";
-            this.sidePanel.Size = new System.Drawing.Size(232, 723);
+            this.sidePanel.Size = new System.Drawing.Size(174, 587);
             this.sidePanel.TabIndex = 1;
+            // 
+            // timeLabel
+            // 
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.timeLabel.Location = new System.Drawing.Point(46, 532);
+            this.timeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(31, 13);
+            this.timeLabel.TabIndex = 1;
+            this.timeLabel.Text = "Time";
+            // 
+            // activePanel
+            // 
+            this.activePanel.BackColor = System.Drawing.Color.Red;
+            this.activePanel.Location = new System.Drawing.Point(2, 152);
+            this.activePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.activePanel.Name = "activePanel";
+            this.activePanel.Size = new System.Drawing.Size(8, 37);
+            this.activePanel.TabIndex = 0;
             // 
             // button8
             // 
@@ -93,9 +143,10 @@
             this.button8.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(12, 544);
+            this.button8.Location = new System.Drawing.Point(9, 442);
+            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(210, 45);
+            this.button8.Size = new System.Drawing.Size(158, 37);
             this.button8.TabIndex = 0;
             this.button8.Text = "   Orders";
             this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -111,9 +162,10 @@
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(12, 493);
+            this.button7.Location = new System.Drawing.Point(9, 401);
+            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(210, 45);
+            this.button7.Size = new System.Drawing.Size(158, 37);
             this.button7.TabIndex = 0;
             this.button7.Text = "   Sale";
             this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -129,9 +181,10 @@
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(12, 442);
+            this.button6.Location = new System.Drawing.Point(9, 359);
+            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(210, 45);
+            this.button6.Size = new System.Drawing.Size(158, 37);
             this.button6.TabIndex = 0;
             this.button6.Text = "   Purchase";
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -147,9 +200,10 @@
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(12, 391);
+            this.button5.Location = new System.Drawing.Point(9, 318);
+            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(210, 45);
+            this.button5.Size = new System.Drawing.Size(158, 37);
             this.button5.TabIndex = 0;
             this.button5.Text = "   Supplier";
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -165,13 +219,15 @@
             this.customerButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.customerButton.Image = ((System.Drawing.Image)(resources.GetObject("customerButton.Image")));
             this.customerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.customerButton.Location = new System.Drawing.Point(12, 340);
+            this.customerButton.Location = new System.Drawing.Point(9, 276);
+            this.customerButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.customerButton.Name = "customerButton";
-            this.customerButton.Size = new System.Drawing.Size(210, 45);
+            this.customerButton.Size = new System.Drawing.Size(158, 37);
             this.customerButton.TabIndex = 0;
             this.customerButton.Text = "   Customer";
             this.customerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.customerButton.UseVisualStyleBackColor = true;
+            this.customerButton.Click += new System.EventHandler(this.customerButton_Click);
             // 
             // productButton
             // 
@@ -183,14 +239,35 @@
             this.productButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.productButton.Image = ((System.Drawing.Image)(resources.GetObject("productButton.Image")));
             this.productButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.productButton.Location = new System.Drawing.Point(12, 289);
+            this.productButton.Location = new System.Drawing.Point(9, 235);
+            this.productButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.productButton.Name = "productButton";
-            this.productButton.Size = new System.Drawing.Size(210, 45);
+            this.productButton.Size = new System.Drawing.Size(158, 37);
             this.productButton.TabIndex = 0;
             this.productButton.Text = "   Product";
             this.productButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.productButton.UseVisualStyleBackColor = true;
             this.productButton.Click += new System.EventHandler(this.productButton_Click);
+            // 
+            // homeButton
+            // 
+            this.homeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.homeButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.homeButton.FlatAppearance.BorderSize = 0;
+            this.homeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.homeButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.homeButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.homeButton.Image = ((System.Drawing.Image)(resources.GetObject("homeButton.Image")));
+            this.homeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.homeButton.Location = new System.Drawing.Point(9, 152);
+            this.homeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.homeButton.Name = "homeButton";
+            this.homeButton.Size = new System.Drawing.Size(158, 37);
+            this.homeButton.TabIndex = 0;
+            this.homeButton.Text = "   Home";
+            this.homeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.homeButton.UseVisualStyleBackColor = true;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
             // categoryButton
             // 
@@ -202,9 +279,10 @@
             this.categoryButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.categoryButton.Image = ((System.Drawing.Image)(resources.GetObject("categoryButton.Image")));
             this.categoryButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.categoryButton.Location = new System.Drawing.Point(12, 238);
+            this.categoryButton.Location = new System.Drawing.Point(9, 193);
+            this.categoryButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.categoryButton.Name = "categoryButton";
-            this.categoryButton.Size = new System.Drawing.Size(210, 45);
+            this.categoryButton.Size = new System.Drawing.Size(158, 37);
             this.categoryButton.TabIndex = 0;
             this.categoryButton.Text = "   Category";
             this.categoryButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -222,8 +300,9 @@
             this.dashBoardButton.Image = ((System.Drawing.Image)(resources.GetObject("dashBoardButton.Image")));
             this.dashBoardButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.dashBoardButton.Location = new System.Drawing.Point(0, 0);
+            this.dashBoardButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dashBoardButton.Name = "dashBoardButton";
-            this.dashBoardButton.Size = new System.Drawing.Size(232, 45);
+            this.dashBoardButton.Size = new System.Drawing.Size(174, 37);
             this.dashBoardButton.TabIndex = 0;
             this.dashBoardButton.Text = "   Dashboard";
             this.dashBoardButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -232,94 +311,34 @@
             // mainPanel
             // 
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(232, 45);
+            this.mainPanel.Location = new System.Drawing.Point(174, 37);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1134, 723);
+            this.mainPanel.Size = new System.Drawing.Size(850, 587);
             this.mainPanel.TabIndex = 2;
-            // 
-            // activePanel
-            // 
-            this.activePanel.BackColor = System.Drawing.Color.Red;
-            this.activePanel.Location = new System.Drawing.Point(3, 187);
-            this.activePanel.Name = "activePanel";
-            this.activePanel.Size = new System.Drawing.Size(10, 45);
-            this.activePanel.TabIndex = 0;
-            // 
-            // closeButton
-            // 
-            this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.closeButton.FlatAppearance.BorderSize = 0;
-            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
-            this.closeButton.Location = new System.Drawing.Point(1331, 12);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(23, 24);
-            this.closeButton.TabIndex = 0;
-            this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(158)))), ((int)(((byte)(132)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(232, 758);
+            this.panel1.Location = new System.Drawing.Point(174, 616);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1134, 10);
+            this.panel1.Size = new System.Drawing.Size(850, 8);
             this.panel1.TabIndex = 0;
-            // 
-            // homeButton
-            // 
-            this.homeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.homeButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.homeButton.FlatAppearance.BorderSize = 0;
-            this.homeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.homeButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.homeButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.homeButton.Image = ((System.Drawing.Image)(resources.GetObject("homeButton.Image")));
-            this.homeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.homeButton.Location = new System.Drawing.Point(12, 187);
-            this.homeButton.Name = "homeButton";
-            this.homeButton.Size = new System.Drawing.Size(210, 45);
-            this.homeButton.TabIndex = 0;
-            this.homeButton.Text = "   Home";
-            this.homeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.homeButton.UseVisualStyleBackColor = true;
-            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
-            // 
-            // timeLabel
-            // 
-            this.timeLabel.AutoSize = true;
-            this.timeLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.timeLabel.Location = new System.Drawing.Point(62, 655);
-            this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(38, 19);
-            this.timeLabel.TabIndex = 1;
-            this.timeLabel.Text = "Time";
-            // 
-            // minimizeButton
-            // 
-            this.minimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizeButton.FlatAppearance.BorderSize = 0;
-            this.minimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("minimizeButton.Image")));
-            this.minimizeButton.Location = new System.Drawing.Point(1286, 17);
-            this.minimizeButton.Name = "minimizeButton";
-            this.minimizeButton.Size = new System.Drawing.Size(23, 14);
-            this.minimizeButton.TabIndex = 0;
-            this.minimizeButton.UseVisualStyleBackColor = true;
-            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
             // 
             // HomeUi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.ClientSize = new System.Drawing.Size(1024, 624);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.sidePanel);
             this.Controls.Add(this.topPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "HomeUi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HomeWindows";
