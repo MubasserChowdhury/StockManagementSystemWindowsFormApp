@@ -38,7 +38,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.supplierButton = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.customerButton = new System.Windows.Forms.Button();
             this.productButton = new System.Windows.Forms.Button();
             this.homeButton = new System.Windows.Forms.Button();
@@ -94,16 +94,16 @@
             // sidePanel
             // 
             this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.sidePanel.Controls.Add(this.categoryButton);
             this.sidePanel.Controls.Add(this.timeLabel);
             this.sidePanel.Controls.Add(this.activePanel);
             this.sidePanel.Controls.Add(this.button8);
             this.sidePanel.Controls.Add(this.button7);
             this.sidePanel.Controls.Add(this.button6);
-            this.sidePanel.Controls.Add(this.supplierButton);
+            this.sidePanel.Controls.Add(this.button5);
             this.sidePanel.Controls.Add(this.customerButton);
             this.sidePanel.Controls.Add(this.productButton);
             this.sidePanel.Controls.Add(this.homeButton);
+            this.sidePanel.Controls.Add(this.categoryButton);
             this.sidePanel.Controls.Add(this.dashBoardButton);
             this.sidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidePanel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -190,25 +190,24 @@
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // supplierButton
+            // button5
             // 
-            this.supplierButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.supplierButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.supplierButton.FlatAppearance.BorderSize = 0;
-            this.supplierButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.supplierButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.supplierButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.supplierButton.Image = ((System.Drawing.Image)(resources.GetObject("supplierButton.Image")));
-            this.supplierButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.supplierButton.Location = new System.Drawing.Point(9, 318);
-            this.supplierButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.supplierButton.Name = "supplierButton";
-            this.supplierButton.Size = new System.Drawing.Size(158, 37);
-            this.supplierButton.TabIndex = 0;
-            this.supplierButton.Text = "   Supplier";
-            this.supplierButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.supplierButton.UseVisualStyleBackColor = true;
-            this.supplierButton.Click += new System.EventHandler(this.supplierButton_Click);
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(9, 318);
+            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(158, 37);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "   Supplier";
+            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // customerButton
             // 
@@ -279,7 +278,7 @@
             this.categoryButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.categoryButton.Image = ((System.Drawing.Image)(resources.GetObject("categoryButton.Image")));
             this.categoryButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.categoryButton.Location = new System.Drawing.Point(9, 194);
+            this.categoryButton.Location = new System.Drawing.Point(9, 193);
             this.categoryButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.categoryButton.Name = "categoryButton";
             this.categoryButton.Size = new System.Drawing.Size(158, 37);
@@ -316,6 +315,7 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(850, 587);
             this.mainPanel.TabIndex = 2;
+            
             // 
             // panel1
             // 
@@ -357,7 +357,7 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button supplierButton;
+        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button customerButton;
         private System.Windows.Forms.Button productButton;
         private System.Windows.Forms.Button categoryButton;
