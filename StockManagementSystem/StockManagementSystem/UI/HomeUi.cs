@@ -19,37 +19,16 @@ namespace StockManagementSystem.UI
             activePanel.Height = homeButton.Height;
             activePanel.Top = homeButton.Top;
 
+            HomeInfoUiController homeInfoUiController = new HomeInfoUiController();
+            mainPanel.Controls.Clear();
+            homeInfoUiController.Dock = DockStyle.Fill;
+            homeInfoUiController.BringToFront();
+            homeInfoUiController.Focus();
+            mainPanel.Controls.Add(homeInfoUiController);
+
             timeLabel.Text = "";
             // timeLabel.Text= DateTime.Now.ToString("hh:mm:ss tt");
         }
-        private void homeButton_Click(object sender, EventArgs e)
-        {
-            activePanel.Height = homeButton.Height;
-            activePanel.Top = homeButton.Top;
-        }
-
-        private void categoryButton_Click(object sender, EventArgs e)
-        {
-            activePanel.Height = categoryButton.Height;
-            activePanel.Top = categoryButton.Top;
-
-            CategoryUi categoryUi=new CategoryUi();
-            categoryUi.TopLevel = false;
-            mainPanel.Controls.Add(categoryUi);
-            categoryUi.BringToFront();
-            categoryUi.Show();
-
-        }
-
-        private void productButton_Click(object sender, EventArgs e)
-        {
-            activePanel.Height = productButton.Height;
-            activePanel.Top = productButton.Top;
-
-          
-
-        }
-
         private void closeButton_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;
@@ -72,8 +51,6 @@ namespace StockManagementSystem.UI
 
         private void topPanel_MouseMove(object sender, MouseEventArgs e)
         {
-
-            
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
@@ -85,10 +62,83 @@ namespace StockManagementSystem.UI
         {
             this.WindowState = FormWindowState.Minimized;
         }
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            activePanel.Height = homeButton.Height;
+            activePanel.Top = homeButton.Top;
 
-    
-        
+            HomeInfoUiController homeInfoUiController = new HomeInfoUiController();
+            mainPanel.Controls.Clear();
+            homeInfoUiController.Dock = DockStyle.Fill;
+            homeInfoUiController.BringToFront();
+            homeInfoUiController.Focus();
+            mainPanel.Controls.Add(homeInfoUiController);
+        }
 
+        private void categoryButton_Click(object sender, EventArgs e)
+        {
+            activePanel.Height = categoryButton.Height;
+            activePanel.Top = categoryButton.Top;
 
+            CategoryUiController categoryUiController = new CategoryUiController();
+            mainPanel.Controls.Clear();
+            categoryUiController.Dock = DockStyle.Fill;
+            categoryUiController.BringToFront();
+            categoryUiController.Focus();
+            mainPanel.Controls.Add(categoryUiController);
+
+        }
+
+        private void productButton_Click(object sender, EventArgs e)
+        {
+            activePanel.Height = productButton.Height;
+            activePanel.Top = productButton.Top;
+
+            ProductUiController productUiController = new ProductUiController();
+            mainPanel.Controls.Clear();
+            productUiController.Dock = DockStyle.Fill;
+            productUiController.BringToFront();
+            productUiController.Focus();
+            mainPanel.Controls.Add(productUiController);
+
+        }
+
+        private void customerButton_Click(object sender, EventArgs e)
+        {
+            activePanel.Height = customerButton.Height;
+            activePanel.Top = customerButton.Top;
+
+            CustomerUiController customerUiController = new CustomerUiController();
+            mainPanel.Controls.Clear();
+            customerUiController.Dock = DockStyle.Fill;
+            customerUiController.BringToFront();
+            customerUiController.Focus();
+            mainPanel.Controls.Add(customerUiController);
+        }
+
+        private void supplierButton_Click(object sender, EventArgs e)
+        {
+            activePanel.Height = supplierButton.Height;
+            activePanel.Top = supplierButton.Top;
+
+            SupplierUiController supplierUiController = new SupplierUiController();
+            mainPanel.Controls.Clear();
+            supplierUiController.Dock = DockStyle.Fill;
+            supplierUiController.BringToFront();
+            supplierUiController.Focus();
+            mainPanel.Controls.Add(supplierUiController);
+
+        }
+
+        private void purchaseButton_Click(object sender, EventArgs e)
+        {
+            //TestController testController = new TestController();
+            //mainPanel.Controls.Clear();
+            //testController.Dock = DockStyle.Fill;
+            //testController.BringToFront();
+            //testController.Focus();
+            //mainPanel.Controls.Add(testController);
+
+        }
     }
 }

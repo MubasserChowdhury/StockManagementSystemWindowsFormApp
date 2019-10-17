@@ -292,6 +292,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.Name = "AddProductUi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.AddProductUi_Load);
             this.topPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.reorderLevelNumericUpDown)).EndInit();
             this.ResumeLayout(false);

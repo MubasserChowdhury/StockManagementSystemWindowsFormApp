@@ -22,11 +22,15 @@ namespace StockManagementSystem.Manager
             return _customerRepository.UpdateCustomer(customer);
         }
 
-        public bool UniqueCode(Customer customer)
+        public bool UniqueContact(Customer customer)
         {
-            return _customerRepository.UniqueCode(customer);
+            return _customerRepository.UniqueContact(customer);
         }
 
+        public bool UniqueEmail(Customer customer)
+        {
+            return _customerRepository.UniqueEmail(customer);
+        }
         public List<Customer> GetAllCustomer()
         {
             return _customerRepository.GetAllCustomer();
@@ -44,6 +48,11 @@ namespace StockManagementSystem.Manager
         public string GetLastProductCode()
         {
             return _customerRepository.GetLastProductCode();
+        }
+
+        public List<Customer> SearchCustomer(string name, string email, string contact)
+        {
+            return _customerRepository.SearchCustomer(name, email, contact);
         }
     }
 }

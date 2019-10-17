@@ -25,22 +25,10 @@ namespace StockManagementSystem.Manager
         {
             return _supplierRepository.ShowSupplierInfo();
         }
-        public List<Supplier> SearchSupplier(string Name)
+        public List<Supplier> SearchSupplier(string name,string email,string contact)
         {
-            return _supplierRepository.SearchSupplier(Name);
+            return _supplierRepository.SearchSupplier(name,email,contact);
         }
-        public List<Supplier> SearchSupplierByEmail(string Email)
-        {
-            return _supplierRepository.SearchSupplierByEmail(Email);
-        }
-        public List<Supplier> SearchSupplierByContact(string Contact)
-        {
-            return _supplierRepository.SearchSupplierByContact(Contact);
-        }
-        //public bool UniqueCode(Supplier supplier)
-        //{
-        //    return _supplierRepository.UniqueCode(supplier);
-        //}
         public bool UniqueContact(Supplier supplier)
         {
             return _supplierRepository.UniqueContact(supplier);
@@ -49,9 +37,9 @@ namespace StockManagementSystem.Manager
         {
             return _supplierRepository.UniqueEmail(supplier);
         }
-        public string GetLastProductCode()
+        public string GetLastSupplierCode()
         {
-            return _supplierRepository.GetLastProductCode();
+            return _supplierRepository.GetLastSupplierCode();
         }
 
     }

@@ -18,25 +18,18 @@ namespace StockManagementSystem.UI
         CategoryManager _categoryManager = new CategoryManager();
         Product _product = new Product();
         public int id;
-        
 
-        private ProductUi productUi;
 
-        public AddProductUi(ProductUi productUi2)
+        private ProductUiController productUiController;
+
+        public AddProductUi(ProductUiController productUiController2)
         {
             InitializeComponent();
-         
 
-            productUi = productUi2;
+            productUiController = productUiController2;
 
             GenerateProductCode();
-            reorderLevelNumericUpDown.Text = "10";
-
-            categoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            categoryComboBox.DataSource = _categoryManager.GetAllCategoryForComboBox();
-
-            ClearAllErrorLabel();
+           
         }
       
         private void GenerateProductCode()
@@ -88,7 +81,6 @@ namespace StockManagementSystem.UI
 
         private void saveOrUpdateButton_Click(object sender, EventArgs e)
         {
-            
             _product.Id = id;
             _product.Code = codeTextBox.Text;
             _product.Name = nameTextBox.Text;
@@ -144,8 +136,8 @@ namespace StockManagementSystem.UI
                 {
                     if (_productManager.AddProduct(_product))
                     {
-                       // productDataGridView.DataSource = _productManager.GetAllProduct();
-                       productUi.ShowAllProduct();
+                        // productDataGridView.DataSource = _productManager.GetAllProduct();
+                        productUiController.ShowAllProduct();
                         MessageBox.Show(@"Saved Successfully");
                     }
                     else
@@ -159,7 +151,7 @@ namespace StockManagementSystem.UI
                     {
                         MessageBox.Show(@"Updated Successfully");
                         //productDataGridView.DataSource = _productManager.GetAllProduct();
-                        productUi.ShowAllProduct();
+                        productUiController.ShowAllProduct();
                         saveOrUpdateButton.Text = @"Save";
                         Close();
                     }
@@ -212,6 +204,17 @@ namespace StockManagementSystem.UI
         private void descriptionTextBox_TextChanged(object sender, EventArgs e)
         {
             descriptionErrorLabel.Text = "";
+        }
+
+        private void AddProductUi_Load(object sender, EventArgs e)
+        {
+            reorderLevelNumericUpDown.Text = "10";
+
+            categoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            categoryComboBox.DataSource = _categoryManager.GetAllCategoryForComboBox();
+
+            ClearAllErrorLabel();
         }
     }
 }

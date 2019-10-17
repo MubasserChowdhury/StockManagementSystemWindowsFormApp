@@ -53,7 +53,7 @@
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(365, 39);
+            this.topPanel.Size = new System.Drawing.Size(340, 39);
             this.topPanel.TabIndex = 1;
             // 
             // closeCategoryUiButton
@@ -62,7 +62,7 @@
             this.closeCategoryUiButton.FlatAppearance.BorderSize = 0;
             this.closeCategoryUiButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeCategoryUiButton.Image = ((System.Drawing.Image)(resources.GetObject("closeCategoryUiButton.Image")));
-            this.closeCategoryUiButton.Location = new System.Drawing.Point(330, 12);
+            this.closeCategoryUiButton.Location = new System.Drawing.Point(312, 12);
             this.closeCategoryUiButton.Name = "closeCategoryUiButton";
             this.closeCategoryUiButton.Size = new System.Drawing.Size(23, 16);
             this.closeCategoryUiButton.TabIndex = 1;
@@ -97,7 +97,7 @@
             // 
             // saveOrUpdateButton
             // 
-            this.saveOrUpdateButton.Location = new System.Drawing.Point(124, 199);
+            this.saveOrUpdateButton.Location = new System.Drawing.Point(94, 182);
             this.saveOrUpdateButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.saveOrUpdateButton.Name = "saveOrUpdateButton";
             this.saveOrUpdateButton.Size = new System.Drawing.Size(84, 34);
@@ -108,7 +108,7 @@
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(124, 128);
+            this.nameTextBox.Location = new System.Drawing.Point(94, 116);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(194, 27);
@@ -118,7 +118,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 128);
+            this.label2.Location = new System.Drawing.Point(23, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 20);
             this.label2.TabIndex = 3;
@@ -127,7 +127,7 @@
             // codeTextBox
             // 
             this.codeTextBox.Enabled = false;
-            this.codeTextBox.Location = new System.Drawing.Point(124, 59);
+            this.codeTextBox.Location = new System.Drawing.Point(94, 59);
             this.codeTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.codeTextBox.MaxLength = 4;
             this.codeTextBox.Name = "codeTextBox";
@@ -137,7 +137,7 @@
             // nameErrorLabel
             // 
             this.nameErrorLabel.AutoSize = true;
-            this.nameErrorLabel.Location = new System.Drawing.Point(121, 161);
+            this.nameErrorLabel.Location = new System.Drawing.Point(90, 148);
             this.nameErrorLabel.Name = "nameErrorLabel";
             this.nameErrorLabel.Size = new System.Drawing.Size(99, 20);
             this.nameErrorLabel.TabIndex = 5;
@@ -146,7 +146,7 @@
             // codeErrorLabel
             // 
             this.codeErrorLabel.AutoSize = true;
-            this.codeErrorLabel.Location = new System.Drawing.Point(121, 92);
+            this.codeErrorLabel.Location = new System.Drawing.Point(91, 91);
             this.codeErrorLabel.Name = "codeErrorLabel";
             this.codeErrorLabel.Size = new System.Drawing.Size(99, 20);
             this.codeErrorLabel.TabIndex = 6;
@@ -155,7 +155,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 59);
+            this.label1.Location = new System.Drawing.Point(23, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 20);
             this.label1.TabIndex = 7;
@@ -165,7 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 301);
+            this.ClientSize = new System.Drawing.Size(340, 225);
             this.ControlBox = false;
             this.Controls.Add(this.saveOrUpdateButton);
             this.Controls.Add(this.nameTextBox);

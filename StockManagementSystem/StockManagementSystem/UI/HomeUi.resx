@@ -139,7 +139,7 @@
         ojeVvA4mCCHuZwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="orderButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         xAAADsQBlSsOGwAAAhBJREFUSEvVlj1LA0EQhkMIEoKFlbUES3+BpbWFiIhIChErK0t7KwsLf4G1tZWI
@@ -154,7 +154,7 @@
         PgA30PDCTlWuxAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="saleButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         xAAADsQBlSsOGwAAAbVJREFUSEu9lb9LAnEYxiVCHBzCoaFBQhydJJqiMSJEoqmhqVmiof+gORojGpvC
@@ -167,7 +167,7 @@
         1unXNfMGebXCiYUUbEIOfN82NWMZ7Nctbdf/qFjsG32Su7A647aCAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="purchaseButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         xAAADsQBlSsOGwAAAwBJREFUSEudlT9IVlEYh0VEJEREIsJBQiIkJMJBIqJBQhqkISJEGhykqUGiQcIl
@@ -186,7 +186,7 @@
         /gCw9sYym3GfuwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="supplierButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         xAAADsQBlSsOGwAAAnhJREFUSEu9lT9rFEEYh49whCOEEIIcwcJKLCSIhZUcInJYioVIPkEQkRTWQQgW

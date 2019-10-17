@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -64,35 +65,63 @@ namespace StockManagementSystem.Repository
 
             return isUpdated;
         }
-        public bool UniqueCode(Customer customer)
+        //Unique Contact
+        public bool UniqueContact(Customer customer)
         {
-            string isFound = "";
+            bool exists = false;
+
+            //Connection
 
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string queryString = @"SELECT Code FROM Customers WHERE Code='" + customer.Code + "' AND Id != " + customer.Id + " ";
-                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
 
-                //open connection
-                sqlConnection.Open();
+                //Command 
+                string commandString = @"SELECT * FROM customers  WHERE Contact = '" + customer.Contact + "'  AND Id !=" + customer.Id + " ";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
-                SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
-                while (sqlDataReader.Read())
-                {
-                    isFound = sqlDataReader["Code"].ToString();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                //showDataGridView.DataSource = dataTable;
 
-                }
-
-                //close connection
+                //Close
                 sqlConnection.Close();
-
-                if (String.IsNullOrEmpty(isFound))
+                if (dataTable.Rows.Count > 0)
                 {
-                    return false;
+                    exists = true;
                 }
+                sqlConnection.Close();
+            }
+            return exists;
+        }
+        //Unique Email
+        public bool UniqueEmail(Customer customer)
+        {
+            bool exists = false;
+
+            //Connection
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+
+                //Command 
+                string commandString = @"SELECT * FROM Customers  WHERE Email = '" + customer.Email + "'  AND Id !=" + customer.Id + " ";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                //showDataGridView.DataSource = dataTable;
+
+                //Close
+                sqlConnection.Close();
+                if (dataTable.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+                sqlConnection.Close();
             }
 
-            return true;
+            return exists;
         }
         public List<Customer> GetAllCustomer()
         {
@@ -128,7 +157,53 @@ namespace StockManagementSystem.Repository
                 return customers;
             }
         }
+        public List<Customer> SearchCustomer(string name, string email, string contact)
+        {
+            List< Customer > customers = new List<Customer>();
+            string commandString = "";
+            //Connection
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
 
+                //Command 
+                if (!String.IsNullOrEmpty(name))
+                {
+                    commandString = @"SELECT * FROM Customers  WHERE Name = '" + name + "'";
+                }
+                if (!String.IsNullOrEmpty(email))
+                {
+                    commandString = @"SELECT * FROM Customers  WHERE Email = '" + email + "'";
+                }
+                if (!String.IsNullOrEmpty(contact))
+                {
+                    commandString = @"SELECT * FROM Customers  WHERE Contact = '" + contact + "'";
+                }
+
+
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                //Open
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    Customer customer = new Customer();
+                    customer.Id = Convert.ToInt32(sqlDataReader["Id"]);
+                    customer.Code = sqlDataReader["Code"].ToString();
+                    customer.Name = sqlDataReader["Name"].ToString();
+                    customer.Address = sqlDataReader["Address"].ToString();
+                    customer.Email = sqlDataReader["Email"].ToString();
+                    customer.Contact = sqlDataReader["Contact"].ToString();
+                    customer.LoyaltyPoint = Convert.ToDouble(sqlDataReader["LoyaltyPoint"]);
+                    customers.Add(customer);
+                }
+                //Close
+                sqlConnection.Close();
+            }
+            return customers;
+        }
         public List<Customer> GetAllCustomerForComboBox()
         {
             List<Customer> customers = new List<Customer>();

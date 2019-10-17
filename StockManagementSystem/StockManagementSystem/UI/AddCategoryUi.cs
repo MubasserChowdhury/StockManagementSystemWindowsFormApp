@@ -18,12 +18,12 @@ namespace StockManagementSystem.UI
         Category _category=new Category();
 
         public int categoryId;
-        private CategoryUi categoryUi;
+        private CategoryUiController categoryUiController;
 
-        public AddCategoryUi(CategoryUi categoryUi2)
+        public AddCategoryUi(CategoryUiController categoryUiController2)
         {
             InitializeComponent();
-            categoryUi = categoryUi2;
+            categoryUiController = categoryUiController2;
             GenerateProductCode();
         }
 
@@ -102,7 +102,7 @@ namespace StockManagementSystem.UI
                     if (_categoryManager.AddCategory(_category))
                     {
                         //categoryDataGridView.DataSource = _categoryManager.GetAllCategory();
-                        categoryUi.ShowAllCategory();
+                        categoryUiController.ShowAllCategory();
                         MessageBox.Show(@"Saved Successfully");
                         
                         //Close();
@@ -126,7 +126,7 @@ namespace StockManagementSystem.UI
                     if (_categoryManager.UpdateCategory(_category))
                     {
                         //categoryDataGridView.DataSource = _categoryManager.GetAllCategory();
-                        categoryUi.ShowAllCategory();
+                        categoryUiController.ShowAllCategory();
                         MessageBox.Show(@"Updated Successfully", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                        
                         saveOrUpdateButton.Text = @"Save";

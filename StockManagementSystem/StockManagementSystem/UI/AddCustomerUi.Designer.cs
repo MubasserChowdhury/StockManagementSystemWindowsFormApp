@@ -38,7 +38,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.contactTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.emaiTextBox = new System.Windows.Forms.TextBox();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,18 +48,17 @@
             this.contactErrorLabel = new System.Windows.Forms.Label();
             this.emailErrorLabel = new System.Windows.Forms.Label();
             this.nameErrorLabel = new System.Windows.Forms.Label();
-            this.codeErrorLabel = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(158)))), ((int)(((byte)(132)))));
             this.panel1.Controls.Add(this.closeButton);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(733, 48);
+            this.panel1.Size = new System.Drawing.Size(434, 40);
             this.panel1.TabIndex = 0;
             // 
             // closeButton
@@ -68,7 +67,7 @@
             this.closeButton.FlatAppearance.BorderSize = 0;
             this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
-            this.closeButton.Location = new System.Drawing.Point(374, 13);
+            this.closeButton.Location = new System.Drawing.Point(388, 9);
             this.closeButton.Margin = new System.Windows.Forms.Padding(2);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(20, 23);
@@ -79,7 +78,7 @@
             // saveOrUpdateButton
             // 
             this.saveOrUpdateButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.saveOrUpdateButton.Location = new System.Drawing.Point(155, 372);
+            this.saveOrUpdateButton.Location = new System.Drawing.Point(152, 383);
             this.saveOrUpdateButton.Name = "saveOrUpdateButton";
             this.saveOrUpdateButton.Size = new System.Drawing.Size(77, 28);
             this.saveOrUpdateButton.TabIndex = 21;
@@ -94,6 +93,7 @@
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(188, 63);
             this.addressTextBox.TabIndex = 19;
+            this.addressTextBox.TextChanged += new System.EventHandler(this.addressTextBox_TextChanged);
             // 
             // label6
             // 
@@ -101,7 +101,7 @@
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label6.Location = new System.Drawing.Point(24, 253);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 15);
+            this.label6.Size = new System.Drawing.Size(96, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "Loyalty Point:";
             // 
@@ -109,8 +109,9 @@
             // 
             this.loyaltyPointTextBox.Location = new System.Drawing.Point(155, 249);
             this.loyaltyPointTextBox.Name = "loyaltyPointTextBox";
-            this.loyaltyPointTextBox.Size = new System.Drawing.Size(188, 23);
+            this.loyaltyPointTextBox.Size = new System.Drawing.Size(188, 27);
             this.loyaltyPointTextBox.TabIndex = 18;
+            this.loyaltyPointTextBox.TextChanged += new System.EventHandler(this.loyaltyPointTextBox_TextChanged);
             // 
             // label5
             // 
@@ -118,7 +119,7 @@
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label5.Location = new System.Drawing.Point(26, 212);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 15);
+            this.label5.Size = new System.Drawing.Size(63, 20);
             this.label5.TabIndex = 7;
             this.label5.Text = "Contact:";
             // 
@@ -127,8 +128,9 @@
             this.contactTextBox.Location = new System.Drawing.Point(155, 205);
             this.contactTextBox.MaxLength = 11;
             this.contactTextBox.Name = "contactTextBox";
-            this.contactTextBox.Size = new System.Drawing.Size(188, 23);
+            this.contactTextBox.Size = new System.Drawing.Size(188, 27);
             this.contactTextBox.TabIndex = 17;
+            this.contactTextBox.TextChanged += new System.EventHandler(this.contactTextBox_TextChanged);
             // 
             // label4
             // 
@@ -136,16 +138,17 @@
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label4.Location = new System.Drawing.Point(26, 165);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 15);
+            this.label4.Size = new System.Drawing.Size(49, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Email:";
             // 
-            // emaiTextBox
+            // emailTextBox
             // 
-            this.emaiTextBox.Location = new System.Drawing.Point(155, 157);
-            this.emaiTextBox.Name = "emaiTextBox";
-            this.emaiTextBox.Size = new System.Drawing.Size(188, 23);
-            this.emaiTextBox.TabIndex = 16;
+            this.emailTextBox.Location = new System.Drawing.Point(155, 157);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(188, 27);
+            this.emailTextBox.TabIndex = 16;
+            this.emailTextBox.TextChanged += new System.EventHandler(this.emailTextBox_TextChanged);
             // 
             // label3
             // 
@@ -153,7 +156,7 @@
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label3.Location = new System.Drawing.Point(26, 295);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 15);
+            this.label3.Size = new System.Drawing.Size(65, 20);
             this.label3.TabIndex = 11;
             this.label3.Text = "Address:";
             // 
@@ -161,8 +164,9 @@
             // 
             this.nameTextBox.Location = new System.Drawing.Point(155, 112);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(188, 23);
+            this.nameTextBox.Size = new System.Drawing.Size(188, 27);
             this.nameTextBox.TabIndex = 15;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // label2
             // 
@@ -170,7 +174,7 @@
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label2.Location = new System.Drawing.Point(26, 114);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 15);
+            this.label2.Size = new System.Drawing.Size(52, 20);
             this.label2.TabIndex = 13;
             this.label2.Text = "Name:";
             // 
@@ -180,7 +184,7 @@
             this.codeTextBox.Location = new System.Drawing.Point(155, 65);
             this.codeTextBox.MaxLength = 4;
             this.codeTextBox.Name = "codeTextBox";
-            this.codeTextBox.Size = new System.Drawing.Size(188, 23);
+            this.codeTextBox.Size = new System.Drawing.Size(188, 27);
             this.codeTextBox.TabIndex = 20;
             // 
             // addressErrorLabel
@@ -189,7 +193,7 @@
             this.addressErrorLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.addressErrorLabel.Location = new System.Drawing.Point(152, 353);
             this.addressErrorLabel.Name = "addressErrorLabel";
-            this.addressErrorLabel.Size = new System.Drawing.Size(78, 15);
+            this.addressErrorLabel.Size = new System.Drawing.Size(99, 20);
             this.addressErrorLabel.TabIndex = 14;
             this.addressErrorLabel.Text = "ErrorMessage";
             // 
@@ -199,7 +203,7 @@
             this.loyaltyPointErrorLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.loyaltyPointErrorLabel.Location = new System.Drawing.Point(152, 276);
             this.loyaltyPointErrorLabel.Name = "loyaltyPointErrorLabel";
-            this.loyaltyPointErrorLabel.Size = new System.Drawing.Size(78, 15);
+            this.loyaltyPointErrorLabel.Size = new System.Drawing.Size(99, 20);
             this.loyaltyPointErrorLabel.TabIndex = 10;
             this.loyaltyPointErrorLabel.Text = "ErrorMessage";
             // 
@@ -209,7 +213,7 @@
             this.contactErrorLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.contactErrorLabel.Location = new System.Drawing.Point(152, 231);
             this.contactErrorLabel.Name = "contactErrorLabel";
-            this.contactErrorLabel.Size = new System.Drawing.Size(78, 15);
+            this.contactErrorLabel.Size = new System.Drawing.Size(99, 20);
             this.contactErrorLabel.TabIndex = 8;
             this.contactErrorLabel.Text = "ErrorMessage";
             // 
@@ -219,7 +223,7 @@
             this.emailErrorLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.emailErrorLabel.Location = new System.Drawing.Point(148, 183);
             this.emailErrorLabel.Name = "emailErrorLabel";
-            this.emailErrorLabel.Size = new System.Drawing.Size(78, 15);
+            this.emailErrorLabel.Size = new System.Drawing.Size(99, 20);
             this.emailErrorLabel.TabIndex = 6;
             this.emailErrorLabel.Text = "ErrorMessage";
             // 
@@ -229,19 +233,9 @@
             this.nameErrorLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.nameErrorLabel.Location = new System.Drawing.Point(152, 138);
             this.nameErrorLabel.Name = "nameErrorLabel";
-            this.nameErrorLabel.Size = new System.Drawing.Size(78, 15);
+            this.nameErrorLabel.Size = new System.Drawing.Size(99, 20);
             this.nameErrorLabel.TabIndex = 4;
             this.nameErrorLabel.Text = "ErrorMessage";
-            // 
-            // codeErrorLabel
-            // 
-            this.codeErrorLabel.AutoSize = true;
-            this.codeErrorLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.codeErrorLabel.Location = new System.Drawing.Point(152, 91);
-            this.codeErrorLabel.Name = "codeErrorLabel";
-            this.codeErrorLabel.Size = new System.Drawing.Size(78, 15);
-            this.codeErrorLabel.TabIndex = 12;
-            this.codeErrorLabel.Text = "ErrorMessage";
             // 
             // label
             // 
@@ -249,16 +243,16 @@
             this.label.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label.Location = new System.Drawing.Point(26, 68);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(38, 15);
+            this.label.Size = new System.Drawing.Size(47, 20);
             this.label.TabIndex = 3;
             this.label.Text = "Code:";
             // 
             // AddCustomerUi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(433, 423);
+            this.ClientSize = new System.Drawing.Size(418, 423);
             this.Controls.Add(this.saveOrUpdateButton);
             this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.label6);
@@ -266,7 +260,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.contactTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.emaiTextBox);
+            this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.label2);
@@ -276,7 +270,6 @@
             this.Controls.Add(this.contactErrorLabel);
             this.Controls.Add(this.emailErrorLabel);
             this.Controls.Add(this.nameErrorLabel);
-            this.Controls.Add(this.codeErrorLabel);
             this.Controls.Add(this.label);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -305,14 +298,13 @@
         private System.Windows.Forms.Label contactErrorLabel;
         private System.Windows.Forms.Label emailErrorLabel;
         private System.Windows.Forms.Label nameErrorLabel;
-        private System.Windows.Forms.Label codeErrorLabel;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Button closeButton;
         public System.Windows.Forms.Button saveOrUpdateButton;
         public System.Windows.Forms.TextBox addressTextBox;
         public System.Windows.Forms.TextBox loyaltyPointTextBox;
         public System.Windows.Forms.TextBox contactTextBox;
-        public System.Windows.Forms.TextBox emaiTextBox;
+        public System.Windows.Forms.TextBox emailTextBox;
         public System.Windows.Forms.TextBox nameTextBox;
         public System.Windows.Forms.TextBox codeTextBox;
     }

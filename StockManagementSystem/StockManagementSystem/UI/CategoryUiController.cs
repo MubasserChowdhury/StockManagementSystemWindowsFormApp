@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,20 +12,44 @@ using StockManagementSystem.Model;
 
 namespace StockManagementSystem.UI
 {
-    public partial class CategoryUi : Form
+    public partial class CategoryUiController : UserControl
     {
-        readonly CategoryManager _categoryManager=new CategoryManager();
+        readonly CategoryManager _categoryManager = new CategoryManager();
         Category _category = new Category();
-
-        public CategoryUi()
+        public CategoryUiController()
         {
             InitializeComponent();
         }
 
         private void addCategoryButton_Click(object sender, EventArgs e)
         {
-            AddCategoryUi addCategoryUi=new AddCategoryUi(this);
+            AddCategoryUi addCategoryUi = new AddCategoryUi(this);
             addCategoryUi.ShowDialog();
+        }
+
+        private void allCategoryButton_Click(object sender, EventArgs e)
+        {
+            ShowAllCategory();
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+
+            if (String.IsNullOrEmpty(searchTextBox.Text))
+            {
+                MessageBox.Show(@"search box Can not be Empty!!!");
+                return;
+            }
+
+            if (nameRadioButton.Checked == true)
+            {
+
+                categoryDataGridView.DataSource = _categoryManager.Search(nameRadioButton.Text, "");
+            }
+            else
+            {
+                categoryDataGridView.DataSource = _categoryManager.Search("", codeRadioButton.Text);
+            }
         }
 
         private void categoryDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -57,52 +81,20 @@ namespace StockManagementSystem.UI
             }
         }
 
-        private void CategoryUi_Load(object sender, EventArgs e)
+        private void categoryDataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            categoryDataGridView.Rows[e.RowIndex].Cells["Sl"].Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void CategoryUiController_Load(object sender, EventArgs e)
         {
             nameRadioButton.Checked = true;
 
-
             ShowAllCategory();
-            //addCategoryButton.Visible = true;
         }
-
-        private void categoryDataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            //categoryDataGridView.Rows[e.RowIndex].Cells["Sl"].Value = (e.RowIndex + 1).ToString();
-        }
-
         public void ShowAllCategory()
         {
             categoryDataGridView.DataSource = _categoryManager.GetAllCategory();
         }
-
-
-
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-           
-            if (String.IsNullOrEmpty(searchTextBox.Text))
-            {
-                MessageBox.Show("search box   Can not be Empty!!!");
-                return;
-            }
-
-           // if (nameRadioButton.Checked == true)
-            //{
-                _category.Name = searchTextBox.Text;
-                categoryDataGridView.DataSource = _categoryManager.Search(_category);
-           // }
-           // else 
-                if (codeRadioButton.Checked == true)
-            {
-                _category.Code = searchTextBox.Text;
-                categoryDataGridView.DataSource = _categoryManager.SearchCode(_category);
-            }      
-
-        }
-
-
-
-
     }
 }

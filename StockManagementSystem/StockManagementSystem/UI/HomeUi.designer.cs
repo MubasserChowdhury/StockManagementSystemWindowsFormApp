@@ -35,10 +35,10 @@
             this.sidePanel = new System.Windows.Forms.Panel();
             this.timeLabel = new System.Windows.Forms.Label();
             this.activePanel = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.orderButton = new System.Windows.Forms.Button();
+            this.saleButton = new System.Windows.Forms.Button();
+            this.purchaseButton = new System.Windows.Forms.Button();
+            this.supplierButton = new System.Windows.Forms.Button();
             this.customerButton = new System.Windows.Forms.Button();
             this.productButton = new System.Windows.Forms.Button();
             this.homeButton = new System.Windows.Forms.Button();
@@ -57,9 +57,9 @@
             this.topPanel.Controls.Add(this.closeButton);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
-            this.topPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.topPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(1024, 37);
+            this.topPanel.Size = new System.Drawing.Size(1364, 40);
             this.topPanel.TabIndex = 0;
             this.topPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseMove);
             // 
@@ -69,10 +69,10 @@
             this.minimizeButton.FlatAppearance.BorderSize = 0;
             this.minimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("minimizeButton.Image")));
-            this.minimizeButton.Location = new System.Drawing.Point(964, 14);
-            this.minimizeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minimizeButton.Location = new System.Drawing.Point(1285, 13);
+            this.minimizeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.minimizeButton.Name = "minimizeButton";
-            this.minimizeButton.Size = new System.Drawing.Size(17, 11);
+            this.minimizeButton.Size = new System.Drawing.Size(40, 14);
             this.minimizeButton.TabIndex = 0;
             this.minimizeButton.UseVisualStyleBackColor = true;
             this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
@@ -83,10 +83,10 @@
             this.closeButton.FlatAppearance.BorderSize = 0;
             this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
-            this.closeButton.Location = new System.Drawing.Point(998, 10);
-            this.closeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.closeButton.Location = new System.Drawing.Point(1331, 11);
+            this.closeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(17, 20);
+            this.closeButton.Size = new System.Drawing.Size(21, 19);
             this.closeButton.TabIndex = 0;
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
@@ -96,10 +96,10 @@
             this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.sidePanel.Controls.Add(this.timeLabel);
             this.sidePanel.Controls.Add(this.activePanel);
-            this.sidePanel.Controls.Add(this.button8);
-            this.sidePanel.Controls.Add(this.button7);
-            this.sidePanel.Controls.Add(this.button6);
-            this.sidePanel.Controls.Add(this.button5);
+            this.sidePanel.Controls.Add(this.orderButton);
+            this.sidePanel.Controls.Add(this.saleButton);
+            this.sidePanel.Controls.Add(this.purchaseButton);
+            this.sidePanel.Controls.Add(this.supplierButton);
             this.sidePanel.Controls.Add(this.customerButton);
             this.sidePanel.Controls.Add(this.productButton);
             this.sidePanel.Controls.Add(this.homeButton);
@@ -107,107 +107,108 @@
             this.sidePanel.Controls.Add(this.dashBoardButton);
             this.sidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidePanel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sidePanel.Location = new System.Drawing.Point(0, 37);
-            this.sidePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sidePanel.Location = new System.Drawing.Point(0, 40);
+            this.sidePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sidePanel.Name = "sidePanel";
-            this.sidePanel.Size = new System.Drawing.Size(174, 587);
+            this.sidePanel.Size = new System.Drawing.Size(232, 726);
             this.sidePanel.TabIndex = 1;
             // 
             // timeLabel
             // 
             this.timeLabel.AutoSize = true;
             this.timeLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.timeLabel.Location = new System.Drawing.Point(46, 532);
-            this.timeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.timeLabel.Location = new System.Drawing.Point(61, 655);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(31, 13);
+            this.timeLabel.Size = new System.Drawing.Size(38, 19);
             this.timeLabel.TabIndex = 1;
             this.timeLabel.Text = "Time";
             // 
             // activePanel
             // 
             this.activePanel.BackColor = System.Drawing.Color.Red;
-            this.activePanel.Location = new System.Drawing.Point(2, 152);
-            this.activePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.activePanel.Location = new System.Drawing.Point(3, 187);
+            this.activePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.activePanel.Name = "activePanel";
-            this.activePanel.Size = new System.Drawing.Size(8, 37);
+            this.activePanel.Size = new System.Drawing.Size(11, 46);
             this.activePanel.TabIndex = 0;
             // 
-            // button8
+            // orderButton
             // 
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(9, 442);
-            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(158, 37);
-            this.button8.TabIndex = 0;
-            this.button8.Text = "   Orders";
-            this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button8.UseVisualStyleBackColor = true;
+            this.orderButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.orderButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.orderButton.FlatAppearance.BorderSize = 0;
+            this.orderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.orderButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.orderButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.orderButton.Image = ((System.Drawing.Image)(resources.GetObject("orderButton.Image")));
+            this.orderButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.orderButton.Location = new System.Drawing.Point(12, 544);
+            this.orderButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.orderButton.Name = "orderButton";
+            this.orderButton.Size = new System.Drawing.Size(211, 46);
+            this.orderButton.TabIndex = 0;
+            this.orderButton.Text = "   Orders";
+            this.orderButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.orderButton.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // saleButton
             // 
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(9, 401);
-            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(158, 37);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "   Sale";
-            this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button7.UseVisualStyleBackColor = true;
+            this.saleButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.saleButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.saleButton.FlatAppearance.BorderSize = 0;
+            this.saleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saleButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.saleButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.saleButton.Image = ((System.Drawing.Image)(resources.GetObject("saleButton.Image")));
+            this.saleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.saleButton.Location = new System.Drawing.Point(12, 494);
+            this.saleButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.saleButton.Name = "saleButton";
+            this.saleButton.Size = new System.Drawing.Size(211, 46);
+            this.saleButton.TabIndex = 0;
+            this.saleButton.Text = "   Sale";
+            this.saleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.saleButton.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // purchaseButton
             // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(9, 359);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(158, 37);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "   Purchase";
-            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button6.UseVisualStyleBackColor = true;
+            this.purchaseButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.purchaseButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.purchaseButton.FlatAppearance.BorderSize = 0;
+            this.purchaseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.purchaseButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.purchaseButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.purchaseButton.Image = ((System.Drawing.Image)(resources.GetObject("purchaseButton.Image")));
+            this.purchaseButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.purchaseButton.Location = new System.Drawing.Point(12, 442);
+            this.purchaseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.purchaseButton.Name = "purchaseButton";
+            this.purchaseButton.Size = new System.Drawing.Size(211, 46);
+            this.purchaseButton.TabIndex = 0;
+            this.purchaseButton.Text = "   Purchase";
+            this.purchaseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.purchaseButton.UseVisualStyleBackColor = true;
+            this.purchaseButton.Click += new System.EventHandler(this.purchaseButton_Click);
             // 
-            // button5
+            // supplierButton
             // 
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(9, 318);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(158, 37);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "   Supplier";
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button5.UseVisualStyleBackColor = true;
+            this.supplierButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.supplierButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.supplierButton.FlatAppearance.BorderSize = 0;
+            this.supplierButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.supplierButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.supplierButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.supplierButton.Image = ((System.Drawing.Image)(resources.GetObject("supplierButton.Image")));
+            this.supplierButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.supplierButton.Location = new System.Drawing.Point(12, 391);
+            this.supplierButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.supplierButton.Name = "supplierButton";
+            this.supplierButton.Size = new System.Drawing.Size(211, 46);
+            this.supplierButton.TabIndex = 0;
+            this.supplierButton.Text = "   Supplier";
+            this.supplierButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.supplierButton.UseVisualStyleBackColor = true;
+            this.supplierButton.Click += new System.EventHandler(this.supplierButton_Click);
             // 
             // customerButton
             // 
@@ -219,14 +220,15 @@
             this.customerButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.customerButton.Image = ((System.Drawing.Image)(resources.GetObject("customerButton.Image")));
             this.customerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.customerButton.Location = new System.Drawing.Point(9, 276);
-            this.customerButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.customerButton.Location = new System.Drawing.Point(12, 340);
+            this.customerButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.customerButton.Name = "customerButton";
-            this.customerButton.Size = new System.Drawing.Size(158, 37);
+            this.customerButton.Size = new System.Drawing.Size(211, 46);
             this.customerButton.TabIndex = 0;
             this.customerButton.Text = "   Customer";
             this.customerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.customerButton.UseVisualStyleBackColor = true;
+            this.customerButton.Click += new System.EventHandler(this.customerButton_Click);
             // 
             // productButton
             // 
@@ -238,10 +240,10 @@
             this.productButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.productButton.Image = ((System.Drawing.Image)(resources.GetObject("productButton.Image")));
             this.productButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.productButton.Location = new System.Drawing.Point(9, 235);
-            this.productButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.productButton.Location = new System.Drawing.Point(12, 289);
+            this.productButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.productButton.Name = "productButton";
-            this.productButton.Size = new System.Drawing.Size(158, 37);
+            this.productButton.Size = new System.Drawing.Size(211, 46);
             this.productButton.TabIndex = 0;
             this.productButton.Text = "   Product";
             this.productButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -258,10 +260,10 @@
             this.homeButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.homeButton.Image = ((System.Drawing.Image)(resources.GetObject("homeButton.Image")));
             this.homeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.homeButton.Location = new System.Drawing.Point(9, 152);
-            this.homeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.homeButton.Location = new System.Drawing.Point(12, 187);
+            this.homeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.homeButton.Name = "homeButton";
-            this.homeButton.Size = new System.Drawing.Size(158, 37);
+            this.homeButton.Size = new System.Drawing.Size(211, 46);
             this.homeButton.TabIndex = 0;
             this.homeButton.Text = "   Home";
             this.homeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -278,10 +280,10 @@
             this.categoryButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.categoryButton.Image = ((System.Drawing.Image)(resources.GetObject("categoryButton.Image")));
             this.categoryButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.categoryButton.Location = new System.Drawing.Point(9, 193);
-            this.categoryButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.categoryButton.Location = new System.Drawing.Point(12, 238);
+            this.categoryButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.categoryButton.Name = "categoryButton";
-            this.categoryButton.Size = new System.Drawing.Size(158, 37);
+            this.categoryButton.Size = new System.Drawing.Size(211, 46);
             this.categoryButton.TabIndex = 0;
             this.categoryButton.Text = "   Category";
             this.categoryButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -299,9 +301,9 @@
             this.dashBoardButton.Image = ((System.Drawing.Image)(resources.GetObject("dashBoardButton.Image")));
             this.dashBoardButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.dashBoardButton.Location = new System.Drawing.Point(0, 0);
-            this.dashBoardButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dashBoardButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dashBoardButton.Name = "dashBoardButton";
-            this.dashBoardButton.Size = new System.Drawing.Size(174, 37);
+            this.dashBoardButton.Size = new System.Drawing.Size(232, 40);
             this.dashBoardButton.TabIndex = 0;
             this.dashBoardButton.Text = "   Dashboard";
             this.dashBoardButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -310,38 +312,37 @@
             // mainPanel
             // 
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(174, 37);
-            this.mainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mainPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainPanel.Location = new System.Drawing.Point(232, 40);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(850, 587);
+            this.mainPanel.Size = new System.Drawing.Size(1132, 726);
             this.mainPanel.TabIndex = 2;
-            
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(158)))), ((int)(((byte)(132)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(174, 616);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(232, 756);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(850, 8);
+            this.panel1.Size = new System.Drawing.Size(1132, 10);
             this.panel1.TabIndex = 0;
             // 
             // HomeUi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 624);
+            this.ClientSize = new System.Drawing.Size(1364, 766);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.sidePanel);
             this.Controls.Add(this.topPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "HomeUi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HomeWindows";
             this.topPanel.ResumeLayout(false);
             this.sidePanel.ResumeLayout(false);
             this.sidePanel.PerformLayout();
@@ -354,10 +355,10 @@
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Panel sidePanel;
         private System.Windows.Forms.Button dashBoardButton;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button orderButton;
+        private System.Windows.Forms.Button saleButton;
+        private System.Windows.Forms.Button purchaseButton;
+        private System.Windows.Forms.Button supplierButton;
         private System.Windows.Forms.Button customerButton;
         private System.Windows.Forms.Button productButton;
         private System.Windows.Forms.Button categoryButton;

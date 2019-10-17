@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,15 +10,11 @@ using System.Windows.Forms;
 
 namespace StockManagementSystem.UI
 {
-    public partial class HomeInfoUi : Form
+    public partial class HomeInfoUiController : UserControl
     {
-        public HomeInfoUi()
+        public HomeInfoUiController()
         {
             InitializeComponent();
-        }
-
-        private void HomeInfoUi_Load(object sender, EventArgs e)
-        {
             messageLabel.Text = @"Stock Management System";
         }
     }

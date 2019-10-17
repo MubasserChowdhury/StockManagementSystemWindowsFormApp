@@ -117,28 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Sl.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Edit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Edit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJ
-        TUUH4woLEh8ZdyaNbAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADwSURBVDhP
-        1ZK7DgFBFIaPy0zQ8DSeQbRexQNsIhF73GqFToFKFEKvoVeTSNiZCK1unOHYuCy7Sl9ymp3/cnZn4SdO
-        7ZxU7kQo3CQ1FvhpRHZORmhcktnwnBMai3wawrGWhbWTEsptPgTYObDiC7S2bZaqPn0L8bDLqg9QMwkX
-        d4NUOINtKy29elV47gCMk2RlANzst/kht03IHGdlAC/NT6Ox/735j80BH4ynB2aYYGUApiNg5Uj6Nce/
-        mwm62xJdDV5DFI58c+g9MyRuWMNTSFSzhczze6vUWLEhoWs/QsaVfX9qLou9mwdjYnwUAYALgzICAxsR
-        ++QAAAAASUVORK5CYII=
-</value>
-  </data>
-  <metadata name="customerBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="minimizeButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -158,15 +137,6 @@
         SvjLgaJEPXlE3oehFy5GtVlloZAj/iUMcsSvhMj/8zccufNWYNkxTWjkcqpp21ZhkQO3EjlyUFyiRA6y
         S3jIgbmEpxyoS9SQA1WJv3+YNPP5gg/uyaSLHAysxIM/zZbtCUkJVzlISvRywIPx83xbQw7iteWRr7oR
         ojeVvA4mCCHuZwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="addCustomerButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAC5SURBVEhL7VbRDoAgCPT/f8Rnv6oP6F27Myiz2djUB7du
-        u8GAQHC4nAUxRg/uZEpJ6cXdDyQLYI0g7n7g5K8CtIm7H1oAMlOwYAfE1A6YvOC4AjwtC1SYOyJzBwj0
-        iA/8oGZh3yRpSdpyzAc92+dWzsLeLMBTKjr0uwCN6hiotzsYhFyAL+V1MaqXEsyXTEBXabtkCyT40T6w
-        0KIx2ZnzHhEwvsA/oiaYjBmXHhFfXG789esCaVgi5w4sDNQM/yDSHgAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

@@ -49,10 +49,10 @@ namespace StockManagementSystem.Manager
             return _categoryRepository.UniqueName(category);
         }
 
-        public List<Category> Search(Category category)
+        public List<Category> Search(string name, string code)
         {
 
-            return _categoryRepository.Search(category);
+            return _categoryRepository.Search(name,code);
         }
 
 

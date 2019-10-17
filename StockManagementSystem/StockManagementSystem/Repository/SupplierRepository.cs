@@ -74,15 +74,29 @@ namespace StockManagementSystem.Repository
             return exists;
         }
         //Name Search 
-        public List<Supplier> SearchSupplier(string Name)
+        public List<Supplier> SearchSupplier(string name, string email, string contact)
         {
             List<Supplier> suppliers = new List<Supplier>();
+            string commandString = "";
             //Connection
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
 
                 //Command 
-                string commandString = @"SELECT * FROM Suppliers  WHERE Name = '" + Name + "'";
+                if (!String.IsNullOrEmpty(name))
+                {
+                    commandString = @"SELECT * FROM Suppliers  WHERE Name = '" + name + "'";
+                }
+                if (!String.IsNullOrEmpty(email))
+                {
+                    commandString = @"SELECT * FROM Suppliers  WHERE Email = '" + email + "'";
+                }
+                if (!String.IsNullOrEmpty(contact))
+                {
+                    commandString = @"SELECT * FROM Suppliers  WHERE Contact = '" + contact + "'";
+                }
+
+                
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 //Open
@@ -108,73 +122,7 @@ namespace StockManagementSystem.Repository
             return suppliers;
         }
         //Email Search 
-        public List<Supplier> SearchSupplierByEmail(string Email)
-        {
-            List<Supplier> suppliers = new List<Supplier>();
-            //Connection
-            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
-            {
-                //Command 
-                string commandString = @"SELECT * FROM Suppliers  WHERE Email = '" + Email + "'";
-                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                //Open
-                sqlConnection.Open();
-
-                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
-                while (sqlDataReader.Read())
-                {
-                    Supplier supplier = new Supplier();
-                    supplier.Id = Convert.ToInt32(sqlDataReader["Id"]);
-                    supplier.Code = sqlDataReader["Code"].ToString();
-                    supplier.Name = sqlDataReader["Name"].ToString();
-                    supplier.Address = sqlDataReader["Address"].ToString();
-                    supplier.Email = sqlDataReader["Email"].ToString();
-                    supplier.Contact = sqlDataReader["Contact"].ToString();
-                    supplier.ContactPerson = sqlDataReader["ContactPerson"].ToString();
-                    suppliers.Add(supplier);
-                }
-                //Close
-                sqlConnection.Close();
-            }
-            return suppliers;
-        }
-        //Contact Search 
-        public List<Supplier> SearchSupplierByContact(string Contact)
-        {
-            List<Supplier> suppliers = new List<Supplier>();
-            //Connection
-            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
-            {
-
-                //Command 
-                string commandString = @"SELECT * FROM Suppliers  WHERE Contact = '" + Contact + "'";
-                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                //Open
-                sqlConnection.Open();
-
-                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
-                while (sqlDataReader.Read())
-                {
-                    Supplier supplier = new Supplier();
-                    supplier.Id = Convert.ToInt32(sqlDataReader["Id"]);
-                    supplier.Code = sqlDataReader["Code"].ToString();
-                    supplier.Name = sqlDataReader["Name"].ToString();
-                    supplier.Address = sqlDataReader["Address"].ToString();
-                    supplier.Email = sqlDataReader["Email"].ToString();
-                    supplier.Contact = sqlDataReader["Contact"].ToString();
-                    supplier.ContactPerson = sqlDataReader["ContactPerson"].ToString();
-                    suppliers.Add(supplier);
-                }
-                //Close
-                sqlConnection.Close();
-            }
-            return suppliers;
-        }
-        //Show Method
+       
         public List<Supplier> ShowSupplierInfo()
         {
             List<Supplier> suppliers = new List<Supplier>();
@@ -268,7 +216,7 @@ namespace StockManagementSystem.Repository
             return exists;
         }
         //Auto Code Generator
-        public string GetLastProductCode()
+        public string GetLastSupplierCode()
         {
             string code = "";
             //Connection

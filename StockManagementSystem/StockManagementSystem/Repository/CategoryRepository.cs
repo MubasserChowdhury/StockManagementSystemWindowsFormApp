@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using StockManagementSystem.Model;
 
 namespace StockManagementSystem.Repository
@@ -206,21 +203,26 @@ namespace StockManagementSystem.Repository
         }
 
 
-        public List<Category> Search(Category category)
+        public List<Category> Search(string name,string code)
         {
            
             List<Category> categories = new List<Category>();
+            string queryString = "";
 
             //Connection
-
-            
-
-
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
                 //Command 
 
-                string queryString = @"SELECT * FROM Categories WHERE Name='" + category.Name + " '";
+                if (!String.IsNullOrEmpty(name))
+                {
+                    queryString = @"SELECT * FROM Categories WHERE Name='" + name + " '";
+                }
+                else
+                {
+                    queryString = @"SELECT * FROM Categories WHERE Code='" + code + " '";
+                }
+              
 
                 SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
 
@@ -233,12 +235,12 @@ namespace StockManagementSystem.Repository
 
                 while (sqlDataReader.Read())
                 {
-                    // Category category = new Category();
-                    category.Id = Convert.ToInt32(sqlDataReader["Id"]);
-                    category.Code = sqlDataReader["Code"].ToString();
-                    category.Name = sqlDataReader["Name"].ToString();
+                    Category category1 = new Category();
+                    category1.Id = Convert.ToInt32(sqlDataReader["Id"]);
+                    category1.Code = sqlDataReader["Code"].ToString();
+                    category1.Name = sqlDataReader["Name"].ToString();
 
-                    categories.Add(category);
+                    categories.Add(category1);
 
                 }
 

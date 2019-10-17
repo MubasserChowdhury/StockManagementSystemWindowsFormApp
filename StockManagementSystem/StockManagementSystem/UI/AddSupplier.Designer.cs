@@ -33,61 +33,30 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.minimizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
-            this.saveButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.contactPersonTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.contactTextBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.contactPersonErrorLabel = new System.Windows.Forms.Label();
+            this.saveOrUpdateButton = new System.Windows.Forms.Button();
             this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.contactTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.nameErrorLabel = new System.Windows.Forms.Label();
+            this.addressErrorLabel = new System.Windows.Forms.Label();
+            this.contactErrorLabel = new System.Windows.Forms.Label();
             this.emailErrorLabel = new System.Windows.Forms.Label();
-            this.ContactErrorLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.contactErr = new System.Windows.Forms.Label();
+            this.nameErrorLabel = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.topPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // topPanel
             // 
-            this.topPanel.BackColor = System.Drawing.Color.White;
+            this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(158)))), ((int)(((byte)(132)))));
             this.topPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.topPanel.Controls.Add(this.exitButton);
             this.topPanel.Controls.Add(this.minimizeButton);
@@ -139,455 +108,210 @@
             this.closeButton.TabIndex = 0;
             this.closeButton.UseVisualStyleBackColor = true;
             // 
-            // saveButton
+            // label1
             // 
-            this.saveButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveButton.Location = new System.Drawing.Point(200, 382);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(0);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(103, 43);
-            this.saveButton.TabIndex = 26;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = false;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.label1.AutoSize = true;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(32, 262);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 20);
+            this.label1.TabIndex = 61;
+            this.label1.Text = "Contact Person:";
             // 
             // contactPersonTextBox
             // 
-            this.contactPersonTextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.contactPersonTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.contactPersonTextBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.contactPersonTextBox.Location = new System.Drawing.Point(98, 348);
+            this.contactPersonTextBox.Location = new System.Drawing.Point(166, 255);
             this.contactPersonTextBox.MaxLength = 11;
             this.contactPersonTextBox.Name = "contactPersonTextBox";
-            this.contactPersonTextBox.Size = new System.Drawing.Size(165, 16);
-            this.contactPersonTextBox.TabIndex = 25;
-            this.contactPersonTextBox.Text = "ContactPerson";
-            this.contactPersonTextBox.Click += new System.EventHandler(this.contactPersonTextBox_Click);
-            this.contactPersonTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contactPersonTextBox_KeyPress);
+            this.contactPersonTextBox.Size = new System.Drawing.Size(188, 27);
+            this.contactPersonTextBox.TabIndex = 63;
+            this.contactPersonTextBox.TextChanged += new System.EventHandler(this.contactPersonTextBox_TextChanged);
             // 
-            // label4
+            // contactPersonErrorLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 348);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 15);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "Contact P";
+            this.contactPersonErrorLabel.AutoSize = true;
+            this.contactPersonErrorLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.contactPersonErrorLabel.Location = new System.Drawing.Point(158, 281);
+            this.contactPersonErrorLabel.Name = "contactPersonErrorLabel";
+            this.contactPersonErrorLabel.Size = new System.Drawing.Size(99, 20);
+            this.contactPersonErrorLabel.TabIndex = 62;
+            this.contactPersonErrorLabel.Text = "ErrorMessage";
             // 
-            // contactTextBox
+            // saveOrUpdateButton
             // 
-            this.contactTextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.contactTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.contactTextBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.contactTextBox.Location = new System.Drawing.Point(98, 303);
-            this.contactTextBox.MaxLength = 11;
-            this.contactTextBox.Name = "contactTextBox";
-            this.contactTextBox.Size = new System.Drawing.Size(174, 16);
-            this.contactTextBox.TabIndex = 23;
-            this.contactTextBox.Text = "Contact";
-            this.contactTextBox.Click += new System.EventHandler(this.contactTextBox_Click);
-            this.contactTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contactTextBox_KeyPress);
+            this.saveOrUpdateButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.saveOrUpdateButton.Location = new System.Drawing.Point(161, 384);
+            this.saveOrUpdateButton.Name = "saveOrUpdateButton";
+            this.saveOrUpdateButton.Size = new System.Drawing.Size(77, 28);
+            this.saveOrUpdateButton.TabIndex = 60;
+            this.saveOrUpdateButton.Text = "Save";
+            this.saveOrUpdateButton.UseVisualStyleBackColor = true;
+            this.saveOrUpdateButton.Click += new System.EventHandler(this.saveOrUpdateButton_Click);
+            // 
+            // addressTextBox
+            // 
+            this.addressTextBox.Location = new System.Drawing.Point(161, 304);
+            this.addressTextBox.Multiline = true;
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(188, 63);
+            this.addressTextBox.TabIndex = 58;
+            this.addressTextBox.TextChanged += new System.EventHandler(this.addressTextBox_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 302);
+            this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label5.Location = new System.Drawing.Point(36, 216);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 15);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Contact";
+            this.label5.Size = new System.Drawing.Size(63, 20);
+            this.label5.TabIndex = 48;
+            this.label5.Text = "Contact:";
+            // 
+            // contactTextBox
+            // 
+            this.contactTextBox.Location = new System.Drawing.Point(165, 209);
+            this.contactTextBox.MaxLength = 11;
+            this.contactTextBox.Name = "contactTextBox";
+            this.contactTextBox.Size = new System.Drawing.Size(188, 27);
+            this.contactTextBox.TabIndex = 57;
+            this.contactTextBox.TextChanged += new System.EventHandler(this.contactTextBox_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label4.Location = new System.Drawing.Point(36, 169);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 20);
+            this.label4.TabIndex = 50;
+            this.label4.Text = "Email:";
             // 
             // emailTextBox
             // 
-            this.emailTextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.emailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.emailTextBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.emailTextBox.Location = new System.Drawing.Point(97, 260);
+            this.emailTextBox.Location = new System.Drawing.Point(165, 161);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(174, 16);
-            this.emailTextBox.TabIndex = 21;
-            this.emailTextBox.Text = "Email";
-            this.emailTextBox.Click += new System.EventHandler(this.emailTextBox_Click);
-            this.emailTextBox.Leave += new System.EventHandler(this.emailTextBox_Leave_1);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 258);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 15);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Email";
-            // 
-            // addressTextBox
-            // 
-            this.addressTextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.addressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.addressTextBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.addressTextBox.Location = new System.Drawing.Point(98, 222);
-            this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(174, 16);
-            this.addressTextBox.TabIndex = 19;
-            this.addressTextBox.Text = "Address";
-            this.addressTextBox.Click += new System.EventHandler(this.addressTextBox_Click);
+            this.emailTextBox.Size = new System.Drawing.Size(188, 27);
+            this.emailTextBox.TabIndex = 56;
+            this.emailTextBox.TextChanged += new System.EventHandler(this.emailTextBox_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 214);
+            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label3.Location = new System.Drawing.Point(32, 307);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 15);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Address";
+            this.label3.Size = new System.Drawing.Size(65, 20);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "Address:";
             // 
             // nameTextBox
             // 
-            this.nameTextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nameTextBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.nameTextBox.Location = new System.Drawing.Point(96, 174);
+            this.nameTextBox.Location = new System.Drawing.Point(165, 108);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(174, 16);
-            this.nameTextBox.TabIndex = 17;
-            this.nameTextBox.Text = "UserName";
-            this.nameTextBox.Click += new System.EventHandler(this.nameTextBox_Click);
+            this.nameTextBox.Size = new System.Drawing.Size(188, 27);
+            this.nameTextBox.TabIndex = 55;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 168);
+            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label2.Location = new System.Drawing.Point(36, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 15);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Name";
+            this.label2.Size = new System.Drawing.Size(52, 20);
+            this.label2.TabIndex = 53;
+            this.label2.Text = "Name:";
             // 
             // codeTextBox
             // 
-            this.codeTextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.codeTextBox.Enabled = false;
-            this.codeTextBox.Location = new System.Drawing.Point(97, 133);
-            this.codeTextBox.Margin = new System.Windows.Forms.Padding(0);
+            this.codeTextBox.Location = new System.Drawing.Point(165, 69);
+            this.codeTextBox.MaxLength = 4;
             this.codeTextBox.Name = "codeTextBox";
-            this.codeTextBox.Size = new System.Drawing.Size(174, 16);
-            this.codeTextBox.TabIndex = 15;
+            this.codeTextBox.Size = new System.Drawing.Size(188, 27);
+            this.codeTextBox.TabIndex = 59;
             // 
-            // label1
+            // addressErrorLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 124);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 15);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Code";
+            this.addressErrorLabel.AutoSize = true;
+            this.addressErrorLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.addressErrorLabel.Location = new System.Drawing.Point(158, 365);
+            this.addressErrorLabel.Name = "addressErrorLabel";
+            this.addressErrorLabel.Size = new System.Drawing.Size(99, 20);
+            this.addressErrorLabel.TabIndex = 54;
+            this.addressErrorLabel.Text = "ErrorMessage";
             // 
-            // nameErrorLabel
+            // contactErrorLabel
             // 
-            this.nameErrorLabel.AutoSize = true;
-            this.nameErrorLabel.Location = new System.Drawing.Point(295, 174);
-            this.nameErrorLabel.Name = "nameErrorLabel";
-            this.nameErrorLabel.Size = new System.Drawing.Size(64, 15);
-            this.nameErrorLabel.TabIndex = 49;
-            this.nameErrorLabel.Text = "NameError";
+            this.contactErrorLabel.AutoSize = true;
+            this.contactErrorLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.contactErrorLabel.Location = new System.Drawing.Point(162, 235);
+            this.contactErrorLabel.Name = "contactErrorLabel";
+            this.contactErrorLabel.Size = new System.Drawing.Size(99, 20);
+            this.contactErrorLabel.TabIndex = 49;
+            this.contactErrorLabel.Text = "ErrorMessage";
             // 
             // emailErrorLabel
             // 
             this.emailErrorLabel.AutoSize = true;
-            this.emailErrorLabel.Location = new System.Drawing.Point(298, 258);
+            this.emailErrorLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.emailErrorLabel.Location = new System.Drawing.Point(158, 187);
             this.emailErrorLabel.Name = "emailErrorLabel";
-            this.emailErrorLabel.Size = new System.Drawing.Size(61, 15);
-            this.emailErrorLabel.TabIndex = 48;
-            this.emailErrorLabel.Text = "EmailError";
+            this.emailErrorLabel.Size = new System.Drawing.Size(99, 20);
+            this.emailErrorLabel.TabIndex = 47;
+            this.emailErrorLabel.Text = "ErrorMessage";
             // 
-            // ContactErrorLabel
+            // nameErrorLabel
             // 
-            this.ContactErrorLabel.AutoSize = true;
-            this.ContactErrorLabel.Location = new System.Drawing.Point(298, 302);
-            this.ContactErrorLabel.Name = "ContactErrorLabel";
-            this.ContactErrorLabel.Size = new System.Drawing.Size(74, 15);
-            this.ContactErrorLabel.TabIndex = 47;
-            this.ContactErrorLabel.Text = "ContactError";
+            this.nameErrorLabel.AutoSize = true;
+            this.nameErrorLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.nameErrorLabel.Location = new System.Drawing.Point(162, 134);
+            this.nameErrorLabel.Name = "nameErrorLabel";
+            this.nameErrorLabel.Size = new System.Drawing.Size(99, 20);
+            this.nameErrorLabel.TabIndex = 46;
+            this.nameErrorLabel.Text = "ErrorMessage";
             // 
-            // pictureBox1
+            // label
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(303, 40);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(70, 73);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 50;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.ErrorImage = null;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(15, 124);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(46, 33);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 51;
-            this.pictureBox2.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(15, 160);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(288, 3);
-            this.panel1.TabIndex = 52;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.ErrorImage = null;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(13, 166);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(48, 33);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 53;
-            this.pictureBox3.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(15, 202);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(288, 3);
-            this.panel2.TabIndex = 54;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.ErrorImage = null;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(15, 338);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(46, 33);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 55;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox5.ErrorImage = null;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(15, 295);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(46, 27);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 56;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox6.ErrorImage = null;
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(13, 208);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(48, 33);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 57;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox7.ErrorImage = null;
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(15, 248);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(46, 28);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 58;
-            this.pictureBox7.TabStop = false;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Location = new System.Drawing.Point(15, 331);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(288, 3);
-            this.panel3.TabIndex = 59;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(-1, -1);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(288, 3);
-            this.panel4.TabIndex = 55;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Location = new System.Drawing.Point(-1, -1);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(288, 3);
-            this.panel5.TabIndex = 55;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Location = new System.Drawing.Point(15, 374);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(288, 3);
-            this.panel6.TabIndex = 55;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.panel8);
-            this.panel7.Location = new System.Drawing.Point(15, 287);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(288, 3);
-            this.panel7.TabIndex = 60;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Location = new System.Drawing.Point(-1, -1);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(288, 3);
-            this.panel8.TabIndex = 55;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Location = new System.Drawing.Point(-1, -1);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(288, 3);
-            this.panel9.TabIndex = 55;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Controls.Add(this.panel11);
-            this.panel10.Location = new System.Drawing.Point(15, 244);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(288, 3);
-            this.panel10.TabIndex = 60;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel11.Controls.Add(this.panel12);
-            this.panel11.Location = new System.Drawing.Point(-1, -1);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(288, 3);
-            this.panel11.TabIndex = 55;
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel12.Location = new System.Drawing.Point(-1, -1);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(288, 3);
-            this.panel12.TabIndex = 55;
-            // 
-            // contactErr
-            // 
-            this.contactErr.AutoSize = true;
-            this.contactErr.Location = new System.Drawing.Point(298, 348);
-            this.contactErr.Name = "contactErr";
-            this.contactErr.Size = new System.Drawing.Size(74, 15);
-            this.contactErr.TabIndex = 61;
-            this.contactErr.Text = "ContactError";
+            this.label.AutoSize = true;
+            this.label.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label.Location = new System.Drawing.Point(36, 72);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(47, 20);
+            this.label.TabIndex = 45;
+            this.label.Text = "Code:";
             // 
             // AddSupplier
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 461);
+            this.ClientSize = new System.Drawing.Size(397, 421);
             this.ControlBox = false;
-            this.Controls.Add(this.contactErr);
-            this.Controls.Add(this.panel10);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.nameErrorLabel);
-            this.Controls.Add(this.emailErrorLabel);
-            this.Controls.Add(this.ContactErrorLabel);
-            this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.contactPersonTextBox);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.contactTextBox);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.emailTextBox);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.addressTextBox);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.nameTextBox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.codeTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.topPanel);
+            this.Controls.Add(this.contactPersonTextBox);
+            this.Controls.Add(this.addressTextBox);
+            this.Controls.Add(this.contactPersonErrorLabel);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.saveOrUpdateButton);
+            this.Controls.Add(this.nameErrorLabel);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.emailErrorLabel);
+            this.Controls.Add(this.contactTextBox);
+            this.Controls.Add(this.contactErrorLabel);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.addressErrorLabel);
+            this.Controls.Add(this.emailTextBox);
+            this.Controls.Add(this.codeTextBox);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.nameTextBox);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddSupplier";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.AddSupplier_Load);
             this.topPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -599,41 +323,23 @@
         private System.Windows.Forms.Button minimizeButton;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Button exitButton;
-        public System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox contactPersonTextBox;
-        private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.TextBox contactTextBox;
-        private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label contactPersonErrorLabel;
+        public System.Windows.Forms.Button saveOrUpdateButton;
         public System.Windows.Forms.TextBox addressTextBox;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox contactTextBox;
+        private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox codeTextBox;
-        private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Label nameErrorLabel;
-        public System.Windows.Forms.Label emailErrorLabel;
-        public System.Windows.Forms.Label ContactErrorLabel;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel12;
-        public System.Windows.Forms.Label contactErr;
+        private System.Windows.Forms.Label addressErrorLabel;
+        private System.Windows.Forms.Label contactErrorLabel;
+        private System.Windows.Forms.Label emailErrorLabel;
+        private System.Windows.Forms.Label nameErrorLabel;
+        private System.Windows.Forms.Label label;
     }
 }

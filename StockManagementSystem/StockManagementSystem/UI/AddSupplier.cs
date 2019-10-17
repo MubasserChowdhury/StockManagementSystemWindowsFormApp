@@ -17,14 +17,15 @@ namespace StockManagementSystem.UI
     {
         SupplierManager _supplierManager = new SupplierManager();
         Supplier _supplier = new Supplier();
-        SupplierUi supplierUi = new SupplierUi();
-        public int id;
+        private SupplierUiController supplierUiController;
+        public int supplierId;
         string pattern;
 
-        public AddSupplier(SupplierUi supplierUi2)
+        public AddSupplier(SupplierUiController supplierUiController2)
         {
-            supplierUi = supplierUi2;
+            supplierUiController = supplierUiController2;
             InitializeComponent();
+            GenerateSupplierCode();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -39,230 +40,58 @@ namespace StockManagementSystem.UI
             }
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-
-            _supplier.Id = id;
-            if (nameTextBox.Text == "UserName")
-            {
-                nameErrorLabel.Text = @"Name Requred!!";
-                nameErrorLabel.ForeColor = Color.Red;
-                return;  
-            }
-            if (String.IsNullOrEmpty(nameTextBox.Text))
-            {
-                nameErrorLabel.Text = @"Name Requred!!";
-                nameErrorLabel.ForeColor = Color.Red;
-                return;
-            }
-            if (String.IsNullOrEmpty(emailTextBox.Text))
-            {
-                emailErrorLabel.Text = @"Email Requred!!";
-                emailErrorLabel.ForeColor = Color.Red;
-                return;
-            }
-            if (emailTextBox.Text=="Email")
-            {
-                emailErrorLabel.Text = @"Email Requred!!";
-                emailErrorLabel.ForeColor = Color.Red;
-                return;
-            }
-             if (_supplierManager.UniqueEmail(_supplier))
-            {
-                emailErrorLabel.Text = @"Email already exits.";
-                emailErrorLabel.ForeColor = Color.Red;
-                return;
-            }
-            if (contactTextBox.Text=="Contact")
-            {
-                ContactErrorLabel.Text = @"Contact Requred!!";
-                ContactErrorLabel.ForeColor = Color.Red;
-                return;
-            }
-            if (String.IsNullOrEmpty(contactTextBox.Text))
-            {
-                ContactErrorLabel.Text = @"Contact Requred!!";
-                ContactErrorLabel.ForeColor = Color.Red;
-                return;
-            }
-             if (contactTextBox.Text.Length != 11)
-            {
-                ContactErrorLabel.Text = @"Length Must Be 11.";
-                ContactErrorLabel.ForeColor = Color.Red;
-                return;
-            }
-             if (_supplierManager.UniqueContact(_supplier))
-            {
-                ContactErrorLabel.Text = @"Contact already exits.";
-                ContactErrorLabel.ForeColor = Color.Red;
-                return;
-            }
-            if (contactPersonTextBox.Text == "ContactPerson")
-            {
-                contactErr.Text = @"Contact Person Required!!";
-                contactErr.ForeColor = Color.Red;
-                return;
-            }
-            if (contactPersonTextBox.Text.Length != 11)
-            {
-                contactErr.Text = @"length must be 11.";
-                contactErr.ForeColor = Color.Red;
-                return;
-            }
-
-            _supplier.Code = codeTextBox.Text;
-                _supplier.Name = nameTextBox.Text;
-                _supplier.Address = addressTextBox.Text;
-                _supplier.Email = emailTextBox.Text;
-                _supplier.Contact = contactTextBox.Text;
-                _supplier.ContactPerson = contactPersonTextBox.Text;
-
-
-
-
-                if (saveButton.Text == "Save")
-                {
-                    if (_supplierManager.AddSupplier(_supplier))
-                    {
-                        MessageBox.Show("Saved");
-                        //showDataGridView.DataSource = _supplierManager.ShowSupplierInfo();
-                        supplierUi.ShowAllSupplier();
-                        Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Not Saved");
-                    }
-                }
-                else
-                {
-                    if (_supplierManager.UpdateSupplier(_supplier))
-                    {
-                        saveButton.Text = "Save";
-                        MessageBox.Show("Updated");
-                        codeTextBox.Enabled = true;
-                        codeTextBox.Text = "";
-                        nameTextBox.Text = "";
-                        addressTextBox.Text = "";
-                        emailTextBox.Text = "";
-                        contactTextBox.Text = "";
-                        contactPersonTextBox.Text = "";
-                        // showDataGridView.DataSource = _supplierManager.ShowSupplierInfo();
-                        supplierUi.ShowAllSupplier();
-                        Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Not updated");
-                    }
-                }
-                GenerateProductCode();
-
-            }
-        
-
         private void AddSupplier_Load(object sender, EventArgs e)
         {
-            GenerateProductCode();
-            contactErr.Text = "";
-            nameErrorLabel.Text = "";
-            ContactErrorLabel.Text = "";
-            emailErrorLabel.Text = "";
+           
+            ClearAllErrorLabel();
+           
         }
-        private void GenerateProductCode()
+        private void GenerateSupplierCode()
         {
-            string lastProductCode = _supplierManager.GetLastProductCode();
+            string lastsupplierCode = _supplierManager.GetLastSupplierCode();
 
-            if (lastProductCode == "")
+            if (lastsupplierCode == "")
             {
-                lastProductCode = "0001";
+                lastsupplierCode = "0001";
             }
             else
             {
-                int number = int.Parse(lastProductCode);
-                lastProductCode = (++number).ToString("D" + lastProductCode.Length);
+                int number = int.Parse(lastsupplierCode);
+                lastsupplierCode = (++number).ToString("D" + lastsupplierCode.Length);
 
             }
 
-            codeTextBox.Text = lastProductCode;
+            codeTextBox.Text = lastsupplierCode;
         }
 
-        private void nameTextBox_Leave(object sender, EventArgs e)
+        public void ClearAllTextBox()
+        {
+            codeTextBox.Text = "";
+            nameTextBox.Text = "";
+            addressTextBox.Text = "";
+            emailTextBox.Text = "";
+            contactTextBox.Text = "";
+            contactPersonTextBox.Text = "";
+        }
+
+        public void ClearAllErrorLabel()
+        {
+            nameErrorLabel.Text = "";
+            emailErrorLabel.Text = "";
+            contactErrorLabel.Text = "";
+            contactPersonErrorLabel.Text = "";
+            addressErrorLabel.Text = "";
+        }
+
+        private void nameTextBox_TextChanged(object sender, EventArgs e)
         {
             nameErrorLabel.Text = "";
         }
 
-        private void contactTextBox_Leave(object sender, EventArgs e)
+        private void emailTextBox_TextChanged(object sender, EventArgs e)
         {
-            ContactErrorLabel.Text = "";
-        }
-
-        private void emailTextBox_Leave(object sender, EventArgs e)
-        {
-            emailErrorLabel.Text = "";
-        }
-        private void contactTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char chr = e.KeyChar;
-            if (!Char.IsDigit(chr) && chr != 8)
-            {
-
-                e.Handled = true;
-
-                ContactErrorLabel.Text = @"Only numeric value !";
-                ContactErrorLabel.ForeColor = Color.Red;
-                return;
-            }
-        }
-
-        private void nameTextBox_Click(object sender, EventArgs e)
-        {
-            nameTextBox.Text = "";
-            nameTextBox.ForeColor = Color.Black;
-        }
-
-        private void contactPersonTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char chr = e.KeyChar;
-            if (!Char.IsDigit(chr) && chr != 8)
-            {
-
-                e.Handled = true;
-
-                contactErr.Text = @"Only numeric value !";
-                contactErr.ForeColor = Color.Red;
-                return;
-            }
-        }
-
-        private void addressTextBox_Click(object sender, EventArgs e)
-        {
-            addressTextBox.Text = "";
-            addressTextBox.ForeColor = Color.Black;
-        }
-
-        private void emailTextBox_Click(object sender, EventArgs e)
-        {
-            emailTextBox.Text = "";
-            emailTextBox.ForeColor = Color.Black;
-        }
-
-        private void contactTextBox_Click(object sender, EventArgs e)
-        {
-            contactTextBox.Text = "";
-            contactTextBox.ForeColor = Color.Black;
-        }
-
-        private void contactPersonTextBox_Click(object sender, EventArgs e)
-        {
-            contactPersonTextBox.Text = "";
-            contactPersonTextBox.ForeColor = Color.Black;
-        }
-
-        private void emailTextBox_Leave_1(object sender, EventArgs e)
-        {
-             pattern = @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
-            if(Regex.IsMatch(emailTextBox.Text, pattern))
+            pattern = @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+            if (Regex.IsMatch(emailTextBox.Text, pattern))
             {
                 emailErrorLabel.Text = "";
             }
@@ -273,6 +102,135 @@ namespace StockManagementSystem.UI
                 return;
             }
         }
+
+        private void contactTextBox_TextChanged(object sender, EventArgs e)
+        {
+            contactErrorLabel.Text = "";
+        }
+
+        private void contactPersonTextBox_TextChanged(object sender, EventArgs e)
+        {
+            contactPersonErrorLabel.Text = "";
+        }
+
+        private void addressTextBox_TextChanged(object sender, EventArgs e)
+        {
+            addressErrorLabel.Text = "";
+        }
+
+        private void saveOrUpdateButton_Click(object sender, EventArgs e)
+        {
+            _supplier.Id = supplierId;
+            _supplier.Code = codeTextBox.Text;
+            _supplier.Name = nameTextBox.Text;
+            _supplier.Address = addressTextBox.Text;
+            _supplier.Email = emailTextBox.Text;
+            _supplier.Contact = contactTextBox.Text;
+            // _supplier.LoyaltyPoint = Convert.ToDouble(loyaltyPointTextBox.Text);
+
+
+            if (String.IsNullOrEmpty(_supplier.Name))
+            {
+                nameErrorLabel.ForeColor = Color.Red;
+                nameErrorLabel.Text = @"Name is required";
+                nameTextBox.Focus();
+                return;
+            }
+
+            if (_supplierManager.UniqueEmail(_supplier))
+            {
+                emailErrorLabel.ForeColor = Color.Red;
+                emailErrorLabel.Text = @"Email is already exist !";
+                emailTextBox.Focus();
+                return;
+            }
+            if (String.IsNullOrEmpty(_supplier.Email))
+            {
+                emailErrorLabel.ForeColor = Color.Red;
+                emailErrorLabel.Text = @"Email is required !";
+                emailTextBox.Focus();
+                return;
+            }
+
+            if (_supplierManager.UniqueContact(_supplier))
+            {
+                contactErrorLabel.ForeColor = Color.Red;
+                contactErrorLabel.Text = @"Contact is already exist !";
+                contactTextBox.Focus();
+                return;
+            }
+            if (!String.IsNullOrEmpty(_supplier.Contact) && _supplier.Contact.Length != 11)
+            {
+                contactErrorLabel.ForeColor = Color.Red;
+                contactErrorLabel.Text = @"Contact is 11 character length required !";
+                contactTextBox.Focus();
+                return;
+            }
+            if (String.IsNullOrEmpty(_supplier.Contact))
+            {
+                contactErrorLabel.ForeColor = Color.Red;
+                contactErrorLabel.Text = @"Contact is required !";
+                contactTextBox.Focus();
+                return;
+            }
+
+            if (String.IsNullOrEmpty(contactPersonTextBox.Text))
+            {
+                contactPersonErrorLabel.ForeColor = Color.Red;
+                contactPersonErrorLabel.Text = @"Contact person is required !";
+                contactPersonErrorLabel.Focus();
+                return;
+            }
+           
+
+            if (String.IsNullOrEmpty(_supplier.Address))
+            {
+                addressErrorLabel.ForeColor = Color.Red;
+                addressErrorLabel.Text = @"Address is required !";
+                addressTextBox.Focus();
+                return;
+            }
+
+            _supplier.ContactPerson = contactPersonTextBox.Text;
+
+            if (saveOrUpdateButton.Text == @"Save")
+            {
+                if (_supplierManager.AddSupplier(_supplier))
+                {
+                    supplierUiController.ShowAllSupplier();
+                    MessageBox.Show(@"Saved Successfully");
+                    // customerDataGridView.DataSource = _supplierManager.GetAllCustomer();
+
+                    GenerateSupplierCode();
+                }
+                else
+                {
+                    MessageBox.Show(@"Save Failed");
+                }
+            }
+            else
+            {
+                if (_supplierManager.UpdateSupplier(_supplier))
+                {
+                    supplierUiController.ShowAllSupplier();
+                    MessageBox.Show(@"Updated Successfully");
+                    //customerDataGridView.DataSource = _supplierManager.GetAllCustomer();
+
+                    saveOrUpdateButton.Text = "Save";
+
+                    //Close();
+                }
+                else
+                {
+                    MessageBox.Show(@"Update Failed");
+                }
+
+            }
+
+            ClearAllTextBox();
+            ClearAllErrorLabel();
+            GenerateSupplierCode();
+        }
     }
-    }
+}
 
