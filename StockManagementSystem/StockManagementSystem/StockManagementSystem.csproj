@@ -49,16 +49,28 @@
     <Compile Include="Manager\CategoryManager.cs" />
     <Compile Include="Manager\CustomerManager.cs" />
     <Compile Include="Manager\ProductManager.cs" />
+    <Compile Include="Manager\PurchaseManager.cs" />
+    <Compile Include="Manager\SalesManager.cs" />
+    <Compile Include="Manager\SharedManager.cs" />
     <Compile Include="Manager\SupplierManager.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\ProductViewModel.cs" />
+    <Compile Include="Model\Purchase.cs" />
+    <Compile Include="Model\PurchaseReportViewModel.cs" />
+    <Compile Include="Model\Sale.cs" />
+    <Compile Include="Model\SalesReportViewModel.cs" />
+    <Compile Include="Model\Stock.cs" />
     <Compile Include="Model\Supplier.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\PurchaseRepository.cs" />
+    <Compile Include="Repository\SalesRepository.cs" />
+    <Compile Include="Repository\SharedRepository.cs" />
     <Compile Include="Repository\SupplierRepository.cs" />
     <Compile Include="UI\AddCategoryUi.cs">
       <SubType>Form</SubType>
@@ -77,6 +89,12 @@
     </Compile>
     <Compile Include="UI\AddProductUi.Designer.cs">
       <DependentUpon>AddProductUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AddPurchaseUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AddPurchaseUi.Designer.cs">
+      <DependentUpon>AddPurchaseUi.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\AddSupplier.cs">
       <SubType>Form</SubType>
@@ -114,13 +132,48 @@
     <Compile Include="UI\ProductUiController.Designer.cs">
       <DependentUpon>ProductUiController.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\PurchaseReportUiController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\PurchaseReportUiController.Designer.cs">
+      <DependentUpon>PurchaseReportUiController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PurchaseUiController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\PurchaseUiController.Designer.cs">
+      <DependentUpon>PurchaseUiController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReportUiController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ReportUiController.Designer.cs">
+      <DependentUpon>ReportUiController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SalesReportUiController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SalesReportUiController.Designer.cs">
+      <DependentUpon>SalesReportUiController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SalesUiController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SalesUiController.Designer.cs">
+      <DependentUpon>SalesUiController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\StockUiController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\StockUiController.Designer.cs">
+      <DependentUpon>StockUiController.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\SupplierUiController.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\SupplierUiController.Designer.cs">
       <DependentUpon>SupplierUiController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\ProductViewModel.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -138,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AddProductUi.resx">
       <DependentUpon>AddProductUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AddPurchaseUi.resx">
+      <DependentUpon>AddPurchaseUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AddSupplier.resx">
       <DependentUpon>AddSupplier.cs</DependentUpon>
@@ -157,6 +213,24 @@
     <EmbeddedResource Include="UI\ProductUiController.resx">
       <DependentUpon>ProductUiController.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\PurchaseReportUiController.resx">
+      <DependentUpon>PurchaseReportUiController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PurchaseUiController.resx">
+      <DependentUpon>PurchaseUiController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportUiController.resx">
+      <DependentUpon>ReportUiController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SalesReportUiController.resx">
+      <DependentUpon>SalesReportUiController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SalesUiController.resx">
+      <DependentUpon>SalesUiController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\StockUiController.resx">
+      <DependentUpon>StockUiController.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\SupplierUiController.resx">
       <DependentUpon>SupplierUiController.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +239,11 @@
     </None>
     <None Include="Properties\DataSources\StockManagementSystem.Model.Category.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Customer.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Model.Purchase.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Model.PurchaseReportViewModel.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Model.Sale.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Model.SalesReportViewModel.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Model.Stock.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Supplier.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.ViewModel.ProductViewModel.datasource" />
     <None Include="Properties\Settings.settings">

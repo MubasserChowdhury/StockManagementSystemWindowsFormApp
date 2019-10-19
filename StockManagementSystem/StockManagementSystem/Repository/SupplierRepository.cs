@@ -243,6 +243,43 @@ namespace StockManagementSystem.Repository
 
             return code;
         }
+        public List<Supplier> GetAllSupplierForComboBox()
+        {
+            List<Supplier> suppliers = new List<Supplier>();
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string queryString = @"SELECT Id,Name FROM Suppliers ORDER BY Name";
+                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
+
+                //open connection
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
+
+                Supplier supplier1 = new Supplier
+                {
+                    Id = 0,
+                    Name = "-- Select --"
+                };
+                suppliers.Add(supplier1);
+
+
+                while (sqlDataReader.Read())
+                {
+                    Supplier supplier = new Supplier();
+
+                    supplier.Id = Convert.ToInt32(sqlDataReader["Id"]);
+                    supplier.Name = sqlDataReader["Name"].ToString();
+                    suppliers.Add(supplier);
+
+                }
+
+                //close connection
+                sqlConnection.Close();
+
+                return suppliers;
+            }
+        }
 
 
     }

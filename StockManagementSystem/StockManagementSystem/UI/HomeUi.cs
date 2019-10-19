@@ -132,13 +132,67 @@ namespace StockManagementSystem.UI
 
         private void purchaseButton_Click(object sender, EventArgs e)
         {
-            //TestController testController = new TestController();
-            //mainPanel.Controls.Clear();
-            //testController.Dock = DockStyle.Fill;
-            //testController.BringToFront();
-            //testController.Focus();
-            //mainPanel.Controls.Add(testController);
+            activePanel.Height = purchaseButton.Height;
+            activePanel.Top = purchaseButton.Top;
 
+           
+            PurchaseUiController purchaseUiController = new PurchaseUiController();
+            mainPanel.Controls.Clear();
+            purchaseUiController.Dock = DockStyle.Fill;
+            purchaseUiController.BringToFront();
+            purchaseUiController.Focus();
+            mainPanel.Controls.Add(purchaseUiController);
+
+        }
+
+        private void stockButton_Click(object sender, EventArgs e)
+        {
+            activePanel.Height = stockButton.Height;
+            activePanel.Top = stockButton.Top;
+
+
+            StockUiController stockUiController = new StockUiController();
+            mainPanel.Controls.Clear();
+            stockUiController.Dock = DockStyle.Fill;
+            stockUiController.BringToFront();
+            stockUiController.Focus();
+            mainPanel.Controls.Add(stockUiController);
+        }
+
+        private void reportButton_Click(object sender, EventArgs e)
+        {
+            activePanel.Height = reportButton.Height;
+            activePanel.Top = reportButton.Top;
+
+
+            ReportUiController reportUiController = new ReportUiController();
+            mainPanel.Controls.Clear();
+            reportUiController.Dock = DockStyle.Fill;
+            reportUiController.BringToFront();
+            reportUiController.Focus();
+            mainPanel.Controls.Add(reportUiController);
+
+            //ReportUi reportUi = new ReportUi();
+            //reportUi.TopLevel = false;
+            //mainPanel.Controls.Clear();
+            //reportUi.Dock = DockStyle.Fill;
+            //reportUi.BringToFront();
+            //reportUi.Focus();
+            //mainPanel.Controls.Add(reportUi);
+        }
+
+        private void saleButton_Click(object sender, EventArgs e)
+        {
+            activePanel.Height = saleButton.Height;
+            activePanel.Top = saleButton.Top;
+
+
+            SalesUiController salesUiController = new SalesUiController();
+            mainPanel.Controls.Clear();
+            salesUiController.Dock = DockStyle.Fill;
+            salesUiController.BringToFront();
+            salesUiController.Focus();
+            mainPanel.Controls.Add(salesUiController);
         }
     }
 }

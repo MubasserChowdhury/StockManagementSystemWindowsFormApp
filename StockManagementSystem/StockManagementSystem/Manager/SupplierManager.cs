@@ -41,6 +41,10 @@ namespace StockManagementSystem.Manager
         {
             return _supplierRepository.GetLastSupplierCode();
         }
+        public List<Supplier> GetAllSupplierForComboBox()
+        {
+            return _supplierRepository.GetAllSupplierForComboBox();
+        }
 
     }
 }

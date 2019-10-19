@@ -34,7 +34,6 @@
             this.saveOrUpdateButton = new System.Windows.Forms.Button();
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.loyaltyPointTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.contactTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
             this.emailErrorLabel = new System.Windows.Forms.Label();
             this.nameErrorLabel = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
+            this.loyaltyPointTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,14 +104,6 @@
             this.label6.Size = new System.Drawing.Size(96, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "Loyalty Point:";
-            // 
-            // loyaltyPointTextBox
-            // 
-            this.loyaltyPointTextBox.Location = new System.Drawing.Point(155, 249);
-            this.loyaltyPointTextBox.Name = "loyaltyPointTextBox";
-            this.loyaltyPointTextBox.Size = new System.Drawing.Size(188, 27);
-            this.loyaltyPointTextBox.TabIndex = 18;
-            this.loyaltyPointTextBox.TextChanged += new System.EventHandler(this.loyaltyPointTextBox_TextChanged);
             // 
             // label5
             // 
@@ -247,16 +239,23 @@
             this.label.TabIndex = 3;
             this.label.Text = "Code:";
             // 
+            // loyaltyPointTextBox
+            // 
+            this.loyaltyPointTextBox.Location = new System.Drawing.Point(156, 253);
+            this.loyaltyPointTextBox.Name = "loyaltyPointTextBox";
+            this.loyaltyPointTextBox.Size = new System.Drawing.Size(187, 27);
+            this.loyaltyPointTextBox.TabIndex = 22;
+            // 
             // AddCustomerUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(418, 423);
+            this.Controls.Add(this.loyaltyPointTextBox);
             this.Controls.Add(this.saveOrUpdateButton);
             this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.loyaltyPointTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.contactTextBox);
             this.Controls.Add(this.label4);
@@ -302,10 +301,10 @@
         private System.Windows.Forms.Button closeButton;
         public System.Windows.Forms.Button saveOrUpdateButton;
         public System.Windows.Forms.TextBox addressTextBox;
-        public System.Windows.Forms.TextBox loyaltyPointTextBox;
         public System.Windows.Forms.TextBox contactTextBox;
         public System.Windows.Forms.TextBox emailTextBox;
         public System.Windows.Forms.TextBox nameTextBox;
         public System.Windows.Forms.TextBox codeTextBox;
+        public System.Windows.Forms.TextBox loyaltyPointTextBox;
     }
 }

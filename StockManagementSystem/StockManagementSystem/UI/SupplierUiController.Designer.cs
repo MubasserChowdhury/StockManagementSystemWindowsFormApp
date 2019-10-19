@@ -37,8 +37,6 @@
             this.topPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.showDataGridView = new System.Windows.Forms.DataGridView();
-            this.Sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.contactRadioButton = new System.Windows.Forms.RadioButton();
             this.emailRadioButton = new System.Windows.Forms.RadioButton();
             this.nameRadioButton = new System.Windows.Forms.RadioButton();
@@ -46,6 +44,8 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +53,7 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contactPersonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -165,21 +165,6 @@
             this.showDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.showDataGridView_CellContentClick);
             this.showDataGridView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.showDataGridView_RowPostPaint);
             // 
-            // Sl
-            // 
-            this.Sl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Sl.HeaderText = "#";
-            this.Sl.Name = "Sl";
-            this.Sl.Width = 43;
-            // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Edit.HeaderText = "Action";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 51;
-            // 
             // contactRadioButton
             // 
             this.contactRadioButton.AutoSize = true;
@@ -265,6 +250,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search";
             // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataSource = typeof(StockManagementSystem.Model.Supplier);
+            // 
+            // Sl
+            // 
+            this.Sl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Sl.HeaderText = "#";
+            this.Sl.Name = "Sl";
+            this.Sl.Width = 43;
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -319,9 +315,13 @@
             this.contactPersonDataGridViewTextBoxColumn.Name = "contactPersonDataGridViewTextBoxColumn";
             this.contactPersonDataGridViewTextBoxColumn.Width = 128;
             // 
-            // supplierBindingSource
+            // Edit
             // 
-            this.supplierBindingSource.DataSource = typeof(StockManagementSystem.Model.Supplier);
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Edit.HeaderText = "Action";
+            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
+            this.Edit.Name = "Edit";
+            this.Edit.Width = 51;
             // 
             // SupplierUiController
             // 
@@ -352,6 +352,14 @@
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView showDataGridView;
+        private System.Windows.Forms.BindingSource supplierBindingSource;
+        private System.Windows.Forms.RadioButton contactRadioButton;
+        private System.Windows.Forms.RadioButton emailRadioButton;
+        private System.Windows.Forms.RadioButton nameRadioButton;
+        private System.Windows.Forms.Label searchTextBoxErrorLabel;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sl;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
@@ -361,13 +369,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn contactDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contactPersonDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
-        private System.Windows.Forms.BindingSource supplierBindingSource;
-        private System.Windows.Forms.RadioButton contactRadioButton;
-        private System.Windows.Forms.RadioButton emailRadioButton;
-        private System.Windows.Forms.RadioButton nameRadioButton;
-        private System.Windows.Forms.Label searchTextBoxErrorLabel;
-        private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.TextBox searchTextBox;
-        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

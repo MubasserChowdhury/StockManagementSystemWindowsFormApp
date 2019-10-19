@@ -35,6 +35,8 @@
             this.sidePanel = new System.Windows.Forms.Panel();
             this.timeLabel = new System.Windows.Forms.Label();
             this.activePanel = new System.Windows.Forms.Panel();
+            this.reportButton = new System.Windows.Forms.Button();
+            this.stockButton = new System.Windows.Forms.Button();
             this.orderButton = new System.Windows.Forms.Button();
             this.saleButton = new System.Windows.Forms.Button();
             this.purchaseButton = new System.Windows.Forms.Button();
@@ -72,7 +74,7 @@
             this.minimizeButton.Location = new System.Drawing.Point(1285, 13);
             this.minimizeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.minimizeButton.Name = "minimizeButton";
-            this.minimizeButton.Size = new System.Drawing.Size(40, 14);
+            this.minimizeButton.Size = new System.Drawing.Size(31, 17);
             this.minimizeButton.TabIndex = 0;
             this.minimizeButton.UseVisualStyleBackColor = true;
             this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
@@ -83,10 +85,10 @@
             this.closeButton.FlatAppearance.BorderSize = 0;
             this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
-            this.closeButton.Location = new System.Drawing.Point(1331, 11);
+            this.closeButton.Location = new System.Drawing.Point(1331, 5);
             this.closeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(21, 19);
+            this.closeButton.Size = new System.Drawing.Size(21, 25);
             this.closeButton.TabIndex = 0;
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
@@ -96,6 +98,8 @@
             this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.sidePanel.Controls.Add(this.timeLabel);
             this.sidePanel.Controls.Add(this.activePanel);
+            this.sidePanel.Controls.Add(this.reportButton);
+            this.sidePanel.Controls.Add(this.stockButton);
             this.sidePanel.Controls.Add(this.orderButton);
             this.sidePanel.Controls.Add(this.saleButton);
             this.sidePanel.Controls.Add(this.purchaseButton);
@@ -126,11 +130,51 @@
             // activePanel
             // 
             this.activePanel.BackColor = System.Drawing.Color.Red;
-            this.activePanel.Location = new System.Drawing.Point(3, 187);
+            this.activePanel.Location = new System.Drawing.Point(3, 102);
             this.activePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.activePanel.Name = "activePanel";
             this.activePanel.Size = new System.Drawing.Size(11, 46);
             this.activePanel.TabIndex = 0;
+            // 
+            // reportButton
+            // 
+            this.reportButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reportButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.reportButton.FlatAppearance.BorderSize = 0;
+            this.reportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.reportButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.reportButton.Image = ((System.Drawing.Image)(resources.GetObject("reportButton.Image")));
+            this.reportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.reportButton.Location = new System.Drawing.Point(18, 559);
+            this.reportButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.reportButton.Name = "reportButton";
+            this.reportButton.Size = new System.Drawing.Size(211, 46);
+            this.reportButton.TabIndex = 0;
+            this.reportButton.Text = "   Report";
+            this.reportButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.reportButton.UseVisualStyleBackColor = true;
+            this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
+            // 
+            // stockButton
+            // 
+            this.stockButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.stockButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.stockButton.FlatAppearance.BorderSize = 0;
+            this.stockButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stockButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.stockButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.stockButton.Image = ((System.Drawing.Image)(resources.GetObject("stockButton.Image")));
+            this.stockButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.stockButton.Location = new System.Drawing.Point(18, 509);
+            this.stockButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.stockButton.Name = "stockButton";
+            this.stockButton.Size = new System.Drawing.Size(211, 46);
+            this.stockButton.TabIndex = 0;
+            this.stockButton.Text = "   Stock";
+            this.stockButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.stockButton.UseVisualStyleBackColor = true;
+            this.stockButton.Click += new System.EventHandler(this.stockButton_Click);
             // 
             // orderButton
             // 
@@ -142,7 +186,7 @@
             this.orderButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.orderButton.Image = ((System.Drawing.Image)(resources.GetObject("orderButton.Image")));
             this.orderButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.orderButton.Location = new System.Drawing.Point(12, 544);
+            this.orderButton.Location = new System.Drawing.Point(15, 459);
             this.orderButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.orderButton.Name = "orderButton";
             this.orderButton.Size = new System.Drawing.Size(211, 46);
@@ -161,7 +205,7 @@
             this.saleButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.saleButton.Image = ((System.Drawing.Image)(resources.GetObject("saleButton.Image")));
             this.saleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saleButton.Location = new System.Drawing.Point(12, 494);
+            this.saleButton.Location = new System.Drawing.Point(15, 409);
             this.saleButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.saleButton.Name = "saleButton";
             this.saleButton.Size = new System.Drawing.Size(211, 46);
@@ -169,6 +213,7 @@
             this.saleButton.Text = "   Sale";
             this.saleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.saleButton.UseVisualStyleBackColor = true;
+            this.saleButton.Click += new System.EventHandler(this.saleButton_Click);
             // 
             // purchaseButton
             // 
@@ -180,7 +225,7 @@
             this.purchaseButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.purchaseButton.Image = ((System.Drawing.Image)(resources.GetObject("purchaseButton.Image")));
             this.purchaseButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.purchaseButton.Location = new System.Drawing.Point(12, 442);
+            this.purchaseButton.Location = new System.Drawing.Point(15, 357);
             this.purchaseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.purchaseButton.Name = "purchaseButton";
             this.purchaseButton.Size = new System.Drawing.Size(211, 46);
@@ -200,7 +245,7 @@
             this.supplierButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.supplierButton.Image = ((System.Drawing.Image)(resources.GetObject("supplierButton.Image")));
             this.supplierButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.supplierButton.Location = new System.Drawing.Point(12, 391);
+            this.supplierButton.Location = new System.Drawing.Point(15, 306);
             this.supplierButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.supplierButton.Name = "supplierButton";
             this.supplierButton.Size = new System.Drawing.Size(211, 46);
@@ -220,7 +265,7 @@
             this.customerButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.customerButton.Image = ((System.Drawing.Image)(resources.GetObject("customerButton.Image")));
             this.customerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.customerButton.Location = new System.Drawing.Point(12, 340);
+            this.customerButton.Location = new System.Drawing.Point(15, 255);
             this.customerButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.customerButton.Name = "customerButton";
             this.customerButton.Size = new System.Drawing.Size(211, 46);
@@ -240,7 +285,7 @@
             this.productButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.productButton.Image = ((System.Drawing.Image)(resources.GetObject("productButton.Image")));
             this.productButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.productButton.Location = new System.Drawing.Point(12, 289);
+            this.productButton.Location = new System.Drawing.Point(15, 204);
             this.productButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.productButton.Name = "productButton";
             this.productButton.Size = new System.Drawing.Size(211, 46);
@@ -260,7 +305,7 @@
             this.homeButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.homeButton.Image = ((System.Drawing.Image)(resources.GetObject("homeButton.Image")));
             this.homeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.homeButton.Location = new System.Drawing.Point(12, 187);
+            this.homeButton.Location = new System.Drawing.Point(15, 102);
             this.homeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.homeButton.Name = "homeButton";
             this.homeButton.Size = new System.Drawing.Size(211, 46);
@@ -280,7 +325,7 @@
             this.categoryButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.categoryButton.Image = ((System.Drawing.Image)(resources.GetObject("categoryButton.Image")));
             this.categoryButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.categoryButton.Location = new System.Drawing.Point(12, 238);
+            this.categoryButton.Location = new System.Drawing.Point(15, 153);
             this.categoryButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.categoryButton.Name = "categoryButton";
             this.categoryButton.Size = new System.Drawing.Size(211, 46);
@@ -369,5 +414,7 @@
         private System.Windows.Forms.Button homeButton;
         private System.Windows.Forms.Label timeLabel;
         private System.Windows.Forms.Button minimizeButton;
+        private System.Windows.Forms.Button stockButton;
+        private System.Windows.Forms.Button reportButton;
     }
 }

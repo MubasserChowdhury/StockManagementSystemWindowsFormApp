@@ -28,7 +28,7 @@ namespace StockManagementSystem.UI
         {
             InitializeComponent();
             customerUiController = customerUiController2;
-            GenerateProductCode();
+            GetLastCustomerCode();
         }
 
         private void AddCustomerUi_Load(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace StockManagementSystem.UI
             emailErrorLabel.Text = "";
             contactErrorLabel.Text = "";
             loyaltyPointErrorLabel.Text = "";
-            loyaltyPointTextBox.Text = "";
+            
         }
 
         private void saveOrUpdateButton_Click(object sender, EventArgs e)
@@ -54,8 +54,9 @@ namespace StockManagementSystem.UI
             _customer.Address = addressTextBox.Text;
             _customer.Email = emailTextBox.Text;
             _customer.Contact = contactTextBox.Text;
-           // _customer.LoyaltyPoint = Convert.ToDouble(loyaltyPointTextBox.Text);
-          
+            //loyaltyPointTextBox.Text = "0";
+            //_customer.LoyaltyPoint = Convert.ToInt32(loyaltyPointTextBox.Text);
+
 
             if (String.IsNullOrEmpty(_customer.Name))
             {
@@ -108,6 +109,7 @@ namespace StockManagementSystem.UI
                 loyaltyPointTextBox.Focus();
                 return;
             }
+            _customer.LoyaltyPoint = Convert.ToDouble(loyaltyPointTextBox.Text);
 
             if (String.IsNullOrEmpty(_customer.Address))
             {
@@ -117,7 +119,7 @@ namespace StockManagementSystem.UI
                 return;
             }
 
-            _customer.LoyaltyPoint = Convert.ToDouble(loyaltyPointTextBox.Text);
+           
 
             if (saveOrUpdateButton.Text == @"Save")
             {
@@ -128,7 +130,7 @@ namespace StockManagementSystem.UI
                     // customerDataGridView.DataSource = _customerManager.GetAllCustomer();
                  
                    
-                    GenerateProductCode();
+                    GetLastCustomerCode();
                 }
                 else
                 {
@@ -155,6 +157,7 @@ namespace StockManagementSystem.UI
             }
             ClearAllTextBox();
             ClearAllErrorLabel();
+            GetLastCustomerCode();
 
         }
 
@@ -168,22 +171,22 @@ namespace StockManagementSystem.UI
             loyaltyPointTextBox.Clear();
 
         }
-        private void GenerateProductCode()
+        private void GetLastCustomerCode()
         {
-            string lastProductCode = _customerManager.GetLastProductCode();
+            string lastCustomerCode = _customerManager.GetLastCustomerCode();
 
-            if (lastProductCode == "")
+            if (lastCustomerCode == "")
             {
-                lastProductCode = "0001";
+                lastCustomerCode = "0001";
             }
             else
             {
-                int number = int.Parse(lastProductCode);
-                lastProductCode = (++number).ToString("D" + lastProductCode.Length);
+                int number = int.Parse(lastCustomerCode);
+                lastCustomerCode = (++number).ToString("D" + lastCustomerCode.Length);
 
             }
 
-            codeTextBox.Text = lastProductCode;
+            codeTextBox.Text = lastCustomerCode;
         }
 
 

@@ -55,7 +55,6 @@ namespace StockManagementSystem.UI
                         addCustomerUi.contactTextBox.Text = customerDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
                         addCustomerUi.loyaltyPointTextBox.Text = customerDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
                         addCustomerUi.saveOrUpdateButton.Text = @"Update";
-                        //MessageBox.Show(addCustomerUi.codeTextBox.Text);
                         addCustomerUi.Show();
 
 

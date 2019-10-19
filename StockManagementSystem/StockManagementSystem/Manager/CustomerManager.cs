@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using StockManagementSystem.Model;
 using StockManagementSystem.Repository;
 
@@ -45,9 +41,9 @@ namespace StockManagementSystem.Manager
         {
             return _customerRepository.GetCustomerLoyaltyPointById(id);
         }
-        public string GetLastProductCode()
+        public string GetLastCustomerCode()
         {
-            return _customerRepository.GetLastProductCode();
+            return _customerRepository.GetLastCustomerCode();
         }
 
         public List<Customer> SearchCustomer(string name, string email, string contact)

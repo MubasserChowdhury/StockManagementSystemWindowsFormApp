@@ -260,7 +260,7 @@ namespace StockManagementSystem.Repository
 
             return point;
         }
-        public string GetLastProductCode()
+        public string GetLastCustomerCode()
         {
             string code = "";
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))

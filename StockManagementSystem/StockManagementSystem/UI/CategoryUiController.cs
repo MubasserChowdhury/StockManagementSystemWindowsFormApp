@@ -69,7 +69,6 @@ namespace StockManagementSystem.UI
                         addCategoryUi.categoryId = Convert.ToInt32(categoryDataGridView.Rows[e.RowIndex].Cells[1].Value);
                         addCategoryUi.codeTextBox.Text = categoryDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
                         addCategoryUi.nameTextBox.Text = categoryDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
-                        MessageBox.Show(addCategoryUi.codeTextBox.Text + "");
                         addCategoryUi.saveOrUpdateButton.Text = @"Update";
                         addCategoryUi.ShowDialog();
                     }

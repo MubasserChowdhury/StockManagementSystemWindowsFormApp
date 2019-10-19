@@ -202,7 +202,6 @@ namespace StockManagementSystem.Repository
             return isFound;
         }
 
-
         public List<Category> Search(string name,string code)
         {
            
@@ -253,9 +252,6 @@ namespace StockManagementSystem.Repository
 
         }
 
-
-
-
         public List<Category> SearchCode(Category category)
         {
 
@@ -296,12 +292,6 @@ namespace StockManagementSystem.Repository
             return categories;
 
         }
-
-
-
-
-
-
 
 
     }
