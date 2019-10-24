@@ -356,5 +356,15 @@ namespace StockManagementSystem.UI
         {
             remarkErrorLabel.Text = "";
         }
+
+        private void availableQuantityTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

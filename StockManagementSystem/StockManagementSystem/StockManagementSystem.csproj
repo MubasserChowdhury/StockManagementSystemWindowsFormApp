@@ -239,6 +239,7 @@
     </None>
     <None Include="Properties\DataSources\StockManagementSystem.Model.Category.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Customer.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Model.Product.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Purchase.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.PurchaseReportViewModel.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Sale.datasource" />
