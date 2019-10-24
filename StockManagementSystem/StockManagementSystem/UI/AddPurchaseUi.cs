@@ -345,6 +345,8 @@ namespace StockManagementSystem.UI
         private void productComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             productComboBoxErrorLabel.Text = "";
+
+            //codeTextBox.Text = _productManager.GetCodeById(Convert.ToInt32(productComboBox.SelectedValue));
         }
 
         private void mrpTextBox_TextChanged(object sender, EventArgs e)

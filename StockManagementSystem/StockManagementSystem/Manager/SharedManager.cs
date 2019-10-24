@@ -15,5 +15,10 @@ namespace StockManagementSystem.Manager
         {
             return _sharedRepository.GetPurchaseReport();
         }
+
+        public List<PurchaseReportViewModel> SearchPurchaseReportByDate(string startDate,string endDate)
+        {
+            return _sharedRepository.SearchPurchaseReportByDate(startDate,endDate);
+        }
     }
 }

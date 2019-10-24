@@ -499,9 +499,16 @@
             // 
             // quantityTextBox
             // 
+<<<<<<< HEAD
             this.quantityTextBox.Location = new System.Drawing.Point(466, 23);
             this.quantityTextBox.Name = "quantityTextBox";
             this.quantityTextBox.Size = new System.Drawing.Size(127, 20);
+=======
+            this.quantityTextBox.Location = new System.Drawing.Point(621, 28);
+            this.quantityTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.quantityTextBox.Name = "quantityTextBox";
+            this.quantityTextBox.Size = new System.Drawing.Size(168, 22);
+>>>>>>> 2adc839f7b3648a77f540ff8739ab8ad5a1d5df9
             this.quantityTextBox.TabIndex = 1;
             this.quantityTextBox.TextChanged += new System.EventHandler(this.quantityTextBox_TextChanged);
             this.quantityTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.unitPriceTextBox_KeyPress);

@@ -61,5 +61,10 @@ namespace StockManagementSystem.Manager
         {
             return _productRepository.SearchByNameORCode(name, code);
         }
+
+        public string GetCodeById(int id)
+        {
+            return _productRepository.GetCodeById(id);
+        }
     }
 }
