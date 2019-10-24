@@ -10,7 +10,7 @@ namespace StockManagementSystem.Manager
 {
     public class PurchaseManager
     {
-        PurchaseRepository _purchaseRepository=new PurchaseRepository();
+        PurchaseRepository _purchaseRepository = new PurchaseRepository();
 
         public Purchase GetLastPurchasesProductInfoById(int id)
         {
@@ -21,6 +21,7 @@ namespace StockManagementSystem.Manager
         {
             return _purchaseRepository.UniquePurchaseCode(purchase);
         }
+
         public bool AddPurchase(List<Purchase> purchases)
         {
             return _purchaseRepository.AddPurchase(purchases);
@@ -30,5 +31,6 @@ namespace StockManagementSystem.Manager
         {
             return _purchaseRepository.GetLastPurchaseCode();
         }
+
     }
 }

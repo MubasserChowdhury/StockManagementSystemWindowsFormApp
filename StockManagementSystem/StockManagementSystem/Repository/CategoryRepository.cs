@@ -234,7 +234,7 @@ namespace StockManagementSystem.Repository
 
                 while (sqlDataReader.Read())
                 {
-                    Category category1 = new Category();
+                    Category category1 = new Category();                 
                     category1.Id = Convert.ToInt32(sqlDataReader["Id"]);
                     category1.Code = sqlDataReader["Code"].ToString();
                     category1.Name = sqlDataReader["Name"].ToString();

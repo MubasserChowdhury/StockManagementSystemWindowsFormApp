@@ -66,6 +66,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.totalPriceTextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.quantityTextBox = new System.Windows.Forms.TextBox();
             this.unitPriceTextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -75,7 +76,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.quantityTextBox = new System.Windows.Forms.TextBox();
             this.topPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -508,6 +508,16 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Total Price(Tk)";
             // 
+            // quantityTextBox
+            // 
+            this.quantityTextBox.Location = new System.Drawing.Point(621, 28);
+            this.quantityTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.quantityTextBox.Name = "quantityTextBox";
+            this.quantityTextBox.Size = new System.Drawing.Size(168, 22);
+            this.quantityTextBox.TabIndex = 1;
+            this.quantityTextBox.TextChanged += new System.EventHandler(this.quantityTextBox_TextChanged);
+            this.quantityTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.unitPriceTextBox_KeyPress);
+            // 
             // unitPriceTextBox
             // 
             this.unitPriceTextBox.Location = new System.Drawing.Point(622, 72);
@@ -595,16 +605,6 @@
             this.label6.Size = new System.Drawing.Size(41, 17);
             this.label6.TabIndex = 0;
             this.label6.Text = "Code";
-            // 
-            // quantityTextBox
-            // 
-            this.quantityTextBox.Location = new System.Drawing.Point(621, 28);
-            this.quantityTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.quantityTextBox.Name = "quantityTextBox";
-            this.quantityTextBox.Size = new System.Drawing.Size(168, 22);
-            this.quantityTextBox.TabIndex = 1;
-            this.quantityTextBox.TextChanged += new System.EventHandler(this.quantityTextBox_TextChanged);
-            this.quantityTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.unitPriceTextBox_KeyPress);
             // 
             // AddPurchaseUi
             // 

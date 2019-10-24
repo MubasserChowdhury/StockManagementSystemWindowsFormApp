@@ -9,7 +9,7 @@ namespace StockManagementSystem.Model
     public class Supplier
     {
         public int Id { set; get; }
-        public String Code { set; get; }
+        public string Code { set; get; }
         public string Name { set; get; }
         public string Address { set; get; }
         public string Email { set; get; }

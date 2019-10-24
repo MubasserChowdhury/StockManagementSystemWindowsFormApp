@@ -297,5 +297,31 @@ namespace StockManagementSystem.Repository
             }
         }
 
+        public string GetCodeById(int id)
+        {
+            string code = "";
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string queryString = @"SELECT Code FROM Purchases WHERE Id=" + id + " ";
+                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
+
+                //open connection
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    code = sqlDataReader["Code"].ToString();
+                    break;
+                }
+
+                //close connection
+                sqlConnection.Close();
+
+            }
+
+            return code;
+        }
+
     }
 }

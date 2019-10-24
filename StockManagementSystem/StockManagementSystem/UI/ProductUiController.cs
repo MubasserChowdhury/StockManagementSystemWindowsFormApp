@@ -117,10 +117,13 @@ namespace StockManagementSystem.UI
                     addProductUi.id = Convert.ToInt32(productDataGridView.Rows[e.RowIndex].Cells[1].Value);
                     addProductUi.codeTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
                     addProductUi.nameTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    addProductUi.categoryComboBox.Text = productDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    //addProductUi.categoryComboBox.Text = productDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    addProductUi.categoryText = productDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+
                     addProductUi.reorderLevelNumericUpDown.Text = productDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
                     addProductUi.descriptionTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
 
+                    //MessageBox.Show(addProductUi.categoryComboBox.Text);
                     addProductUi.saveOrUpdateButton.Text = @"Update";
                     addProductUi.categoryErrorLabel.Text = "";
 
@@ -166,8 +169,6 @@ namespace StockManagementSystem.UI
         private void ProductUiController_Load(object sender, EventArgs e)
         {
             productDataGridView.DataSource = _productManager.GetAllProduct();
-
-           
             ClearSearchTextBox();
             ShowAllProduct();
         }

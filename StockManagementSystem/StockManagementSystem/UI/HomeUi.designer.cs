@@ -37,7 +37,6 @@
             this.activePanel = new System.Windows.Forms.Panel();
             this.reportButton = new System.Windows.Forms.Button();
             this.stockButton = new System.Windows.Forms.Button();
-            this.orderButton = new System.Windows.Forms.Button();
             this.saleButton = new System.Windows.Forms.Button();
             this.purchaseButton = new System.Windows.Forms.Button();
             this.supplierButton = new System.Windows.Forms.Button();
@@ -100,7 +99,6 @@
             this.sidePanel.Controls.Add(this.activePanel);
             this.sidePanel.Controls.Add(this.reportButton);
             this.sidePanel.Controls.Add(this.stockButton);
-            this.sidePanel.Controls.Add(this.orderButton);
             this.sidePanel.Controls.Add(this.saleButton);
             this.sidePanel.Controls.Add(this.purchaseButton);
             this.sidePanel.Controls.Add(this.supplierButton);
@@ -146,7 +144,7 @@
             this.reportButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.reportButton.Image = ((System.Drawing.Image)(resources.GetObject("reportButton.Image")));
             this.reportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.reportButton.Location = new System.Drawing.Point(18, 559);
+            this.reportButton.Location = new System.Drawing.Point(21, 509);
             this.reportButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.reportButton.Name = "reportButton";
             this.reportButton.Size = new System.Drawing.Size(211, 46);
@@ -166,7 +164,7 @@
             this.stockButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.stockButton.Image = ((System.Drawing.Image)(resources.GetObject("stockButton.Image")));
             this.stockButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.stockButton.Location = new System.Drawing.Point(18, 509);
+            this.stockButton.Location = new System.Drawing.Point(21, 459);
             this.stockButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.stockButton.Name = "stockButton";
             this.stockButton.Size = new System.Drawing.Size(211, 46);
@@ -175,25 +173,6 @@
             this.stockButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.stockButton.UseVisualStyleBackColor = true;
             this.stockButton.Click += new System.EventHandler(this.stockButton_Click);
-            // 
-            // orderButton
-            // 
-            this.orderButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.orderButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.orderButton.FlatAppearance.BorderSize = 0;
-            this.orderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.orderButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.orderButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.orderButton.Image = ((System.Drawing.Image)(resources.GetObject("orderButton.Image")));
-            this.orderButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.orderButton.Location = new System.Drawing.Point(15, 459);
-            this.orderButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.orderButton.Name = "orderButton";
-            this.orderButton.Size = new System.Drawing.Size(211, 46);
-            this.orderButton.TabIndex = 0;
-            this.orderButton.Text = "   Orders";
-            this.orderButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.orderButton.UseVisualStyleBackColor = true;
             // 
             // saleButton
             // 
@@ -400,7 +379,6 @@
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Panel sidePanel;
         private System.Windows.Forms.Button dashBoardButton;
-        private System.Windows.Forms.Button orderButton;
         private System.Windows.Forms.Button saleButton;
         private System.Windows.Forms.Button purchaseButton;
         private System.Windows.Forms.Button supplierButton;

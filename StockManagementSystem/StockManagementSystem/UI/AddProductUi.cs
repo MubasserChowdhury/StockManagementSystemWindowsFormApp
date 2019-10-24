@@ -18,6 +18,7 @@ namespace StockManagementSystem.UI
         CategoryManager _categoryManager = new CategoryManager();
         Product _product = new Product();
         public int id;
+        public string categoryText;
 
 
         private ProductUiController productUiController;
@@ -213,6 +214,10 @@ namespace StockManagementSystem.UI
             categoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             categoryComboBox.DataSource = _categoryManager.GetAllCategoryForComboBox();
+            if (saveOrUpdateButton.Text==@"Update")
+            {
+                categoryComboBox.Text = categoryText;
+            }
 
             ClearAllErrorLabel();
         }

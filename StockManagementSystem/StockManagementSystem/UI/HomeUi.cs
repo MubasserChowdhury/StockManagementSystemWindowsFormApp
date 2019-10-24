@@ -41,6 +41,8 @@ namespace StockManagementSystem.UI
 
         }
 
+        #region Drag
+
         public const int WmNclbuttondown = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -57,6 +59,9 @@ namespace StockManagementSystem.UI
                 SendMessage(Handle, WmNclbuttondown, HT_CAPTION, 0);
             }
         }
+
+        #endregion
+
 
         private void minimizeButton_Click(object sender, EventArgs e)
         {
