@@ -50,5 +50,6 @@ namespace StockManagementSystem.Manager
         {
             return _customerRepository.SearchCustomer(name, email, contact);
         }
+
     }
 }

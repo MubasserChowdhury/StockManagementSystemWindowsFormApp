@@ -20,7 +20,7 @@ namespace StockManagementSystem.Repository
 
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string queryString = @"INSERT INTO Customers VALUES('" + customer.Code + "','" + customer.Name + "','" + customer.Address + "','" + customer.Email + "','" + customer.Contact + "',"+customer.LoyaltyPoint+")";
+                string queryString = @"INSERT INTO Customers VALUES('" + customer.Code + "','" + customer.Name + "','" + customer.Address + "','" + customer.Email + "','" + customer.Contact + "'," + customer.LoyaltyPoint + ")";
                 SqlCommand sqlCommand = new SqlCommand(queryString, sqlConnection);
 
                 //open connection
@@ -46,7 +46,7 @@ namespace StockManagementSystem.Repository
 
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string queryString = @"UPDATE Customers SET Code='" + customer.Code + "',Name='" + customer.Name + "',Address='" + customer.Address + "',Email='" + customer.Email + "',Contact='" + customer.Contact + "',LoyaltyPoint=" + customer.LoyaltyPoint + " WHERE Id="+customer.Id+" ";
+                string queryString = @"UPDATE Customers SET Code='" + customer.Code + "',Name='" + customer.Name + "',Address='" + customer.Address + "',Email='" + customer.Email + "',Contact='" + customer.Contact + "',LoyaltyPoint=" + customer.LoyaltyPoint + " WHERE Id=" + customer.Id + " ";
                 SqlCommand sqlCommand = new SqlCommand(queryString, sqlConnection);
 
                 //open connection
@@ -138,16 +138,16 @@ namespace StockManagementSystem.Repository
 
                 while (sqlDataReader.Read())
                 {
-                   Customer customer=new Customer();
+                    Customer customer = new Customer();
 
-                   customer.Id = Convert.ToInt32(sqlDataReader["Id"]);
-                   customer.Code = sqlDataReader["Code"].ToString();
-                   customer.Name = sqlDataReader["Name"].ToString();
-                   customer.Address = sqlDataReader["Address"].ToString();
-                   customer.Email = sqlDataReader["Email"].ToString();
-                   customer.Contact = sqlDataReader["Contact"].ToString();
-                   customer.LoyaltyPoint =Convert.ToInt32(sqlDataReader["LoyaltyPoint"]);
-                   customers.Add(customer);
+                    customer.Id = Convert.ToInt32(sqlDataReader["Id"]);
+                    customer.Code = sqlDataReader["Code"].ToString();
+                    customer.Name = sqlDataReader["Name"].ToString();
+                    customer.Address = sqlDataReader["Address"].ToString();
+                    customer.Email = sqlDataReader["Email"].ToString();
+                    customer.Contact = sqlDataReader["Contact"].ToString();
+                    customer.LoyaltyPoint = Convert.ToInt32(sqlDataReader["LoyaltyPoint"]);
+                    customers.Add(customer);
 
                 }
 
@@ -159,7 +159,7 @@ namespace StockManagementSystem.Repository
         }
         public List<Customer> SearchCustomer(string name, string email, string contact)
         {
-            List< Customer > customers = new List<Customer>();
+            List<Customer> customers = new List<Customer>();
             string commandString = "";
             //Connection
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
@@ -250,7 +250,7 @@ namespace StockManagementSystem.Repository
                 SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    point =Convert.ToDouble(sqlDataReader["LoyaltyPoint"]);
+                    point = Convert.ToDouble(sqlDataReader["LoyaltyPoint"]);
 
                 }
 
