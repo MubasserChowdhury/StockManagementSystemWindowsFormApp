@@ -44,6 +44,32 @@ namespace StockManagementSystem.Repository
             return isAdded;
         }
 
+        public Sale Quantity()
+        {
+            Sale sale = new Sale();
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string queryString = @" select (sum(i.Quantity - r.Quantity)) AS  AvailableQuantity from Purchases i  
+                  JOIN Sales r  ON i.ProductId = r.ProductId GROUP BY i.ProductId,r.ProductId";
+                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
+                //open connection
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    sale.Quantity = Convert.ToInt32(sqlDataReader["Quantity"]);
+                    break;
+                }
+
+                //close connection
+                sqlConnection.Close();
+
+            }
+
+            return sale;
+
+        }
         public string GetLastSaleCode()
         {
             string code = "";
