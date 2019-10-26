@@ -21,5 +21,10 @@ namespace StockManagementSystem.UI
         {
 
         }
+
+        private void salesStartDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

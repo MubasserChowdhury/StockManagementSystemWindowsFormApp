@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesReportUiController));
             this.panel1 = new System.Windows.Forms.Panel();
             this.purchaseReportDataGridView = new System.Windows.Forms.DataGridView();
@@ -50,6 +50,8 @@
             this.purchaseEndDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.salesStartDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.purchaseReportViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.endDateErrorLabel = new System.Windows.Forms.Label();
+            this.startDateErrorLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseReportDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesReportViewModelBindingSource)).BeginInit();
@@ -72,14 +74,14 @@
             this.purchaseReportDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.purchaseReportDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.purchaseReportDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.purchaseReportDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.purchaseReportDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.purchaseReportDataGridView.ColumnHeadersHeight = 30;
             this.purchaseReportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.purchaseReportDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -93,28 +95,28 @@
             this.profitDataGridViewTextBoxColumn});
             this.purchaseReportDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             this.purchaseReportDataGridView.DataSource = this.salesReportViewModelBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.purchaseReportDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.purchaseReportDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.purchaseReportDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.purchaseReportDataGridView.EnableHeadersVisualStyles = false;
             this.purchaseReportDataGridView.GridColor = System.Drawing.Color.White;
             this.purchaseReportDataGridView.Location = new System.Drawing.Point(0, 0);
             this.purchaseReportDataGridView.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.purchaseReportDataGridView.Name = "purchaseReportDataGridView";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.purchaseReportDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.purchaseReportDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.purchaseReportDataGridView.RowHeadersVisible = false;
             this.purchaseReportDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.purchaseReportDataGridView.RowTemplate.Height = 24;
@@ -233,15 +235,38 @@
             this.salesStartDateTimePicker.Name = "salesStartDateTimePicker";
             this.salesStartDateTimePicker.Size = new System.Drawing.Size(168, 22);
             this.salesStartDateTimePicker.TabIndex = 47;
+            this.salesStartDateTimePicker.ValueChanged += new System.EventHandler(this.salesStartDateTimePicker_ValueChanged);
             // 
             // purchaseReportViewModelBindingSource
             // 
             this.purchaseReportViewModelBindingSource.DataSource = typeof(StockManagementSystem.Model.PurchaseReportViewModel);
             // 
+            // endDateErrorLabel
+            // 
+            this.endDateErrorLabel.AutoSize = true;
+            this.endDateErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.endDateErrorLabel.Location = new System.Drawing.Point(611, 46);
+            this.endDateErrorLabel.Name = "endDateErrorLabel";
+            this.endDateErrorLabel.Size = new System.Drawing.Size(101, 17);
+            this.endDateErrorLabel.TabIndex = 48;
+            this.endDateErrorLabel.Text = "Error Message";
+            // 
+            // startDateErrorLabel
+            // 
+            this.startDateErrorLabel.AutoSize = true;
+            this.startDateErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.startDateErrorLabel.Location = new System.Drawing.Point(311, 46);
+            this.startDateErrorLabel.Name = "startDateErrorLabel";
+            this.startDateErrorLabel.Size = new System.Drawing.Size(101, 17);
+            this.startDateErrorLabel.TabIndex = 49;
+            this.startDateErrorLabel.Text = "Error Message";
+            // 
             // SalesReportUiController
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.endDateErrorLabel);
+            this.Controls.Add(this.startDateErrorLabel);
             this.Controls.Add(this.purchaseEndDateTimePicker);
             this.Controls.Add(this.salesStartDateTimePicker);
             this.Controls.Add(this.panel1);
@@ -279,5 +304,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn profitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label endDateErrorLabel;
+        private System.Windows.Forms.Label startDateErrorLabel;
     }
 }

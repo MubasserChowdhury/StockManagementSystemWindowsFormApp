@@ -49,6 +49,7 @@ namespace StockManagementSystem.UI
 
         private void purchaseStartDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
+            startDateErrorLabel.Text = "";
             int startDate = Convert.ToInt32(purchaseStartDateTimePicker.Text.Replace("-",""));
             int endDate = Convert.ToInt32(purchaseEndDateTimePicker.Text.Replace("-", ""));
 
@@ -65,6 +66,7 @@ namespace StockManagementSystem.UI
 
         private void purchaseEndDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
+            endDateErrorLabel.Text = "";
             int startDate = Convert.ToInt32(purchaseStartDateTimePicker.Text.Replace("-", ""));
             int endDate = Convert.ToInt32(purchaseEndDateTimePicker.Text.Replace("-", ""));
 

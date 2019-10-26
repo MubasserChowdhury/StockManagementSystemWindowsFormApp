@@ -15,6 +15,7 @@ namespace StockManagementSystem.UI
     {
         CategoryManager _categoryManager = new CategoryManager();
         ProductManager _productManager = new ProductManager();
+        SharedManager  _sharedManager=new SharedManager();
         public StockUiController()
         {
             InitializeComponent();
@@ -32,12 +33,15 @@ namespace StockManagementSystem.UI
         {
             categoryComboboxerrorLabel.Text = "";
             productComboBoxErrorLabel.Text = "";
+
+
         }
 
         private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             categoryComboboxerrorLabel.Text = "";
             int categoryId = Convert.ToInt32(categoryComboBox.SelectedValue);
+
             productComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             productComboBox.DataSource = _productManager.GetAllProductForComboBox(categoryId);
         }
