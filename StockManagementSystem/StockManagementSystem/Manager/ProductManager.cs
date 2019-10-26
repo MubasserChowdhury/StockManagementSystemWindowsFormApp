@@ -59,12 +59,12 @@ namespace StockManagementSystem.Manager
 
         public List<ProductViewModel> SearchByNameORCode(string name, string code)
         {
-            return _productRepository.SearchByNameORCode(name, code);
+            return _productRepository.SearchByNameOrCode(name, code);
         }
 
-        public string GetCodeById(int id)
+        public int GetReorderLevelById(int id)
         {
-            return _productRepository.GetCodeById(id);
+            return _productRepository.GetReorderLevelById(id);
         }
     }
 }

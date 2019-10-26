@@ -254,7 +254,7 @@ namespace StockManagementSystem.Repository
         }
 
 
-        public List<ProductViewModel> SearchByNameORCode(string name, string code)
+        public List<ProductViewModel> SearchByNameOrCode(string name, string code)
         {
             List<ProductViewModel> _productViewModels = new List<ProductViewModel>();
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
@@ -297,12 +297,13 @@ namespace StockManagementSystem.Repository
             }
         }
 
-        public string GetCodeById(int id)
+        
+        public int GetReorderLevelById(int id)
         {
-            string code = "";
+            int reorderLevel = 0;
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string queryString = @"SELECT Code FROM Purchases WHERE Id=" + id + " ";
+                string queryString = @"SELECT ReorderLevel FROM Products WHERE Id=" + id + " ";
                 SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
 
                 //open connection
@@ -311,7 +312,7 @@ namespace StockManagementSystem.Repository
                 SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    code = sqlDataReader["Code"].ToString();
+                    reorderLevel = Convert.ToInt32(sqlDataReader["ReorderLevel"]);
                     break;
                 }
 
@@ -320,10 +321,7 @@ namespace StockManagementSystem.Repository
 
             }
 
-            return code;
+            return reorderLevel;
         }
-
-
-       
     }
 }

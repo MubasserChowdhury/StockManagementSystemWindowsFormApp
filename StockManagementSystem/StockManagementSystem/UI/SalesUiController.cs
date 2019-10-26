@@ -21,7 +21,7 @@ namespace StockManagementSystem.UI
         PurchaseManager _purchaseManager=new PurchaseManager();
         public List<Sale> _sales = new List<Sale>();
 
-        private double loyaltyPoint = 0;
+        //private double loyaltyPoint = 0;
         public SalesUiController()
         {
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace StockManagementSystem.UI
         private void SalesUiController_Load(object sender, EventArgs e)
         {
             ClearAllErrorLabel();
-            loyaltyPointTextBox.Text = loyaltyPoint.ToString();
+            //loyaltyPointTextBox.Text = loyaltyPoint.ToString();
         }
         private void addSaleButton_Click(object sender, EventArgs e)
         {
@@ -57,6 +57,7 @@ namespace StockManagementSystem.UI
                 categoryComboBox.Focus();
                 return;
             }
+
 
             if (Convert.ToInt32(productComboBox.SelectedValue) == 0)
             {
@@ -88,10 +89,10 @@ namespace StockManagementSystem.UI
                 sale.MRP = Convert.ToDouble(mrpTextBox.Text);
                 sale.TotalMRP = Convert.ToInt32(totalMrpTextBox.Text);
 
-                grandtotalTextBox.Text = sale.TotalMRP.ToString();
+                //grandtotalTextBox.Text = sale.TotalMRP.ToString();
                 _sales.Add(sale);
 
-
+                CheckReorderLevel(sale.ProductId,sale.Quantity);
                 ShowAllSales();
             }
             else
@@ -124,10 +125,23 @@ namespace StockManagementSystem.UI
 
             }
 
+            
+
             GrandTotal();
             ClearAllTextBox();
             ShowAllSales();
             GenerateSaleCodeBeforeSubmit();
+        }
+
+        public void CheckReorderLevel(int productId,int quantity)
+        {
+            int reorderLevel = _productManager.GetReorderLevelById(productId);
+            int availableQuantity = AvailableQuantity(productId);
+
+            if (availableQuantity-quantity < reorderLevel)
+            {
+                MessageBox.Show(@"Reorder level reached,Please purchase ! ", @"Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         public void ShowAllSales()
         {
@@ -277,22 +291,39 @@ namespace StockManagementSystem.UI
             productComboBox.DataSource = _productManager.GetAllProductForComboBox(categoryId);
         }
 
-        private void productComboBox_TextUpdate(object sender, EventArgs e)
-        {
-            productComboBoxErrorLabel.Text = "";
-        }
 
         private void productComboBox_TextChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(productComboBox.SelectedValue)>0)
+            productComboBoxErrorLabel.Text = "";
+            addSaleButton.Enabled=true;
+            bool notExist = true;
+            int productId = Convert.ToInt32(productComboBox.SelectedValue);
+
+            int availableQuantity = AvailableQuantity(productId);
+
+            if (productId > 0 && availableQuantity ==0)
             {
-                int productId = Convert.ToInt32(productComboBox.SelectedValue);
+                MessageBox.Show(@"Product is not available ( 0 quantity )", @"Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                notExist = false;
+                availableQuantityTextBox.Text = "";
+                mrpTextBox.Text = "";
+                addSaleButton.Enabled = false;
+            }
 
-                int totalPurchaseQuantity = _purchaseManager.GetTotalProductById(productId);
-                int totalSaleQuantity = _salesManager.GetTotalProductById(productId);
+            foreach (var itemSale in _sales)
+            {
+                if (itemSale.ProductId == productId)
+                {
+                    MessageBox.Show(@"Selected product already added",@"Message",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    //productComboBoxErrorLabel.Text = @"Already exist";
+                    notExist = false;
+                    addSaleButton.Enabled = false;
+                    break;
+                }
 
-                int availableQuantity = totalPurchaseQuantity - totalSaleQuantity;
-
+            }
+            if (productId > 0 && notExist)
+            {
                 //MessageBox.Show("purchase      " + totalPurchaseQuantity.ToString());
                 //MessageBox.Show("Sale        " + totalSaleQuantity.ToString());
                 availableQuantityTextBox.Text = availableQuantity.ToString();
@@ -308,13 +339,22 @@ namespace StockManagementSystem.UI
 
         }
 
+        private int AvailableQuantity(int productId)
+        {
+            int totalPurchaseQuantity = _purchaseManager.GetTotalProductById(productId);
+            int totalSaleQuantity = _salesManager.GetTotalProductById(productId);
+
+            int availableQuantity = totalPurchaseQuantity - totalSaleQuantity;
+            return availableQuantity;
+        }
+
         private void customerComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             customerComboBoxErrorLabel.Text = "";
 
-            loyaltyPoint =
-                _customerManager.GetCustomerLoyaltyPointById(Convert.ToInt32(customerComboBox.SelectedValue));
-                loyaltyPointTextBox.Text = loyaltyPoint.ToString();
+            //loyaltyPoint =
+            loyaltyPointTextBox.Text= _customerManager.GetCustomerLoyaltyPointById(Convert.ToInt32(customerComboBox.SelectedValue)).ToString();
+                //loyaltyPointTextBox.Text = loyaltyPoint.ToString();
             if (Convert.ToInt32(customerComboBox.SelectedValue)>0)
             {
                 customerComboBox.Enabled = false;
@@ -333,6 +373,8 @@ namespace StockManagementSystem.UI
             {
                 totalMrpTextBox.Text = "0";
             }
+
+
 
         }
 
@@ -360,13 +402,17 @@ namespace StockManagementSystem.UI
             }
 
             grandtotalTextBox.Text = grandTotal.ToString();
-            double loyaltyPoint =
-                _customerManager.GetCustomerLoyaltyPointById(Convert.ToInt32(customerComboBox.SelectedValue));
-            discountTextbox.Text = (loyaltyPoint / 10).ToString();
+            int loyaltyPoint =
+               Convert.ToInt32( _customerManager.GetCustomerLoyaltyPointById(Convert.ToInt32(customerComboBox.SelectedValue)));
+            
+            int discountPercentage =loyaltyPoint / 10;
+            discountTextbox.Text = discountPercentage.ToString();
 
-            discountAmountTextBox.Text = (grandTotal * (loyaltyPoint / 10) / 100).ToString();
+            discountAmountTextBox.Text = (grandTotal * discountPercentage/100).ToString();
 
             payableAmountTextBox.Text = (grandTotal - Convert.ToInt32(discountAmountTextBox.Text)).ToString();
+
+
 
         }
         public void ClearAllErrorLabel()
@@ -451,9 +497,5 @@ namespace StockManagementSystem.UI
             }
         }
 
-        private void productComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            productComboBoxErrorLabel.Text = "";
-        }
     }
 }
