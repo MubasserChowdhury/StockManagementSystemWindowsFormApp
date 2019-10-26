@@ -20,5 +20,18 @@ namespace StockManagementSystem.Manager
         {
             return _sharedRepository.SearchPurchaseReportByDate(startDate,endDate);
         }
+
+
+        public List<SalesReportViewModel> GetSalesReport()
+        {
+            return _sharedRepository.GetSalesReport();
+        }
+
+        public List<SalesReportViewModel> SearchSalesReportByDate(string startDate, string endDate)
+        {
+            return _sharedRepository.SearchSalesReportByDate(startDate, endDate);
+        }
+
+
     }
 }

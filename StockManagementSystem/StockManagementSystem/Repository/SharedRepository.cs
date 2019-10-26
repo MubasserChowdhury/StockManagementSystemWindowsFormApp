@@ -89,5 +89,89 @@ namespace StockManagementSystem.Repository
             return purchaseReportViewModels;
 
         }
+
+
+        public List<SalesReportViewModel> GetSalesReport()
+        {
+            List<SalesReportViewModel> salesReportViewModels = new List<SalesReportViewModel>();
+
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string queryString = @"SELECT p.Id, p.Code AS Code,p.Name AS Name ,c.Name AS Category,SUM(s.Quantity) AS SoldQty ,SUM(MRP*s.Quantity) AS SalesPrice
+                 FROM Sales AS s LEFT JOIN Products AS p ON p.Id=s.ProductId 
+                 LEFT JOIN Categories AS c ON p.CategoryId=c.Id  GROUP BY p.Id, p.Code,p.Name,c.Name ORDER BY p.Code";
+                SqlCommand sqlCommand = new SqlCommand(queryString, sqlConnection);
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+
+                while (sqlDataReader.Read())
+                {
+                    int productId = Convert.ToInt32(sqlDataReader["Id"]);
+                    Purchase purchase=new Purchase();
+                    purchase = _purchaseManager.GetLastPurchasesProductInfoById(productId);
+                    
+
+
+                    SalesReportViewModel model = new SalesReportViewModel();
+                    model.Code = sqlDataReader["Code"].ToString();
+                    model.Name = sqlDataReader["Name"].ToString();
+                    model.Category = sqlDataReader["Category"].ToString();
+                    model.SoldQty = Convert.ToInt32(sqlDataReader["SoldQty"]);
+                    // model.CP = Convert.ToDouble(sqlDataReader["CP"]);
+                    model.CP = model.SoldQty * purchase.UnitPrice;
+                    model.SalesPrice = Convert.ToDouble(sqlDataReader["SalesPrice"]);
+                    // model.Profit = Convert.ToDouble(sqlDataReader["Profit"]);
+                    model.Profit = model.SalesPrice - model.CP;
+                    salesReportViewModels.Add(model);
+                }
+            }
+
+            return salesReportViewModels;
+        }
+
+        public List<SalesReportViewModel> SearchSalesReportByDate(string startDate, string endDate)
+        {
+
+            List<SalesReportViewModel> salesReportViewModels = new List<SalesReportViewModel>();
+
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string queryString = @"SELECT p.Id, p.Code AS Code,p.Name AS Name ,c.Name AS Category,SUM(s.Quantity) AS SoldQty ,SUM(MRP*s.Quantity) AS SalesPrice
+                 FROM Sales AS s LEFT JOIN Products AS p ON p.Id=s.ProductId 
+                 LEFT JOIN Categories AS c ON p.CategoryId=c.Id WHERE s.Date BETWEEN '" + startDate + "' AND '" + endDate + "'  GROUP BY p.Id, p.Code,p.Name,c.Name ORDER BY p.Code";
+                SqlCommand sqlCommand = new SqlCommand(queryString, sqlConnection);
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+
+                while (sqlDataReader.Read())
+                {
+                    int productId = Convert.ToInt32(sqlDataReader["Id"]);
+                    Purchase purchase = new Purchase();
+                    purchase = _purchaseManager.GetLastPurchasesProductInfoById(productId);
+
+
+
+                    SalesReportViewModel model = new SalesReportViewModel();
+                    model.Code = sqlDataReader["Code"].ToString();
+                    model.Name = sqlDataReader["Name"].ToString();
+                    model.Category = sqlDataReader["Category"].ToString();
+                    model.SoldQty = Convert.ToInt32(sqlDataReader["SoldQty"]);
+                    // model.CP = Convert.ToDouble(sqlDataReader["CP"]);
+                    model.CP = model.SoldQty * purchase.UnitPrice;
+                    model.SalesPrice = Convert.ToDouble(sqlDataReader["SalesPrice"]);
+                    // model.Profit = Convert.ToDouble(sqlDataReader["Profit"]);
+                    model.Profit = model.SalesPrice - model.CP;
+                    salesReportViewModels.Add(model);
+                }
+            }
+
+            return salesReportViewModels;
+        }
+
+
     }
 }
