@@ -108,7 +108,7 @@ namespace StockManagementSystem.UI
                 else
                 {
                     customerDataGridView.DataSource = null;
-                    MessageBox.Show(@"No Result Found", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(@"No Result Found", @"Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             if (contactRadioButton.Checked == true)
@@ -121,7 +121,7 @@ namespace StockManagementSystem.UI
                 else
                 {
                     customerDataGridView.DataSource = null;
-                    MessageBox.Show(@"No Result Found", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(@"No Result Found", @"Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

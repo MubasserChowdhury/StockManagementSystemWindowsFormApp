@@ -48,7 +48,7 @@ namespace StockManagementSystem.UI
                 else
                 {
                     productDataGridView.DataSource = null;
-                    MessageBox.Show(@"No Result Found", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(@"No Result Found", @"Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
 
@@ -63,7 +63,7 @@ namespace StockManagementSystem.UI
                 else
                 {
                     productDataGridView.DataSource = null;
-                    MessageBox.Show(@"No Result Found", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(@"No Result Found", @"Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             }
@@ -86,7 +86,7 @@ namespace StockManagementSystem.UI
                 else
                 {
                     productDataGridView.DataSource = null;
-                    MessageBox.Show(@"No Result Found", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(@"No Result Found", @"Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
 

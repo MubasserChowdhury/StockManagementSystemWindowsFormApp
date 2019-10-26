@@ -16,5 +16,10 @@ namespace StockManagementSystem.UI
         {
             InitializeComponent();
         }
+
+        private void SalesReportUiController_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

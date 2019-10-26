@@ -55,14 +55,5 @@ namespace StockManagementSystem.Manager
             return _categoryRepository.Search(name,code);
         }
 
-
-        public List<Category> SearchCode(Category category)
-        {
-
-            return _categoryRepository.SearchCode(category);
-        }
-
-
-
     }
 }

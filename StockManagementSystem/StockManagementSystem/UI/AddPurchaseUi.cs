@@ -13,6 +13,7 @@ namespace StockManagementSystem.UI
         CategoryManager _categoryManager = new CategoryManager();
         ProductManager _productManager = new ProductManager();
         SupplierManager _supplierManager = new SupplierManager();
+        SalesManager _salesManager=new SalesManager();
 
         //List<Purchase> _purchases = new List<Purchase>();
 
@@ -265,9 +266,16 @@ namespace StockManagementSystem.UI
             previousUnitPriceTextbox.Enabled = false;
             previousMRPTextBox.Enabled = false;
 
-            availableQuantityTextBox.Text = purchase.Quantity.ToString();
             previousUnitPriceTextbox.Text = purchase.UnitPrice.ToString();
             previousMRPTextBox.Text = purchase.MRP.ToString();
+
+
+
+            int totalPurchaseQuantity = _purchaseManager.GetTotalProductById(productId);
+            int totalSaleQuantity = _salesManager.GetTotalProductById(productId);
+
+            int availableQuantity = totalPurchaseQuantity - totalSaleQuantity;
+            availableQuantityTextBox.Text = availableQuantity.ToString();
 
 
         }

@@ -35,13 +35,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesReportUiController));
             this.panel1 = new System.Windows.Forms.Panel();
             this.purchaseReportDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.purchaseEndDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.salesStartDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.purchaseReportViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.salesReportViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,10 +43,17 @@
             this.cPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salesPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salesReportViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.searchButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.purchaseEndDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.salesStartDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.purchaseReportViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseReportDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseReportViewModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesReportViewModelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseReportViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -123,6 +123,61 @@
             this.purchaseReportDataGridView.TabIndex = 21;
             this.purchaseReportDataGridView.TabStop = false;
             // 
+            // Sl
+            // 
+            this.Sl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Sl.HeaderText = "#";
+            this.Sl.Name = "Sl";
+            this.Sl.Width = 43;
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            // 
+            // soldQtyDataGridViewTextBoxColumn
+            // 
+            this.soldQtyDataGridViewTextBoxColumn.DataPropertyName = "SoldQty";
+            this.soldQtyDataGridViewTextBoxColumn.HeaderText = "SoldQty";
+            this.soldQtyDataGridViewTextBoxColumn.Name = "soldQtyDataGridViewTextBoxColumn";
+            // 
+            // cPDataGridViewTextBoxColumn
+            // 
+            this.cPDataGridViewTextBoxColumn.DataPropertyName = "CP";
+            this.cPDataGridViewTextBoxColumn.HeaderText = "CP";
+            this.cPDataGridViewTextBoxColumn.Name = "cPDataGridViewTextBoxColumn";
+            // 
+            // salesPriceDataGridViewTextBoxColumn
+            // 
+            this.salesPriceDataGridViewTextBoxColumn.DataPropertyName = "SalesPrice";
+            this.salesPriceDataGridViewTextBoxColumn.HeaderText = "SalesPrice";
+            this.salesPriceDataGridViewTextBoxColumn.Name = "salesPriceDataGridViewTextBoxColumn";
+            // 
+            // profitDataGridViewTextBoxColumn
+            // 
+            this.profitDataGridViewTextBoxColumn.DataPropertyName = "Profit";
+            this.profitDataGridViewTextBoxColumn.HeaderText = "Profit";
+            this.profitDataGridViewTextBoxColumn.Name = "profitDataGridViewTextBoxColumn";
+            // 
+            // salesReportViewModelBindingSource
+            // 
+            this.salesReportViewModelBindingSource.DataSource = typeof(StockManagementSystem.Model.SalesReportViewModel);
+            // 
             // searchButton
             // 
             this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -183,61 +238,6 @@
             // 
             this.purchaseReportViewModelBindingSource.DataSource = typeof(StockManagementSystem.Model.PurchaseReportViewModel);
             // 
-            // salesReportViewModelBindingSource
-            // 
-            this.salesReportViewModelBindingSource.DataSource = typeof(StockManagementSystem.Model.SalesReportViewModel);
-            // 
-            // Sl
-            // 
-            this.Sl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Sl.HeaderText = "#";
-            this.Sl.Name = "Sl";
-            this.Sl.Width = 43;
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            // 
-            // soldQtyDataGridViewTextBoxColumn
-            // 
-            this.soldQtyDataGridViewTextBoxColumn.DataPropertyName = "SoldQty";
-            this.soldQtyDataGridViewTextBoxColumn.HeaderText = "SoldQty";
-            this.soldQtyDataGridViewTextBoxColumn.Name = "soldQtyDataGridViewTextBoxColumn";
-            // 
-            // cPDataGridViewTextBoxColumn
-            // 
-            this.cPDataGridViewTextBoxColumn.DataPropertyName = "CP";
-            this.cPDataGridViewTextBoxColumn.HeaderText = "CP";
-            this.cPDataGridViewTextBoxColumn.Name = "cPDataGridViewTextBoxColumn";
-            // 
-            // salesPriceDataGridViewTextBoxColumn
-            // 
-            this.salesPriceDataGridViewTextBoxColumn.DataPropertyName = "SalesPrice";
-            this.salesPriceDataGridViewTextBoxColumn.HeaderText = "SalesPrice";
-            this.salesPriceDataGridViewTextBoxColumn.Name = "salesPriceDataGridViewTextBoxColumn";
-            // 
-            // profitDataGridViewTextBoxColumn
-            // 
-            this.profitDataGridViewTextBoxColumn.DataPropertyName = "Profit";
-            this.profitDataGridViewTextBoxColumn.HeaderText = "Profit";
-            this.profitDataGridViewTextBoxColumn.Name = "profitDataGridViewTextBoxColumn";
-            // 
             // SalesReportUiController
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -250,10 +250,11 @@
             this.Controls.Add(this.label4);
             this.Name = "SalesReportUiController";
             this.Size = new System.Drawing.Size(1126, 612);
+            this.Load += new System.EventHandler(this.SalesReportUiController_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.purchaseReportDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseReportViewModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesReportViewModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseReportViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

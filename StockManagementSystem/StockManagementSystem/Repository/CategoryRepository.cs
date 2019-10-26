@@ -37,7 +37,6 @@ namespace StockManagementSystem.Repository
             return isAdded;
         }
 
-
         public bool UpdateCategory(Category category)
         {
             bool isUpdated = false;
@@ -243,56 +242,12 @@ namespace StockManagementSystem.Repository
 
                 }
 
-            
-
                 sqlConnection.Close();
             }
 
             return categories;
 
         }
-
-        public List<Category> SearchCode(Category category)
-        {
-
-            List<Category> categories = new List<Category>();
-
-            //Connection
-             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
-            {
-                //Command 
-
-                string queryString = @"SELECT * FROM Categories WHERE Code='" + category.Code + " '";
-
-                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
-
-                //Open
-                sqlConnection.Open();
-
-                //Show
-
-                SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
-
-                while (sqlDataReader.Read())
-                {
-                    // Category category = new Category();
-                    category.Id = Convert.ToInt32(sqlDataReader["Id"]);
-                    category.Code = sqlDataReader["Code"].ToString();
-                    category.Name = sqlDataReader["Name"].ToString();
-
-                    categories.Add(category);
-
-                }
-
-
-
-                sqlConnection.Close();
-            }
-
-            return categories;
-
-        }
-
 
     }
 }

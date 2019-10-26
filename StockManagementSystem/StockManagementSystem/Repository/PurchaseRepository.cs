@@ -136,6 +136,37 @@ namespace StockManagementSystem.Repository
 
             return code;
         }
-       
+
+        public int GetTotalProductById(int id)
+        {
+            int totalQuantity = 0;
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string queryString = @"SELECT p.MRP,SUM(p.Quantity) AS TotalQuantity FROM Purchases as p where p.ProductId="+id+" Group by p.ProductId,p.MRP ";
+                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
+
+                //open connection
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
+                if (sqlDataReader.HasRows)
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        totalQuantity = Convert.ToInt32(sqlDataReader["TotalQuantity"]);
+                        break;
+                    }
+                }
+               
+
+                //close connection
+                sqlConnection.Close();
+
+            }
+
+            return totalQuantity;
+
+        }
+
     }
 }

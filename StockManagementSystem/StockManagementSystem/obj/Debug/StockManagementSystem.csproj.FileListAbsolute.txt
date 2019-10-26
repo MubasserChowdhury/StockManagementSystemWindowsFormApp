@@ -66,7 +66,6 @@ D:\Project-01\Project -01\My Brance\StockManagementSystem\StockManagementSystem\
 D:\Project-01\My Brance\StockManagementSystem\StockManagementSystem\bin\Debug\StockManagementSystem.exe.config
 D:\Project-01\My Brance\StockManagementSystem\StockManagementSystem\bin\Debug\StockManagementSystem.exe
 D:\Project-01\My Brance\StockManagementSystem\StockManagementSystem\bin\Debug\StockManagementSystem.pdb
-D:\Project-01\My Brance\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.csprojAssemblyReference.cache
 D:\Project-01\My Brance\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.Properties.Resources.resources
 D:\Project-01\My Brance\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.UI.AddCategoryUi.resources
 D:\Project-01\My Brance\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.UI.AddCustomerUi.resources
@@ -115,3 +114,4 @@ E:\Visual_studio\Project\StockManagementSystemWindowsFormApp-master\New folder\S
 E:\Visual_studio\Project\StockManagementSystemWindowsFormApp-master\New folder\StockManagementSystemWindowsFormApp\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.csproj.CoreCompileInputs.cache
 E:\Visual_studio\Project\StockManagementSystemWindowsFormApp-master\New folder\StockManagementSystemWindowsFormApp\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.exe
 E:\Visual_studio\Project\StockManagementSystemWindowsFormApp-master\New folder\StockManagementSystemWindowsFormApp\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.pdb
+D:\Project-01\My Brance\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.csprojAssemblyReference.cache

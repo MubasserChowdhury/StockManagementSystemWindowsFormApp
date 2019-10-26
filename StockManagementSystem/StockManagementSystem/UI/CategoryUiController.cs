@@ -40,15 +40,34 @@ namespace StockManagementSystem.UI
                 MessageBox.Show(@"search box Can not be Empty!!!");
                 return;
             }
+            List<Category> categories=new List<Category>();
 
             if (nameRadioButton.Checked == true)
             {
 
-                categoryDataGridView.DataSource = _categoryManager.Search(nameRadioButton.Text, "");
+                categories = _categoryManager.Search(searchTextBox.Text, "");
+                if (categories.Count != 0)
+                {
+                    categoryDataGridView.DataSource = categories;
+                }
+                else
+                {
+                    categoryDataGridView.DataSource = null;
+                    MessageBox.Show(@"No Result Found", @"Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
-                categoryDataGridView.DataSource = _categoryManager.Search("", codeRadioButton.Text);
+                categories = _categoryManager.Search("", searchTextBox.Text);
+                if (categories.Count != 0)
+                {
+                    categoryDataGridView.DataSource = categories;
+                }
+                else
+                {
+                    categoryDataGridView.DataSource = null;
+                    MessageBox.Show(@"No Result Found", @"Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 

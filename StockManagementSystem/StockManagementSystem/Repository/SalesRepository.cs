@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
-using StockManagementSystem.Model;
+ using System.Windows.Forms;
+ using StockManagementSystem.Model;
 
 namespace StockManagementSystem.Repository
 {
@@ -24,7 +25,7 @@ namespace StockManagementSystem.Repository
                 sqlConnection.Open();
                 foreach (var sale in sales)
                 {
-                    string queryString = @"INSERT INTO Sales VALUES(" + sale.CustomerId + "," + sale.ProductId + ",'" + sale.Code + "','" + sale.InvoiceNo + "','" + sale.Date + "'," + sale.Quantity + "," + sale.MRP + "," + sale.TotalMRP + ");";
+                    string queryString = @"INSERT INTO Sales VALUES(" + sale.CustomerId + "," + sale.ProductId + ",'" + sale.Code + "','" + sale.Date + "'," + sale.Quantity + "," + sale.MRP + "," + sale.TotalMRP + ");";
                     SqlCommand sqlCommand = new SqlCommand(queryString, sqlConnection);
 
 
@@ -44,32 +45,7 @@ namespace StockManagementSystem.Repository
             return isAdded;
         }
 
-        public Sale Quantity()
-        {
-            Sale sale = new Sale();
-            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
-            {
-                string queryString = @" select (sum(i.Quantity - r.Quantity)) AS  AvailableQuantity from Purchases i  
-                  JOIN Sales r  ON i.ProductId = r.ProductId GROUP BY i.ProductId,r.ProductId";
-                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
-                //open connection
-                sqlConnection.Open();
-
-                SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
-                while (sqlDataReader.Read())
-                {
-                    sale.Quantity = Convert.ToInt32(sqlDataReader["Quantity"]);
-                    break;
-                }
-
-                //close connection
-                sqlConnection.Close();
-
-            }
-
-            return sale;
-
-        }
+      
         public string GetLastSaleCode()
         {
             string code = "";
@@ -115,7 +91,6 @@ namespace StockManagementSystem.Repository
 
                     sale.Id = Convert.ToInt32(sqlDataReader["id"]);
                     sale.Date = sqlDataReader["Date"].ToString();
-                    sale.InvoiceNo = sqlDataReader["InvoiceNo"].ToString();
                     sale.CustomerId = Convert.ToInt32(sqlDataReader["CustomerId"]);
                     sale.ProductId = Convert.ToInt32(sqlDataReader["ProductId"]);
                 
@@ -131,6 +106,34 @@ namespace StockManagementSystem.Repository
             }
 
             return sale;
+        }
+
+        public int GetTotalProductById(int id)
+        {
+            int totalQuantity = 0;
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string queryString = @"SELECT s.MRP,SUM(s.Quantity) AS TotalQuantity FROM Sales as s where s.ProductId=" + id + " Group by s.ProductId,s.MRP ";
+                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
+
+                //open connection
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    //MessageBox.Show(sqlDataReader["TotalQuantity"].ToString());
+                    totalQuantity = Convert.ToInt32(sqlDataReader["TotalQuantity"]);
+                    break;
+                }
+
+                //close connection
+                sqlConnection.Close();
+
+            }
+
+            return totalQuantity;
+
         }
 
     }

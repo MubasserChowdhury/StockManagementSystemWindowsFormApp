@@ -22,10 +22,11 @@ namespace StockManagementSystem.Manager
             return _salesRepository.GetLastSaleCode();
         }
 
-        //public string GetProductName()
-        //{
-        //    return GetProductName();
-        //}
-            
+        public int GetTotalProductById(int id)
+        {
+            return _salesRepository.GetTotalProductById(id);
+        }
+
+
     }
 }

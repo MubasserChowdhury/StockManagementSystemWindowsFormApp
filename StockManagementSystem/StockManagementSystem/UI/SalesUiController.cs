@@ -18,14 +18,16 @@ namespace StockManagementSystem.UI
         ProductManager _productManager = new ProductManager();
         SalesManager _salesManager=new SalesManager();
         CustomerManager _customerManager = new CustomerManager();
+        PurchaseManager _purchaseManager=new PurchaseManager();
         public List<Sale> _sales = new List<Sale>();
 
+        private double loyaltyPoint = 0;
         public SalesUiController()
         {
             InitializeComponent();
 
             //ClearAllErrorLabel();
-            codeTextBox.Text = GenerateSaleCodeBeforeSubmit();
+             GenerateSaleCodeBeforeSubmit();
 
             categoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             categoryComboBox.DataSource = _categoryManager.GetAllCategoryForComboBox();
@@ -33,16 +35,100 @@ namespace StockManagementSystem.UI
             customerComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             customerComboBox.DataSource = _customerManager.GetAllCustomerForComboBox();
         }
-       
-
-
+        
         private void SalesUiController_Load(object sender, EventArgs e)
         {
             ClearAllErrorLabel();
+            loyaltyPointTextBox.Text = loyaltyPoint.ToString();
         }
+        private void addSaleButton_Click(object sender, EventArgs e)
+        {
+            Sale sale = new Sale();
 
-       
+            if (Convert.ToInt32(customerComboBox.SelectedValue) == 0)
+            {
+                customerComboBoxErrorLabel.Text = @"Select a customer";
+                customerComboBox.Focus();
+                return;
+            }
+            if (Convert.ToInt32(categoryComboBox.SelectedValue) == 0)
+            {
+                categoryComboBoxErrorLabel.Text = @"Select a category !";
+                categoryComboBox.Focus();
+                return;
+            }
 
+            if (Convert.ToInt32(productComboBox.SelectedValue) == 0)
+            {
+                productComboBoxErrorLabel.Text = @"Select a product";
+                productComboBox.Focus();
+                return;
+            }
+            if (String.IsNullOrEmpty(quantityTextBox.Text))
+            {
+                quatityErrorLabel.Text = @"Quantity is required !";
+                quantityTextBox.Focus();
+                return;
+            }
+            if (String.IsNullOrEmpty(mrpTextBox.Text))
+            {
+                mrpErrorLabel.Text = @"MRP is required !";
+                mrpTextBox.Focus();
+            }
+
+            if (addSaleButton.Text == @"Add")
+            {
+                sale.Date = saleDateTimePicker.Text;
+                //sale.InvoiceNo = billNoTextBox.Text;
+                sale.Code = codeTextBox.Text;
+                sale.CustomerId = Convert.ToInt32(customerComboBox.SelectedValue);
+                sale.ProductId = Convert.ToInt32(productComboBox.SelectedValue);
+                sale.Product = productComboBox.Text;
+                sale.Quantity = Convert.ToInt32(quantityTextBox.Text);
+                sale.MRP = Convert.ToDouble(mrpTextBox.Text);
+                sale.TotalMRP = Convert.ToInt32(totalMrpTextBox.Text);
+
+                grandtotalTextBox.Text = sale.TotalMRP.ToString();
+                _sales.Add(sale);
+
+
+                ShowAllSales();
+            }
+            else
+            {
+                int index = 0;
+                foreach (var itemSale in _sales)
+                {
+
+                    if (itemSale.Code == codeTextBox.Text)
+                    {
+                        sale = _sales.ElementAt(index);
+                        break;
+                    }
+                    index++;
+
+                }
+
+                sale.Date = saleDateTimePicker.Text;
+                //sale.InvoiceNo = billNoTextBox.Text;
+                sale.Code = codeTextBox.Text;
+                sale.CustomerId = Convert.ToInt32(customerComboBox.SelectedValue);
+                sale.ProductId = Convert.ToInt32(productComboBox.SelectedValue);
+                sale.Quantity = Convert.ToInt32(quantityTextBox.Text);
+                sale.MRP = Convert.ToDouble(mrpTextBox.Text);
+                sale.TotalMRP = Convert.ToDouble(totalMrpTextBox.Text);
+
+
+                MessageBox.Show(@"Updated successfully");
+                addSaleButton.Text = @"Add";
+
+            }
+
+            GrandTotal();
+            ClearAllTextBox();
+            ShowAllSales();
+            GenerateSaleCodeBeforeSubmit();
+        }
         public void ShowAllSales()
         {
             salesDataGridView.DataSource = null;
@@ -61,10 +147,21 @@ namespace StockManagementSystem.UI
                     {
                         if (salesDataGridView.CurrentRow != null) salesDataGridView.CurrentRow.Selected = true;
 
+                        //public int Id { get; set; }1
+                        //public string Date { get; set; }2
+                        //public string Code { get; set; }3
+                        //public int CustomerId { get; set; }4
+                        //public int ProductId { get; set; }5
+                        //public string Product { get; set; }6
+                        //public int Quantity { get; set; }7
+                        //public double MRP { get; set; }8
+                        //public double TotalMRP { get; set; }9
+
+
                         //id
                         saleDateTimePicker.Text = salesDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
-                        billNoTextBox.Text = salesDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
-
+                      
+                        codeTextBox.Text = salesDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
                         customerComboBox.SelectedValue = Convert.ToInt32(salesDataGridView.Rows[e.RowIndex].Cells[4].Value);
 
                         //product id
@@ -80,10 +177,10 @@ namespace StockManagementSystem.UI
                         productComboBox.SelectedValue = id;
 
 
-                        codeTextBox.Text = salesDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
-                        textBox1.Text = salesDataGridView.Rows[e.RowIndex].Cells[8].Value.ToString();
-                        mrpTextBox.Text = salesDataGridView.Rows[e.RowIndex].Cells[9].Value.ToString();
-                        totalMrpTextBox.Text = salesDataGridView.Rows[e.RowIndex].Cells[10].Value.ToString();
+                        
+                        quantityTextBox.Text = salesDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
+                        mrpTextBox.Text = salesDataGridView.Rows[e.RowIndex].Cells[8].Value.ToString();
+                        totalMrpTextBox.Text = salesDataGridView.Rows[e.RowIndex].Cells[9].Value.ToString();
 
                         //MessageBox.Show(Sl + "");
 
@@ -106,7 +203,7 @@ namespace StockManagementSystem.UI
                     MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    codeTextBox.Text = salesDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
+                    codeTextBox.Text = salesDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
                     int index = 0;
                     Sale sale1 = new Sale();
 
@@ -136,21 +233,21 @@ namespace StockManagementSystem.UI
         
     }
 
-        public string GenerateSaleCodeBeforeSubmit()
+        public void GenerateSaleCodeBeforeSubmit()
         {
             if (_sales.Count > 0)
             {
                 Sale ph = new Sale();
                 ph = _sales.ElementAt(_sales.Count - 1);
-                return GenerateSaleCode(ph.Code);
+                GenerateSaleCode(ph.Code);
             }
             else
             {
-                return GenerateSaleCode(_salesManager.GetLastSaleCode());
+                 GenerateSaleCode(_salesManager.GetLastSaleCode());
             }
         }
 
-        private string GenerateSaleCode(string lastSaleCode)
+        private void GenerateSaleCode(string lastSaleCode)
         {
             string code = "";
 
@@ -167,8 +264,8 @@ namespace StockManagementSystem.UI
                 int number = int.Parse(serialNo);
                 code = year + "-" + (++number).ToString("D" + serialNo.Length);
             }
-            
-            return code;
+
+            codeTextBox.Text = code;
 
         }
 
@@ -182,92 +279,100 @@ namespace StockManagementSystem.UI
 
         private void productComboBox_TextUpdate(object sender, EventArgs e)
         {
-
+            productComboBoxErrorLabel.Text = "";
         }
 
         private void productComboBox_TextChanged(object sender, EventArgs e)
         {
-            int productId = Convert.ToInt32(productComboBox.SelectedValue);
-            Sale sale = new Sale();
+            if (Convert.ToInt32(productComboBox.SelectedValue)>0)
+            {
+                int productId = Convert.ToInt32(productComboBox.SelectedValue);
+
+                int totalPurchaseQuantity = _purchaseManager.GetTotalProductById(productId);
+                int totalSaleQuantity = _salesManager.GetTotalProductById(productId);
+
+                int availableQuantity = totalPurchaseQuantity - totalSaleQuantity;
+
+                //MessageBox.Show("purchase      " + totalPurchaseQuantity.ToString());
+                //MessageBox.Show("Sale        " + totalSaleQuantity.ToString());
+                availableQuantityTextBox.Text = availableQuantity.ToString();
 
 
+                Purchase purchase=new Purchase();
 
+                purchase = _purchaseManager.GetLastPurchasesProductInfoById(productId);
+
+                mrpTextBox.Text = purchase.MRP.ToString();
+
+            }
 
         }
 
         private void customerComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loyaltyPointTextBox.Text = _customerManager.GetCustomerLoyaltyPointById(Convert.ToInt32(customerComboBox.SelectedValue)).ToString();
-        }
+            customerComboBoxErrorLabel.Text = "";
 
-        private void totalMrpTextBox_TextChanged(object sender, EventArgs e)
+            loyaltyPoint =
+                _customerManager.GetCustomerLoyaltyPointById(Convert.ToInt32(customerComboBox.SelectedValue));
+                loyaltyPointTextBox.Text = loyaltyPoint.ToString();
+            if (Convert.ToInt32(customerComboBox.SelectedValue)>0)
+            {
+                customerComboBox.Enabled = false;
+            }
+           
+        }
+        private void quantityTextBox_TextChanged(object sender, EventArgs e)
         {
+            quatityErrorLabel.Text = "";
+            if (mrpTextBox.TextLength > 0 && quantityTextBox.Text.Length > 0)
+            {
+                totalMrpTextBox.Text =
+                    (Convert.ToInt32(quantityTextBox.Text) * Convert.ToDouble(mrpTextBox.Text)).ToString();
+            }
+            else
+            {
+                totalMrpTextBox.Text = "0";
+            }
 
         }
 
         private void mrpTextBox_TextChanged(object sender, EventArgs e)
         {
-            
+            quatityErrorLabel.Text = "";
+            if (mrpTextBox.TextLength > 0 && quantityTextBox.Text.Length > 0)
+            {
+                totalMrpTextBox.Text =
+                    (Convert.ToInt32(quantityTextBox.Text) * Convert.ToDouble(mrpTextBox.Text)).ToString();
+            }
+            else
+            {
+                totalMrpTextBox.Text = "0";
+            }
         }
 
-        private void addSaleButton_Click(object sender, EventArgs e)
+        public void GrandTotal()
         {
-            Sale sale = new Sale();
-            sale.InvoiceNo = billNoTextBox.Text;
-
-
-            if (addSaleButton.Text == @"Add")
+            double grandTotal = 0;
+            foreach (var itemSale in _sales)
             {
-                sale.Date = saleDateTimePicker.Text;
-                sale.InvoiceNo = billNoTextBox.Text;
-                sale.Code = codeTextBox.Text;
-                sale.CustomerId = Convert.ToInt32(customerComboBox.SelectedValue);
-                sale.ProductId = Convert.ToInt32(productComboBox.SelectedValue);
-                sale.Product = productComboBox.Text;
-                sale.Quantity = Convert.ToInt32(textBox1.Text);
-                sale.MRP = Convert.ToDouble(mrpTextBox.Text);
-                //sale.TotalMRP = Convert.ToDouble(totalMrpTextBox.Text);
-                sale.TotalMRP = 11;
-                _sales.Add(sale);
-                ShowAllSales();
+                grandTotal += itemSale.TotalMRP;
+
             }
-            if (addSaleButton.Text==@"Update")
-            {
-                int index = 0;
-                foreach (var itemSale in _sales)
-                {
 
-                    if (itemSale.Code == codeTextBox.Text)
-                    {
-                        sale = _sales.ElementAt(index);
-                        break;
-                    }
-                    index++;
+            grandtotalTextBox.Text = grandTotal.ToString();
+            double loyaltyPoint =
+                _customerManager.GetCustomerLoyaltyPointById(Convert.ToInt32(customerComboBox.SelectedValue));
+            discountTextbox.Text = (loyaltyPoint / 10).ToString();
 
-                }
+            discountAmountTextBox.Text = (grandTotal * (loyaltyPoint / 10) / 100).ToString();
 
-                sale.Date = saleDateTimePicker.Text;
-                sale.InvoiceNo = billNoTextBox.Text;
-                sale.Code = codeTextBox.Text;
-                sale.CustomerId = Convert.ToInt32(customerComboBox.SelectedValue);
-                sale.ProductId = Convert.ToInt32(productComboBox.SelectedValue);
-                sale.Quantity = Convert.ToInt32(textBox1.Text);
-                sale.MRP = Convert.ToDouble(mrpTextBox.Text);
-                //sale.TotalMRP = Convert.ToDouble(totalMrpTextBox.Text);
+            payableAmountTextBox.Text = (grandTotal - Convert.ToInt32(discountAmountTextBox.Text)).ToString();
 
-
-                MessageBox.Show(@"Updated successfully");
-                addSaleButton.Text = @"Add";
-                
-            }
-            ClearAllTextBox();
-            ShowAllSales();
         }
-
         public void ClearAllErrorLabel()
         {
 
-            invoiceNoErrorLabel.Text = "";
+          
             customerComboBoxErrorLabel.Text = "";
             productComboBoxErrorLabel.Text = "";
             quatityErrorLabel.Text = "";
@@ -278,13 +383,11 @@ namespace StockManagementSystem.UI
         public void ClearAllTextBox()
         {
             saleDateTimePicker.CustomFormat = "yyyy-MM-dd";
-            billNoTextBox.Clear();
-            customerComboBox.SelectedValue = 0;
+            //customerComboBox.SelectedValue = 0;
             categoryComboBox.SelectedValue = 0;
             productComboBox.SelectedValue = 0;
             codeTextBox.Clear();
-            availableQuantityTextBox.Clear();
-            textBox1.Clear();
+            quantityTextBox.Clear();
             totalMrpTextBox.Clear();
             availableQuantityTextBox.Clear();
             mrpTextBox.Clear();
@@ -319,6 +422,38 @@ namespace StockManagementSystem.UI
                 }
             }
 
+        }
+
+        private void salesDataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            this.salesDataGridView.Rows[e.RowIndex].Cells["Sl"].Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void quantityTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char chr = e.KeyChar;
+            if (!Char.IsDigit(chr) && chr != 8)
+            {
+                e.Handled = true;
+                quatityErrorLabel.Text = @"Only numeric value !";
+                return;
+            }
+        }
+
+        private void mrpTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char chr = e.KeyChar;
+            if (!Char.IsDigit(chr) && chr != 8)
+            {
+                e.Handled = true;
+                mrpErrorLabel.Text = @"Only numeric value !";
+;               return;
+            }
+        }
+
+        private void productComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            productComboBoxErrorLabel.Text = "";
         }
     }
 }

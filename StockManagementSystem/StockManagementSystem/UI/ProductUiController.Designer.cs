@@ -34,7 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.showAllButton = new System.Windows.Forms.Button();
             this.searchTextBoxErrorLabel = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.codeRadioButton = new System.Windows.Forms.RadioButton();
             this.nameRadioButton = new System.Windows.Forms.RadioButton();
             this.searchButton = new System.Windows.Forms.Button();
@@ -44,10 +43,6 @@
             this.searchByNameOrCodeTextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.productDataGridView = new System.Windows.Forms.DataGridView();
-            this.productViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.addProduct = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.topPanel = new System.Windows.Forms.Panel();
             this.Sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +51,10 @@
             this.reorderLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.productViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addProduct = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.topPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
@@ -89,15 +88,6 @@
             this.searchTextBoxErrorLabel.Size = new System.Drawing.Size(81, 20);
             this.searchTextBoxErrorLabel.TabIndex = 6;
             this.searchTextBoxErrorLabel.Text = "Error Label";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(400, 12);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(23, 20);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "or";
             // 
             // codeRadioButton
             // 
@@ -238,55 +228,6 @@
             this.productDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productDataGridView_CellContentClick);
             this.productDataGridView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.productDataGridView_RowPostPaint);
             // 
-            // productViewModelBindingSource
-            // 
-            this.productViewModelBindingSource.DataSource = typeof(StockManagementSystem.ViewModel.ProductViewModel);
-            // 
-            // addProduct
-            // 
-            this.addProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.addProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addProduct.FlatAppearance.BorderSize = 0;
-            this.addProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addProduct.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addProduct.ForeColor = System.Drawing.Color.White;
-            this.addProduct.Image = ((System.Drawing.Image)(resources.GetObject("addProduct.Image")));
-            this.addProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addProduct.Location = new System.Drawing.Point(10, 55);
-            this.addProduct.Name = "addProduct";
-            this.addProduct.Size = new System.Drawing.Size(137, 31);
-            this.addProduct.TabIndex = 10;
-            this.addProduct.Text = "       Add Product";
-            this.addProduct.UseVisualStyleBackColor = false;
-            this.addProduct.Click += new System.EventHandler(this.addProduct_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.searchTextBoxErrorLabel);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.codeRadioButton);
-            this.groupBox3.Controls.Add(this.nameRadioButton);
-            this.groupBox3.Controls.Add(this.searchButton);
-            this.groupBox3.Controls.Add(this.searchByCategoryComboBox);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.searchByNameOrCodeTextBox);
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(211, 43);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(603, 99);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Search";
-            // 
-            // topPanel
-            // 
-            this.topPanel.BackColor = System.Drawing.Color.White;
-            this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.topPanel.Location = new System.Drawing.Point(0, 0);
-            this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(1120, 32);
-            this.topPanel.TabIndex = 6;
-            // 
             // Sl
             // 
             this.Sl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -348,6 +289,54 @@
             this.Edit.Name = "Edit";
             this.Edit.Width = 51;
             // 
+            // productViewModelBindingSource
+            // 
+            this.productViewModelBindingSource.DataSource = typeof(StockManagementSystem.ViewModel.ProductViewModel);
+            // 
+            // addProduct
+            // 
+            this.addProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.addProduct.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addProduct.FlatAppearance.BorderSize = 0;
+            this.addProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addProduct.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addProduct.ForeColor = System.Drawing.Color.White;
+            this.addProduct.Image = ((System.Drawing.Image)(resources.GetObject("addProduct.Image")));
+            this.addProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addProduct.Location = new System.Drawing.Point(10, 55);
+            this.addProduct.Name = "addProduct";
+            this.addProduct.Size = new System.Drawing.Size(137, 31);
+            this.addProduct.TabIndex = 10;
+            this.addProduct.Text = "       Add Product";
+            this.addProduct.UseVisualStyleBackColor = false;
+            this.addProduct.Click += new System.EventHandler(this.addProduct_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.searchTextBoxErrorLabel);
+            this.groupBox3.Controls.Add(this.codeRadioButton);
+            this.groupBox3.Controls.Add(this.nameRadioButton);
+            this.groupBox3.Controls.Add(this.searchButton);
+            this.groupBox3.Controls.Add(this.searchByCategoryComboBox);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.searchByNameOrCodeTextBox);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(211, 43);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(603, 99);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Search";
+            // 
+            // topPanel
+            // 
+            this.topPanel.BackColor = System.Drawing.Color.White;
+            this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.topPanel.Location = new System.Drawing.Point(0, 0);
+            this.topPanel.Name = "topPanel";
+            this.topPanel.Size = new System.Drawing.Size(1120, 32);
+            this.topPanel.TabIndex = 6;
+            // 
             // ProductUiController
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -375,7 +364,6 @@
 
         private System.Windows.Forms.Button showAllButton;
         private System.Windows.Forms.Label searchTextBoxErrorLabel;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RadioButton codeRadioButton;
         private System.Windows.Forms.RadioButton nameRadioButton;
         private System.Windows.Forms.Button searchButton;
