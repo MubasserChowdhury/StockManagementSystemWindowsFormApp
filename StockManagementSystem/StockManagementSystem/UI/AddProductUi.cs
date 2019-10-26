@@ -209,7 +209,7 @@ namespace StockManagementSystem.UI
 
         private void AddProductUi_Load(object sender, EventArgs e)
         {
-            reorderLevelNumericUpDown.Text = "10";
+            //reorderLevelNumericUpDown.Text = "0";
 
             categoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 

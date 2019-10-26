@@ -114,7 +114,6 @@ E:\Visual_studio\Project\StockManagementSystemWindowsFormApp-master\New folder\S
 E:\Visual_studio\Project\StockManagementSystemWindowsFormApp-master\New folder\StockManagementSystemWindowsFormApp\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.csproj.CoreCompileInputs.cache
 E:\Visual_studio\Project\StockManagementSystemWindowsFormApp-master\New folder\StockManagementSystemWindowsFormApp\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.exe
 E:\Visual_studio\Project\StockManagementSystemWindowsFormApp-master\New folder\StockManagementSystemWindowsFormApp\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.pdb
-D:\Project-01\My Brance\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.csprojAssemblyReference.cache
 D:\Bitm- Seip '19\Project Stosk_management\main02\StockManagementSystem\New folder\StockManagementSystem\StockManagementSystem\bin\Debug\StockManagementSystem.exe.config
 D:\Bitm- Seip '19\Project Stosk_management\main02\StockManagementSystem\New folder\StockManagementSystem\StockManagementSystem\bin\Debug\StockManagementSystem.exe
 D:\Bitm- Seip '19\Project Stosk_management\main02\StockManagementSystem\New folder\StockManagementSystem\StockManagementSystem\bin\Debug\StockManagementSystem.pdb
@@ -141,3 +140,4 @@ D:\Bitm- Seip '19\Project Stosk_management\main02\StockManagementSystem\New fold
 D:\Bitm- Seip '19\Project Stosk_management\main02\StockManagementSystem\New folder\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.csproj.CoreCompileInputs.cache
 D:\Bitm- Seip '19\Project Stosk_management\main02\StockManagementSystem\New folder\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.exe
 D:\Bitm- Seip '19\Project Stosk_management\main02\StockManagementSystem\New folder\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.pdb
+D:\Project-01\My Brance\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.csprojAssemblyReference.cache

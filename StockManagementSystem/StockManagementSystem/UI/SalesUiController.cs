@@ -21,7 +21,7 @@ namespace StockManagementSystem.UI
         PurchaseManager _purchaseManager=new PurchaseManager();
         public List<Sale> _sales = new List<Sale>();
 
-        //private double loyaltyPoint = 0;
+        private double customerLoyaltyPoint;
         public SalesUiController()
         {
             InitializeComponent();
@@ -244,8 +244,11 @@ namespace StockManagementSystem.UI
 
 
             }
-        
-    }
+
+            GrandTotal();
+
+
+        }
 
         public void GenerateSaleCodeBeforeSubmit()
         {
@@ -408,11 +411,13 @@ namespace StockManagementSystem.UI
             int discountPercentage =loyaltyPoint / 10;
             discountTextbox.Text = discountPercentage.ToString();
 
-            discountAmountTextBox.Text = (grandTotal * discountPercentage/100).ToString();
+            discountAmountTextBox.Text = ((int)(grandTotal * discountPercentage/100)).ToString();
 
             payableAmountTextBox.Text = (grandTotal - Convert.ToInt32(discountAmountTextBox.Text)).ToString();
 
 
+            //for saving customer table
+            customerLoyaltyPoint = loyaltyPoint - (loyaltyPoint / 10) + (grandTotal / 1000);
 
         }
         public void ClearAllErrorLabel()
@@ -450,12 +455,18 @@ namespace StockManagementSystem.UI
                 {
                     if (_salesManager.AddSale(_sales))
                     {
+                        _customerManager.UpdateCustomerLoyaltyPoint(Convert.ToInt32(customerComboBox.SelectedValue),
+                            customerLoyaltyPoint);
 
                         salesDataGridView.DataSource = null;
                         MessageBox.Show(@"Saved SuccessFully", @"Message Box", MessageBoxButtons.OK);
                         _sales.Clear();
                         //get next purchase code
                         GenerateSaleCodeBeforeSubmit();
+                        grandtotalTextBox.Text = "";
+                        discountTextbox.Text = "";
+                        discountAmountTextBox.Text = "";
+                        payableAmountTextBox.Text = "";
                     }
                     else
                     {

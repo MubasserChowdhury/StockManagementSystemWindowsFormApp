@@ -37,5 +37,14 @@ namespace StockManagementSystem.Manager
             return _purchaseRepository.GetTotalProductById(id);
         }
 
+        public int GetTotalProductByIdAndDate(int id, string date)
+        {
+            return _purchaseRepository.GetTotalProductByIdAndDate(id, date);
+        }
+
+        public int GetTotalProductByIdAndStartAndEndDate(int id, string startDate, string endDate)
+        {
+            return _purchaseRepository.GetTotalProductByIdAndStartAndEndDate(id, startDate, endDate);
+        }
     }
 }

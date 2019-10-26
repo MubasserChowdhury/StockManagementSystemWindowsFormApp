@@ -95,7 +95,7 @@ namespace StockManagementSystem.UI
                 else
                 {
                     customerDataGridView.DataSource = null;
-                    MessageBox.Show(@"No Result Found", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(@"No Result Found", @"Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             if (emailRadioButton.Checked == true)

@@ -45,7 +45,6 @@ namespace StockManagementSystem.Repository
             return isAdded;
         }
 
-      
         public string GetLastSaleCode()
         {
             string code = "";
@@ -70,42 +69,6 @@ namespace StockManagementSystem.Repository
             }
 
             return code;
-        }
-
-        public Sale GetLastSaleProductInfoById(int id)
-        {
-            Sale sale = new Sale();
-            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
-            {
-                string queryString = @"SELECT * FROM Sales WHERE Sales=" + id + " ORDER BY Id ";
-                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
-
-                //open connection
-                sqlConnection.Open();
-
-                SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
-
-
-                while (sqlDataReader.Read())
-                {
-
-                    sale.Id = Convert.ToInt32(sqlDataReader["id"]);
-                    sale.Date = sqlDataReader["Date"].ToString();
-                    sale.CustomerId = Convert.ToInt32(sqlDataReader["CustomerId"]);
-                    sale.ProductId = Convert.ToInt32(sqlDataReader["ProductId"]);
-                
-                    sale.Quantity = Convert.ToInt32(sqlDataReader["Quantity"]);
-
-                    sale.TotalMRP = Convert.ToDouble(sqlDataReader["TotalMRP"]);
-                    sale.MRP = Convert.ToDouble(sqlDataReader["MRP"]);
-
-                }
-
-                //close connection
-                sqlConnection.Close();
-            }
-
-            return sale;
         }
 
         public int GetTotalProductById(int id)
@@ -134,6 +97,66 @@ namespace StockManagementSystem.Repository
 
             return totalQuantity;
 
+        }
+
+        public int GetTotalProductByIdAndDate(int id, string date)
+        {
+            int totalQuantity = 0;
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string queryString = @"SELECT MRP,coalesce(Sum(Quantity),0) AS TotalQuantity FROM Sales WHERE ProductId=" + id + " AND Date<'" + date + "' GROUP BY ProductId,MRP ";
+                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
+
+                //open connection
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
+                if (sqlDataReader.HasRows)
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        totalQuantity = Convert.ToInt32(sqlDataReader["TotalQuantity"]);
+                        break;
+                    }
+                }
+
+
+                //close connection
+                sqlConnection.Close();
+
+            }
+
+            return totalQuantity;
+        }
+
+        public int GetTotalProductByIdAndStartAndEndDate(int id, string startDate, string endDate)
+        {
+            int totalQuantity = 0;
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string queryString = @"SELECT MRP,coalesce(Sum(Quantity),0) AS TotalQuantity FROM Sales WHERE ProductId=" + id + " AND Date BETWEEN '" + startDate + "' AND '" + endDate + "' GROUP BY ProductId,MRP ";
+                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
+
+                //open connection
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
+                if (sqlDataReader.HasRows)
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        totalQuantity = Convert.ToInt32(sqlDataReader["TotalQuantity"]);
+                        break;
+                    }
+                }
+
+
+                //close connection
+                sqlConnection.Close();
+
+            }
+
+            return totalQuantity;
         }
 
     }

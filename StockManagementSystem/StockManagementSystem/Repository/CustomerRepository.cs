@@ -285,5 +285,31 @@ namespace StockManagementSystem.Repository
 
             return code;
         }
+
+        public bool UpdateCustomerLoyaltyPoint(int customerId,double loyaltyPoint)
+        {
+            bool isUpdated = false;
+
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string queryString = @"UPDATE Customers SET LoyaltyPoint=" + loyaltyPoint + " WHERE Id=" + customerId + " ";
+                SqlCommand sqlCommand = new SqlCommand(queryString, sqlConnection);
+
+                //open connection
+                sqlConnection.Open();
+
+                int isExecuted = sqlCommand.ExecuteNonQuery();
+
+                //close connection
+                sqlConnection.Close();
+
+                if (isExecuted > 0)
+                {
+                    isUpdated = true;
+                }
+            }
+
+            return isUpdated;
+        }
     }
 }

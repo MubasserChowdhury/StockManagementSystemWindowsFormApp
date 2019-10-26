@@ -168,5 +168,65 @@ namespace StockManagementSystem.Repository
 
         }
 
+        public int GetTotalProductByIdAndDate(int id,string date)
+        {
+            int totalQuantity = 0;
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string queryString = @"SELECT MRP,coalesce(Sum(Quantity),0) AS TotalQuantity FROM Purchases WHERE ProductId=" + id + " AND Date<'"+date+"' GROUP BY ProductId,MRP ";
+                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
+
+                //open connection
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
+                if (sqlDataReader.HasRows)
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        totalQuantity = Convert.ToInt32(sqlDataReader["TotalQuantity"]);
+                        break;
+                    }
+                }
+
+
+                //close connection
+                sqlConnection.Close();
+
+            }
+
+            return totalQuantity;
+        }
+
+        public int GetTotalProductByIdAndStartAndEndDate(int id, string startDate,string endDate)
+        {
+            int totalQuantity = 0;
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string queryString = @"SELECT MRP,coalesce(Sum(Quantity),0) AS TotalQuantity FROM Purchases WHERE ProductId=" + id + " AND Date BETWEEN '"+startDate+"' AND '"+endDate+"' GROUP BY ProductId,MRP ";
+                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
+
+                //open connection
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
+                if (sqlDataReader.HasRows)
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        totalQuantity = Convert.ToInt32(sqlDataReader["TotalQuantity"]);
+                        break;
+                    }
+                }
+
+
+                //close connection
+                sqlConnection.Close();
+
+            }
+
+            return totalQuantity;
+        }
+
     }
 }

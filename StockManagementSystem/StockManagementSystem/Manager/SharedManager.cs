@@ -33,5 +33,15 @@ namespace StockManagementSystem.Manager
         }
 
 
+        public List<Stock> GetStockReport(string startDate, string endDate)
+        {
+            return _sharedRepository.GetStockReport(startDate,endDate);
+        }
+
+        public List<Stock> SearchStockReportByDate(string startDate, string endDate, int categoryId, int productId)
+        {
+            return _sharedRepository.SearchStockReportByDate(startDate, endDate,categoryId,productId);
+        }
+
     }
 }

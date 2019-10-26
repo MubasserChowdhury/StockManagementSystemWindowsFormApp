@@ -173,5 +173,130 @@ namespace StockManagementSystem.Repository
         }
 
 
+        public List<Stock> GetStockReport(string startDate, string endDate)
+        {
+            List<Stock> stocks = new List<Stock>();
+
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string queryString = @"SELECT p.Id, p.Code AS Code,
+                                    p.Name AS Product,
+                                    c.Name AS Category,p.ReorderLevel As ReorderLevel
+                                     FROM Purchases As pur
+                                     LEFT JOIN Sales AS s ON s.ProductId=pur.ProductId
+                                     LEFT JOIN Products As p ON pur.ProductId=p.Id 
+                                     LEFT JOIN Categories as c ON p.CategoryId=c.Id 
+                                     GROUP BY p.Id, p.Code,p.Name,p.ReorderLevel,c.Name,pur.ProductId";
+
+                SqlCommand sqlCommand = new SqlCommand(queryString, sqlConnection);
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+
+                while (sqlDataReader.Read())
+                {
+                    int productId = Convert.ToInt32(sqlDataReader["Id"]);
+                    int purchaseQty = _purchaseManager.GetTotalProductByIdAndDate(productId, startDate);
+                    int salesQty = _salesManager.GetTotalProductByIdAndDate(productId, startDate);
+
+                    int inQty = _purchaseManager.GetTotalProductByIdAndStartAndEndDate(productId, startDate, endDate);
+                    int outQty = _salesManager.GetTotalProductByIdAndStartAndEndDate(productId, startDate, endDate);
+
+                    Stock model = new Stock();
+                    model.Code = sqlDataReader["Code"].ToString();
+                    model.Product = sqlDataReader["Product"].ToString();
+                    model.Category = sqlDataReader["Category"].ToString();
+                    model.ReorderLevel = Convert.ToInt32(sqlDataReader["ReorderLevel"]);
+                    //model.ExpiredDate = "2019-10-26";
+                    //model.ExpiredQuantity = 3;
+                    model.OpeningBalance = purchaseQty - salesQty;
+                    model.In = inQty;
+                    model.Out = outQty;
+                    model.ClosingBalance =model.OpeningBalance+ inQty-outQty;
+
+                    stocks.Add(model);
+                }
+            }
+
+            return stocks;
+        }
+
+        public List<Stock> SearchStockReportByDate(string startDate, string endDate, int categoryId,int productId)
+        {
+            List<Stock> stocks = new List<Stock>();
+            string queryString = "";
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                if (categoryId!=0)
+                {
+                    queryString = @"SELECT p.Id, p.Code AS Code,
+                                    p.Name AS Product,
+                                    c.Name AS Category,p.ReorderLevel As ReorderLevel
+                                     FROM Purchases As pur
+                                     LEFT JOIN Sales AS s ON s.ProductId=pur.ProductId
+                                     LEFT JOIN Products As p ON pur.ProductId=p.Id 
+                                     LEFT JOIN Categories as c ON p.CategoryId=c.Id
+                                     WHERE c.Id = "+ categoryId + " GROUP BY p.Id, p.Code,p.Name,p.ReorderLevel,c.Name,pur.ProductId";
+                }
+
+                if (productId != 0)
+                {
+                    queryString = @"SELECT p.Id, p.Code AS Code,
+                                    p.Name AS Product,
+                                    c.Name AS Category,p.ReorderLevel As ReorderLevel
+                                     FROM Purchases As pur
+                                     LEFT JOIN Sales AS s ON s.ProductId=pur.ProductId
+                                     LEFT JOIN Products As p ON pur.ProductId=p.Id 
+                                     LEFT JOIN Categories as c ON p.CategoryId=c.Id 
+                                     WHERE p.Id = " + productId + "  GROUP BY p.Id, p.Code,p.Name,p.ReorderLevel,c.Name,pur.ProductId";
+                }
+
+                if (categoryId==0 && productId==0)
+                {
+                    queryString = @"SELECT p.Id, p.Code AS Code,
+                                    p.Name AS Product,
+                                    c.Name AS Category,p.ReorderLevel As ReorderLevel
+                                     FROM Purchases As pur
+                                     LEFT JOIN Sales AS s ON s.ProductId=pur.ProductId
+                                     LEFT JOIN Products As p ON pur.ProductId=p.Id 
+                                     LEFT JOIN Categories as c ON p.CategoryId=c.Id 
+                                     GROUP BY p.Id, p.Code,p.Name,p.ReorderLevel,c.Name,pur.ProductId";
+                }
+
+                SqlCommand sqlCommand = new SqlCommand(queryString, sqlConnection);
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+
+                while (sqlDataReader.Read())
+                {
+                    int proId = Convert.ToInt32(sqlDataReader["Id"]);
+                    int purchaseQty = _purchaseManager.GetTotalProductByIdAndDate(proId, startDate);
+                    int salesQty = _salesManager.GetTotalProductByIdAndDate(proId, startDate);
+
+                    int inQty = _purchaseManager.GetTotalProductByIdAndStartAndEndDate(proId, startDate, endDate);
+                    int outQty = _salesManager.GetTotalProductByIdAndStartAndEndDate(proId, startDate, endDate);
+
+                    Stock model = new Stock();
+                    model.Code = sqlDataReader["Code"].ToString();
+                    model.Product = sqlDataReader["Product"].ToString();
+                    model.Category = sqlDataReader["Category"].ToString();
+                    model.ReorderLevel = Convert.ToInt32(sqlDataReader["ReorderLevel"]);
+                    //model.ExpiredDate = "2019-10-26";
+                    //model.ExpiredQuantity = 3;
+                    model.OpeningBalance = purchaseQty - salesQty;
+                    model.In = inQty;
+                    model.Out = outQty;
+                    model.ClosingBalance = model.OpeningBalance + inQty - outQty;
+
+                    stocks.Add(model);
+                }
+            }
+            return stocks;
+        }
+
+
     }
 }

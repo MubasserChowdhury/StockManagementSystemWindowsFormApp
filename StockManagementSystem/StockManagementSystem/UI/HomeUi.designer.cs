@@ -33,7 +33,6 @@
             this.minimizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.sidePanel = new System.Windows.Forms.Panel();
-            this.timeLabel = new System.Windows.Forms.Label();
             this.activePanel = new System.Windows.Forms.Panel();
             this.reportButton = new System.Windows.Forms.Button();
             this.stockButton = new System.Windows.Forms.Button();
@@ -95,7 +94,6 @@
             // sidePanel
             // 
             this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.sidePanel.Controls.Add(this.timeLabel);
             this.sidePanel.Controls.Add(this.activePanel);
             this.sidePanel.Controls.Add(this.reportButton);
             this.sidePanel.Controls.Add(this.stockButton);
@@ -114,16 +112,6 @@
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(232, 726);
             this.sidePanel.TabIndex = 1;
-            // 
-            // timeLabel
-            // 
-            this.timeLabel.AutoSize = true;
-            this.timeLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.timeLabel.Location = new System.Drawing.Point(61, 655);
-            this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(38, 19);
-            this.timeLabel.TabIndex = 1;
-            this.timeLabel.Text = "Time";
             // 
             // activePanel
             // 
@@ -369,7 +357,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.topPanel.ResumeLayout(false);
             this.sidePanel.ResumeLayout(false);
-            this.sidePanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -390,7 +377,6 @@
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button homeButton;
-        private System.Windows.Forms.Label timeLabel;
         private System.Windows.Forms.Button minimizeButton;
         private System.Windows.Forms.Button stockButton;
         private System.Windows.Forms.Button reportButton;

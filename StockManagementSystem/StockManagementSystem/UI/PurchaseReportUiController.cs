@@ -43,7 +43,7 @@ namespace StockManagementSystem.UI
             else
             {
                 purchaseReportDataGridView.DataSource = null;
-                MessageBox.Show(@"No Result Found", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"No Result Found", @"Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

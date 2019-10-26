@@ -51,5 +51,10 @@ namespace StockManagementSystem.Manager
             return _customerRepository.SearchCustomer(name, email, contact);
         }
 
+        public bool UpdateCustomerLoyaltyPoint(int customerId, double loyaltyPoint)
+        {
+            return _customerRepository.UpdateCustomerLoyaltyPoint(customerId, loyaltyPoint);
+        }
+
     }
 }
