@@ -76,6 +76,16 @@ namespace StockManagementSystem.UI
                 mrpErrorLabel.Text = @"MRP is required !";
                 mrpTextBox.Focus();
             }
+            int productId = Convert.ToInt32(productComboBox.SelectedValue);
+            int quantity = Convert.ToInt32(quantityTextBox.Text);
+
+
+            if (quantity > AvailableQuantity(productId))
+            {
+               
+                MessageBox.Show(@" Exceeds available quantity ! ", @"Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             if (addSaleButton.Text == @"Add")
             {
@@ -87,7 +97,7 @@ namespace StockManagementSystem.UI
                 sale.Product = productComboBox.Text;
                 sale.Quantity = Convert.ToInt32(quantityTextBox.Text);
                 sale.MRP = Convert.ToDouble(mrpTextBox.Text);
-                sale.TotalMRP = Convert.ToInt32(totalMrpTextBox.Text);
+                sale.TotalMRP = Convert.ToDouble(totalMrpTextBox.Text);
 
                 //grandtotalTextBox.Text = sale.TotalMRP.ToString();
                 _sales.Add(sale);
@@ -344,8 +354,8 @@ namespace StockManagementSystem.UI
 
         private int AvailableQuantity(int productId)
         {
-            int totalPurchaseQuantity = _purchaseManager.GetTotalProductById(productId);
-            int totalSaleQuantity = _salesManager.GetTotalProductById(productId);
+            int totalPurchaseQuantity = _purchaseManager.GetTotalProductById(productId,saleDateTimePicker.Text);
+            int totalSaleQuantity = _salesManager.GetTotalProductById(productId,saleDateTimePicker.Text);
 
             int availableQuantity = totalPurchaseQuantity - totalSaleQuantity;
             return availableQuantity;
@@ -376,7 +386,6 @@ namespace StockManagementSystem.UI
             {
                 totalMrpTextBox.Text = "0";
             }
-
 
 
         }
@@ -411,13 +420,13 @@ namespace StockManagementSystem.UI
             int discountPercentage =loyaltyPoint / 10;
             discountTextbox.Text = discountPercentage.ToString();
 
-            discountAmountTextBox.Text = ((int)(grandTotal * discountPercentage/100)).ToString();
+            discountAmountTextBox.Text = (grandTotal * discountPercentage/100).ToString();
 
-            payableAmountTextBox.Text = (grandTotal - Convert.ToInt32(discountAmountTextBox.Text)).ToString();
+            payableAmountTextBox.Text = (grandTotal - Convert.ToDouble(discountAmountTextBox.Text)).ToString();
 
 
             //for saving customer table
-            customerLoyaltyPoint = loyaltyPoint - (loyaltyPoint / 10) + (grandTotal / 1000);
+            customerLoyaltyPoint =(int) (loyaltyPoint - (loyaltyPoint / 10) + (grandTotal / 1000));
 
         }
         public void ClearAllErrorLabel()
@@ -495,6 +504,8 @@ namespace StockManagementSystem.UI
                 quatityErrorLabel.Text = @"Only numeric value !";
                 return;
             }
+
+            
         }
 
         private void mrpTextBox_KeyPress(object sender, KeyPressEventArgs e)

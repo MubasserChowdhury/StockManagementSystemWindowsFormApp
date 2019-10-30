@@ -13,7 +13,7 @@ namespace StockManagementSystem.Repository
         PurchaseManager _purchaseManager=new PurchaseManager();
         SalesManager _salesManager=new SalesManager();
 
-        public List<PurchaseReportViewModel> GetPurchaseReport()
+        public List<PurchaseReportViewModel> GetPurchaseReport(string startDate, string endDate)
         {
             List<PurchaseReportViewModel> purchaseReportViewModels = new List<PurchaseReportViewModel>();
 
@@ -31,17 +31,19 @@ namespace StockManagementSystem.Repository
                 while (sqlDataReader.Read())
                 {
                     int productId = Convert.ToInt32(sqlDataReader["Id"]);
-                    int purchaseQuantity = _purchaseManager.GetTotalProductById(productId);
-                    int salesQuantity = _salesManager.GetTotalProductById(productId);
+                    int purchaseQuantity = _purchaseManager.GetTotalProductByIdAndDate(productId, startDate);
+                    int salesQuantity = _salesManager.GetTotalProductByIdAndDate(productId, startDate);
+                    int inQty = _purchaseManager.GetTotalProductByIdAndStartAndEndDate(productId, startDate, endDate);
+                    int outQty = _salesManager.GetTotalProductByIdAndStartAndEndDate(productId, startDate, endDate);
 
-                    
+
 
                     PurchaseReportViewModel model = new PurchaseReportViewModel();
                     model.Code = sqlDataReader["Code"].ToString();
                     model.Name = sqlDataReader["Name"].ToString();
                     model.Category= sqlDataReader["Category"].ToString();
                     //model.AvailableQty = Convert.ToInt32(sqlDataReader["AvailableQty"]);
-                    model.AvailableQty = purchaseQuantity - salesQuantity;
+                    model.AvailableQty = (purchaseQuantity - salesQuantity) + inQty - outQty;
                     model.CP = Convert.ToDouble(sqlDataReader["CP"]);
                     model.MRP = Convert.ToDouble(sqlDataReader["MRP"]);
                     model.Profit = Convert.ToDouble(sqlDataReader["Profit"]);
@@ -70,15 +72,20 @@ namespace StockManagementSystem.Repository
                 while (sqlDataReader.Read())
                 {
                     int productId = Convert.ToInt32(sqlDataReader["Id"]);
-                    int purchaseQuantity = _purchaseManager.GetTotalProductById(productId);
-                    int salesQuantity = _salesManager.GetTotalProductById(productId);
+                    //int purchaseQuantity = _purchaseManager.GetTotalProductById(productId);
+                    //int salesQuantity = _salesManager.GetTotalProductById(productId);
+
+                    int purchaseQuantity = _purchaseManager.GetTotalProductByIdAndDate(productId, startDate);
+                    int salesQuantity = _salesManager.GetTotalProductByIdAndDate(productId, startDate);
+                    int inQty = _purchaseManager.GetTotalProductByIdAndStartAndEndDate(productId, startDate, endDate);
+                    int outQty = _salesManager.GetTotalProductByIdAndStartAndEndDate(productId, startDate, endDate);
 
                     PurchaseReportViewModel model = new PurchaseReportViewModel();
                     model.Code = sqlDataReader["Code"].ToString();
                     model.Name = sqlDataReader["Name"].ToString();
                     model.Category = sqlDataReader["Category"].ToString();
                     //model.AvailableQty = Convert.ToInt32(sqlDataReader["AvailableQty"]);
-                    model.AvailableQty = purchaseQuantity - salesQuantity;
+                    model.AvailableQty = (purchaseQuantity - salesQuantity)+inQty-outQty;
                     model.CP = Convert.ToDouble(sqlDataReader["CP"]);
                     model.MRP = Convert.ToDouble(sqlDataReader["MRP"]);
                     model.Profit = Convert.ToDouble(sqlDataReader["Profit"]);
@@ -286,7 +293,7 @@ namespace StockManagementSystem.Repository
                     model.ReorderLevel = Convert.ToInt32(sqlDataReader["ReorderLevel"]);
                     //model.ExpiredDate = "2019-10-26";
                     //model.ExpiredQuantity = 3;
-                    model.OpeningBalance = purchaseQty - salesQty;
+                    model.OpeningBalance = purchaseQty - salesQty; ;
                     model.In = inQty;
                     model.Out = outQty;
                     model.ClosingBalance = model.OpeningBalance + inQty - outQty;

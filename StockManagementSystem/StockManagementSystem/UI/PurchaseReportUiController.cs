@@ -24,7 +24,7 @@ namespace StockManagementSystem.UI
         {
             startDateErrorLabel.Text = "";
             endDateErrorLabel.Text = "";
-            purchaseReportDataGridView.DataSource = _sharedManager.GetPurchaseReport();
+            purchaseReportDataGridView.DataSource = _sharedManager.GetPurchaseReport(purchaseStartDateTimePicker.Text, purchaseEndDateTimePicker.Text);
         }
 
         private void purchaseReportDataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)

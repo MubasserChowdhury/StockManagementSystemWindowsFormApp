@@ -11,9 +11,9 @@ namespace StockManagementSystem.Manager
     public class SharedManager
     {
         SharedRepository _sharedRepository=new SharedRepository();
-        public List<PurchaseReportViewModel> GetPurchaseReport()
+        public List<PurchaseReportViewModel> GetPurchaseReport(string startDate, string endDate)
         {
-            return _sharedRepository.GetPurchaseReport();
+            return _sharedRepository.GetPurchaseReport(startDate, endDate);
         }
 
         public List<PurchaseReportViewModel> SearchPurchaseReportByDate(string startDate,string endDate)

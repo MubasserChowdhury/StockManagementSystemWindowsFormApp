@@ -66,5 +66,10 @@ namespace StockManagementSystem.Manager
         {
             return _productRepository.GetReorderLevelById(id);
         }
+
+        public string GetCodedById(int id)
+        {
+            return _productRepository.GetCodedById(id);
+        }
     }
 }

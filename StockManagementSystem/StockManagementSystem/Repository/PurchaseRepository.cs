@@ -137,12 +137,12 @@ namespace StockManagementSystem.Repository
             return code;
         }
 
-        public int GetTotalProductById(int id)
+        public int GetTotalProductById(int id,string purchaseDate )
         {
             int totalQuantity = 0;
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string queryString = @"SELECT p.MRP,SUM(p.Quantity) AS TotalQuantity FROM Purchases as p where p.ProductId="+id+" Group by p.ProductId,p.MRP ";
+                string queryString = @"SELECT SUM(p.Quantity) AS TotalQuantity FROM Purchases as p where p.ProductId="+id+ " AND Date<='" + purchaseDate + "' Group by p.ProductId ";
                 SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
 
                 //open connection
@@ -173,7 +173,7 @@ namespace StockManagementSystem.Repository
             int totalQuantity = 0;
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string queryString = @"SELECT MRP,coalesce(Sum(Quantity),0) AS TotalQuantity FROM Purchases WHERE ProductId=" + id + " AND Date<'"+date+"' GROUP BY ProductId,MRP ";
+                string queryString = @"SELECT coalesce(Sum(Quantity),0) AS TotalQuantity FROM Purchases WHERE ProductId=" + id + " AND Date < '"+date+"' GROUP BY ProductId ";
                 SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
 
                 //open connection
@@ -203,7 +203,7 @@ namespace StockManagementSystem.Repository
             int totalQuantity = 0;
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string queryString = @"SELECT MRP,coalesce(Sum(Quantity),0) AS TotalQuantity FROM Purchases WHERE ProductId=" + id + " AND Date BETWEEN '"+startDate+"' AND '"+endDate+"' GROUP BY ProductId,MRP ";
+                string queryString = @"SELECT coalesce(Sum(Quantity),0) AS TotalQuantity FROM Purchases WHERE ProductId=" + id + " AND Date BETWEEN '"+startDate+"' AND '"+endDate+"' GROUP BY ProductId ";
                 SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
 
                 //open connection

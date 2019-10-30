@@ -323,5 +323,31 @@ namespace StockManagementSystem.Repository
 
             return reorderLevel;
         }
+
+        public string GetCodedById(int id)
+        {
+            string Code = "";
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string queryString = @"SELECT Code FROM Products WHERE Id=" + id + " ";
+                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
+
+                //open connection
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    Code = sqlDataReader["Code"].ToString();
+                    break;
+                }
+
+                //close connection
+                sqlConnection.Close();
+
+            }
+
+            return Code;
+        }
     }
 }

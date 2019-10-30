@@ -46,6 +46,7 @@
             this.mrpErrorLabel = new System.Windows.Forms.Label();
             this.UnitPriceErrorLabel = new System.Windows.Forms.Label();
             this.remarkErrorLabel = new System.Windows.Forms.Label();
+            this.quantityTextBox = new System.Windows.Forms.TextBox();
             this.productComboBoxErrorLabel = new System.Windows.Forms.Label();
             this.quantityErrorLabel = new System.Windows.Forms.Label();
             this.categoryComboboxerrorLabel = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.totalPriceTextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.quantityTextBox = new System.Windows.Forms.TextBox();
             this.unitPriceTextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -76,6 +76,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.productCodeTextBox = new System.Windows.Forms.TextBox();
             this.topPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -144,12 +146,14 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.supplierComboBoxErrorLabel);
             this.groupBox1.Controls.Add(this.invoiceNoErrorLabel);
+            this.groupBox1.Controls.Add(this.codeTextBox);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(173, 47);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(541, 144);
+            this.groupBox1.Size = new System.Drawing.Size(541, 157);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Supplier";
@@ -160,7 +164,7 @@
             this.purchaseDateTimePicker.CustomFormat = "yyyy-MM-dd";
             this.purchaseDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.purchaseDateTimePicker.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.purchaseDateTimePicker.Location = new System.Drawing.Point(181, 14);
+            this.purchaseDateTimePicker.Location = new System.Drawing.Point(182, 55);
             this.purchaseDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.purchaseDateTimePicker.Name = "purchaseDateTimePicker";
             this.purchaseDateTimePicker.Size = new System.Drawing.Size(168, 25);
@@ -170,7 +174,7 @@
             // 
             this.supplierComboBox.DisplayMember = "Name";
             this.supplierComboBox.FormattingEnabled = true;
-            this.supplierComboBox.Location = new System.Drawing.Point(181, 92);
+            this.supplierComboBox.Location = new System.Drawing.Point(182, 117);
             this.supplierComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.supplierComboBox.Name = "supplierComboBox";
             this.supplierComboBox.Size = new System.Drawing.Size(168, 25);
@@ -181,7 +185,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 92);
+            this.label3.Location = new System.Drawing.Point(52, 117);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 17);
@@ -190,7 +194,7 @@
             // 
             // billNoTextBox
             // 
-            this.billNoTextBox.Location = new System.Drawing.Point(181, 42);
+            this.billNoTextBox.Location = new System.Drawing.Point(182, 83);
             this.billNoTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.billNoTextBox.Name = "billNoTextBox";
             this.billNoTextBox.Size = new System.Drawing.Size(168, 25);
@@ -200,7 +204,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(51, 46);
+            this.label2.Location = new System.Drawing.Point(52, 87);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 17);
@@ -210,7 +214,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 21);
+            this.label1.Location = new System.Drawing.Point(52, 62);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 17);
@@ -221,7 +225,7 @@
             // 
             this.supplierComboBoxErrorLabel.AutoSize = true;
             this.supplierComboBoxErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.supplierComboBoxErrorLabel.Location = new System.Drawing.Point(179, 123);
+            this.supplierComboBoxErrorLabel.Location = new System.Drawing.Point(368, 120);
             this.supplierComboBoxErrorLabel.Name = "supplierComboBoxErrorLabel";
             this.supplierComboBoxErrorLabel.Size = new System.Drawing.Size(96, 17);
             this.supplierComboBoxErrorLabel.TabIndex = 4;
@@ -231,7 +235,7 @@
             // 
             this.invoiceNoErrorLabel.AutoSize = true;
             this.invoiceNoErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.invoiceNoErrorLabel.Location = new System.Drawing.Point(179, 71);
+            this.invoiceNoErrorLabel.Location = new System.Drawing.Point(368, 87);
             this.invoiceNoErrorLabel.Name = "invoiceNoErrorLabel";
             this.invoiceNoErrorLabel.Size = new System.Drawing.Size(96, 17);
             this.invoiceNoErrorLabel.TabIndex = 4;
@@ -247,6 +251,8 @@
             this.groupBox2.Controls.Add(this.quantityErrorLabel);
             this.groupBox2.Controls.Add(this.categoryComboboxerrorLabel);
             this.groupBox2.Controls.Add(this.expireDateTimePicker);
+            this.groupBox2.Controls.Add(this.productCodeTextBox);
+            this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.manufacturedDateTimePicker);
             this.groupBox2.Controls.Add(this.addButton);
             this.groupBox2.Controls.Add(this.productComboBox);
@@ -270,13 +276,11 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.availableQuantityTextBox);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.codeTextBox);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(13, 192);
+            this.groupBox2.Location = new System.Drawing.Point(13, 199);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(811, 383);
+            this.groupBox2.Size = new System.Drawing.Size(811, 376);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Product";
@@ -310,6 +314,14 @@
             this.remarkErrorLabel.Size = new System.Drawing.Size(101, 17);
             this.remarkErrorLabel.TabIndex = 4;
             this.remarkErrorLabel.Text = "Error Message";
+            // 
+            // quantityTextBox
+            // 
+            this.quantityTextBox.Location = new System.Drawing.Point(620, 25);
+            this.quantityTextBox.Name = "quantityTextBox";
+            this.quantityTextBox.Size = new System.Drawing.Size(169, 22);
+            this.quantityTextBox.TabIndex = 5;
+            this.quantityTextBox.TextChanged += new System.EventHandler(this.quantityTextBox_TextChanged);
             // 
             // productComboBoxErrorLabel
             // 
@@ -513,14 +525,6 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Total Price(Tk)";
             // 
-            // quantityTextBox
-            // 
-            this.quantityTextBox.Location = new System.Drawing.Point(620, 25);
-            this.quantityTextBox.Name = "quantityTextBox";
-            this.quantityTextBox.Size = new System.Drawing.Size(169, 22);
-            this.quantityTextBox.TabIndex = 5;
-            this.quantityTextBox.TextChanged += new System.EventHandler(this.quantityTextBox_TextChanged);
-            // 
             // unitPriceTextBox
             // 
             this.unitPriceTextBox.Location = new System.Drawing.Point(621, 71);
@@ -594,21 +598,40 @@
             // codeTextBox
             // 
             this.codeTextBox.Enabled = false;
-            this.codeTextBox.Location = new System.Drawing.Point(160, 119);
+            this.codeTextBox.Location = new System.Drawing.Point(182, 27);
             this.codeTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.codeTextBox.Name = "codeTextBox";
-            this.codeTextBox.Size = new System.Drawing.Size(168, 22);
+            this.codeTextBox.Size = new System.Drawing.Size(168, 25);
             this.codeTextBox.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 122);
+            this.label6.Location = new System.Drawing.Point(49, 30);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 17);
+            this.label6.Size = new System.Drawing.Size(98, 17);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Code";
+            this.label6.Text = "Purchase Code";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(28, 122);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 17);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Code";
+            // 
+            // productCodeTextBox
+            // 
+            this.productCodeTextBox.Enabled = false;
+            this.productCodeTextBox.Location = new System.Drawing.Point(161, 119);
+            this.productCodeTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.productCodeTextBox.Name = "productCodeTextBox";
+            this.productCodeTextBox.Size = new System.Drawing.Size(168, 22);
+            this.productCodeTextBox.TabIndex = 1;
             // 
             // AddPurchaseUi
             // 
@@ -682,5 +705,7 @@
         public System.Windows.Forms.Button addButton;
         public System.Windows.Forms.TextBox remarksTextBox;
         public System.Windows.Forms.TextBox quantityTextBox;
+        public System.Windows.Forms.TextBox productCodeTextBox;
+        private System.Windows.Forms.Label label17;
     }
 }

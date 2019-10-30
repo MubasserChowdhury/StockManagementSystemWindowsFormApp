@@ -266,13 +266,16 @@ namespace StockManagementSystem.UI
             previousUnitPriceTextbox.Enabled = false;
             previousMRPTextBox.Enabled = false;
 
+
+
+            productCodeTextBox.Text = _productManager.GetCodedById(productId).ToString();
             previousUnitPriceTextbox.Text = purchase.UnitPrice.ToString();
             previousMRPTextBox.Text = purchase.MRP.ToString();
+            
 
 
-
-            int totalPurchaseQuantity = _purchaseManager.GetTotalProductById(productId);
-            int totalSaleQuantity = _salesManager.GetTotalProductById(productId);
+            int totalPurchaseQuantity = _purchaseManager.GetTotalProductById(productId,purchaseDateTimePicker.Text);
+            int totalSaleQuantity = _salesManager.GetTotalProductById(productId,purchaseDateTimePicker.Text);
 
             int availableQuantity = totalPurchaseQuantity - totalSaleQuantity;
             availableQuantityTextBox.Text = availableQuantity.ToString();

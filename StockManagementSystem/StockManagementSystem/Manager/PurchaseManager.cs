@@ -32,9 +32,9 @@ namespace StockManagementSystem.Manager
             return _purchaseRepository.GetLastPurchaseCode();
         }
 
-        public int GetTotalProductById(int id)
+        public int GetTotalProductById(int id,string purchaseDate)
         {
-            return _purchaseRepository.GetTotalProductById(id);
+            return _purchaseRepository.GetTotalProductById(id,purchaseDate);
         }
 
         public int GetTotalProductByIdAndDate(int id, string date)
