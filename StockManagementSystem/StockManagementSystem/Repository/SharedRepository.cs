@@ -61,8 +61,8 @@ namespace StockManagementSystem.Repository
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
                 string queryString = @"SELECT p.Id, p.Code AS Code,p.Name AS Name ,c.Name AS Category,SUM(pur.Quantity) AS AvailableQty,SUM(pur.TotalPrice) AS CP ,SUM(MRP*pur.Quantity) AS MRP,SUM(MRP*pur.Quantity-pur.TotalPrice) AS Profit 
- FROM Purchases AS pur LEFT JOIN Products AS p ON p.Id=pur.ProductId 
- LEFT JOIN Categories AS c ON p.CategoryId=c.Id WHERE pur.Date BETWEEN '" + startDate+"' AND '"+endDate+"'  GROUP BY p.Id, p.Code,p.Name,c.Name ORDER BY p.Code";
+ FROM Purchases AS pur LEFT JOIN PurchaseDetails AS pd ON pd.Id=pur.PurchaseDetailsId LEFT JOIN Products AS p ON p.Id=pur.ProductId 
+ LEFT JOIN Categories AS c ON p.CategoryId=c.Id WHERE pd.Date BETWEEN '" + startDate+"' AND '"+endDate+"'  GROUP BY p.Id, p.Code,p.Name,c.Name ORDER BY p.Code";
                 SqlCommand sqlCommand = new SqlCommand(queryString, sqlConnection);
                 sqlConnection.Open();
 

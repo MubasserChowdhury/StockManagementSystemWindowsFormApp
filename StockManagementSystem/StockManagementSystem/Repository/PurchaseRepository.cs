@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using StockManagementSystem.Model;
 using System.Data.SqlClient;
 using System.Data;
+using StockManagementSystem.Manager;
 
 namespace StockManagementSystem.Repository
 {
     public class PurchaseRepository
     {
         private readonly string _connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+        PurchaseDetailsManager _purchaseDetailsManager = new PurchaseDetailsManager();
 
         public Purchase GetLastPurchasesProductInfoById(int id)
         {
@@ -32,9 +34,9 @@ namespace StockManagementSystem.Repository
                 {
 
                     purchase.Id =Convert.ToInt32(sqlDataReader["id"]);
-                    purchase.Date = sqlDataReader["Date"].ToString();
-                    purchase.InvoiceNo = sqlDataReader["InvoiceNo"].ToString();
-                    purchase.SupplierId = Convert.ToInt32(sqlDataReader["SupplierId"]);
+                    //purchase.Date = sqlDataReader["Date"].ToString();
+                    //purchase.InvoiceNo = sqlDataReader["InvoiceNo"].ToString();
+                    //purchase.SupplierId = Convert.ToInt32(sqlDataReader["SupplierId"]);
                     purchase.ProductId = Convert.ToInt32(sqlDataReader["ProductId"]);
                     purchase.ManufacturedDate = sqlDataReader["ManufacturedDate"].ToString();
                     purchase.ExpireDate = sqlDataReader["ExpireDate"].ToString();
@@ -53,7 +55,7 @@ namespace StockManagementSystem.Repository
             return purchase;
         }
 
-        public bool UniquePurchaseCode(Purchase purchase)
+        public bool UniquePurchaseCode(PurchaseDetails purchaseDetails)
         {
             bool exists = false;
 
@@ -63,7 +65,7 @@ namespace StockManagementSystem.Repository
             {
 
                 //Command 
-                string commandString = @"SELECT InvoiceNo FROM Purchases  WHERE InvoiceNo = '" + purchase.InvoiceNo + "'  ";
+                string commandString = @"SELECT InvoiceNo FROM PurchaseDetails  WHERE InvoiceNo = '" + purchaseDetails.InvoiceNo + "'  ";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
@@ -89,9 +91,12 @@ namespace StockManagementSystem.Repository
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             { //open connection
                 sqlConnection.Open();
+                int purchaseDetailsId = _purchaseDetailsManager.GetLastPurchaseDetailsId();
                 foreach (var purchase in purchases)
                 {
-                    string queryString = @"INSERT INTO Purchases VALUES('" + purchase.Date + "','" + purchase.InvoiceNo + "'," + purchase.SupplierId + "," + purchase.ProductId + ",'" + purchase.Code + "','" + purchase.ManufacturedDate + "','" + purchase.ExpireDate + "'," + purchase.Quantity + "," + purchase.UnitPrice + "," + purchase.TotalPrice + "," + purchase.MRP + ",'" + purchase.Remarks + "');";
+                    purchase.PurchaseDetailsId = purchaseDetailsId;
+                    //string queryString = @"INSERT INTO Purchases VALUES('" + purchase.Date + "','" + purchase.InvoiceNo + "'," + purchase.SupplierId + "," + purchase.ProductId + ",'" + purchase.Code + "','" + purchase.ManufacturedDate + "','" + purchase.ExpireDate + "'," + purchase.Quantity + "," + purchase.UnitPrice + "," + purchase.TotalPrice + "," + purchase.MRP + ",'" + purchase.Remarks + "');";
+                    string queryString = @"INSERT INTO Purchases VALUES("+purchase.PurchaseDetailsId+"," + purchase.ProductId + ",'" + purchase.ManufacturedDate + "','" + purchase.ExpireDate + "'," + purchase.Quantity + "," + purchase.UnitPrice + "," + purchase.TotalPrice + "," + purchase.MRP + ",'" + purchase.Remarks + "');";
                     SqlCommand sqlCommand = new SqlCommand(queryString, sqlConnection);
 
 
@@ -116,7 +121,7 @@ namespace StockManagementSystem.Repository
             string code = "";
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string queryString = @"SELECT Code FROM Purchases ORDER BY Id DESC ";
+                string queryString = @"SELECT Code FROM PurchaseDetails ORDER BY Id DESC ";
                 SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
 
                 //open connection
@@ -137,12 +142,13 @@ namespace StockManagementSystem.Repository
             return code;
         }
 
+
         public int GetTotalProductById(int id,string purchaseDate )
         {
             int totalQuantity = 0;
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string queryString = @"SELECT SUM(p.Quantity) AS TotalQuantity FROM Purchases as p where p.ProductId="+id+ " AND Date<='" + purchaseDate + "' Group by p.ProductId ";
+                string queryString = @"SELECT SUM(p.Quantity) AS TotalQuantity FROM Purchases as p where p.ProductId="+id+ "  Group by p.ProductId ";
                 SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
 
                 //open connection
@@ -173,7 +179,7 @@ namespace StockManagementSystem.Repository
             int totalQuantity = 0;
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string queryString = @"SELECT coalesce(Sum(Quantity),0) AS TotalQuantity FROM Purchases WHERE ProductId=" + id + " AND Date < '"+date+"' GROUP BY ProductId ";
+                string queryString = @"SELECT coalesce(Sum(p.Quantity),0) AS TotalQuantity FROM Purchases AS p LEFT JOIN PurchaseDetails AS pd ON pd.Id=p.PurchaseDetailsId WHERE p.ProductId=" + id + " AND pd.Date < '"+date+"' GROUP BY p.ProductId ";
                 SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
 
                 //open connection
@@ -203,7 +209,7 @@ namespace StockManagementSystem.Repository
             int totalQuantity = 0;
             using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
             {
-                string queryString = @"SELECT coalesce(Sum(Quantity),0) AS TotalQuantity FROM Purchases WHERE ProductId=" + id + " AND Date BETWEEN '"+startDate+"' AND '"+endDate+"' GROUP BY ProductId ";
+                string queryString = @"SELECT coalesce(Sum(p.Quantity),0) AS TotalQuantity FROM Purchases AS p LEFT JOIN PurchaseDetails AS pd ON pd.Id=p.PurchaseDetailsId WHERE p.ProductId=" + id + " AND pd.Date BETWEEN '"+startDate+"' AND '"+endDate+"' GROUP BY p.ProductId ";
                 SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
 
                 //open connection
@@ -226,6 +232,45 @@ namespace StockManagementSystem.Repository
             }
 
             return totalQuantity;
+        }
+
+        public List<Purchase> GetProductByPurchaseDetailsId(int id)
+        {
+            List<Purchase> _purchases = new List<Purchase>();
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                string queryString = @"SELECT pro.Name AS Product,p.ManufacturedDate,p.[ExpireDate],p.Quantity,p.UnitPrice,p.TotalPrice,p.MRP,p.Remarks 
+                                        FROM Purchases as p 
+                                        LEFT JOIN Products AS pro ON p.ProductId=pro.Id 
+                                        LEFT JOIN PurchaseDetails AS pd ON pd.Id=p.PurchaseDetailsId WHERE p.PurchaseDetailsId="+id+" ";
+                SqlCommand sqlCmd = new SqlCommand(queryString, sqlConnection);
+
+                //open connection
+                sqlConnection.Open();
+
+                SqlDataReader sqlDataReader = sqlCmd.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    Purchase purchase=new Purchase();
+
+                    purchase.Product = sqlDataReader["Product"].ToString();
+                    purchase.ManufacturedDate =sqlDataReader["ManufacturedDate"].ToString();
+                    purchase.ExpireDate= sqlDataReader["ExpireDate"].ToString();
+                    purchase.Quantity= Convert.ToInt32(sqlDataReader["Quantity"]);
+                    purchase.UnitPrice= Convert.ToInt32(sqlDataReader["UnitPrice"]);
+                    purchase.TotalPrice= Convert.ToInt32(sqlDataReader["TotalPrice"]);
+                    purchase.MRP= Convert.ToInt32(sqlDataReader["MRP"]);
+                    purchase.Remarks= sqlDataReader["Remarks"].ToString();
+
+                    _purchases.Add(purchase);
+                }
+
+                //close connection
+                sqlConnection.Close();
+
+                return _purchases;
+            }
         }
 
     }

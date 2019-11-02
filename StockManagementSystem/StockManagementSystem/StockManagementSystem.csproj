@@ -49,6 +49,7 @@
     <Compile Include="Manager\CategoryManager.cs" />
     <Compile Include="Manager\CustomerManager.cs" />
     <Compile Include="Manager\ProductManager.cs" />
+    <Compile Include="Manager\PurchaseDetailsManager.cs" />
     <Compile Include="Manager\PurchaseManager.cs" />
     <Compile Include="Manager\SalesManager.cs" />
     <Compile Include="Manager\SharedManager.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\ProductViewModel.cs" />
     <Compile Include="Model\Purchase.cs" />
+    <Compile Include="Model\PurchaseDetails.cs" />
     <Compile Include="Model\PurchaseReportViewModel.cs" />
     <Compile Include="Model\Sale.cs" />
     <Compile Include="Model\SalesReportViewModel.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\PurchaseDetailsRepository.cs" />
     <Compile Include="Repository\PurchaseRepository.cs" />
     <Compile Include="Repository\SalesRepository.cs" />
     <Compile Include="Repository\SharedRepository.cs" />
@@ -131,6 +134,12 @@
     </Compile>
     <Compile Include="UI\ProductUiController.Designer.cs">
       <DependentUpon>ProductUiController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PurchaseDetailsUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PurchaseDetailsUi.Designer.cs">
+      <DependentUpon>PurchaseDetailsUi.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\PurchaseReportUiController.cs">
       <SubType>UserControl</SubType>
@@ -213,6 +222,9 @@
     <EmbeddedResource Include="UI\ProductUiController.resx">
       <DependentUpon>ProductUiController.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\PurchaseDetailsUi.resx">
+      <DependentUpon>PurchaseDetailsUi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\PurchaseReportUiController.resx">
       <DependentUpon>PurchaseReportUiController.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +253,7 @@
     <None Include="Properties\DataSources\StockManagementSystem.Model.Customer.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Product.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Purchase.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Model.PurchaseDetails.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.PurchaseReportViewModel.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.Sale.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Model.SalesReportViewModel.datasource" />

@@ -40,14 +40,6 @@
             this.showAllCustomerButton = new System.Windows.Forms.Button();
             this.Sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerDataGridView = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.searchTextBoxErrorLabel = new System.Windows.Forms.Label();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.contactRadioButton = new System.Windows.Forms.RadioButton();
-            this.emailRadioButton = new System.Windows.Forms.RadioButton();
-            this.nameRadioButton = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,11 +48,19 @@
             this.contactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loyaltyPointDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.searchTextBoxErrorLabel = new System.Windows.Forms.Label();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.contactRadioButton = new System.Windows.Forms.RadioButton();
+            this.emailRadioButton = new System.Windows.Forms.RadioButton();
+            this.nameRadioButton = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // addCustomerButton
@@ -192,7 +192,7 @@
             this.customerDataGridView.EnableHeadersVisualStyles = false;
             this.customerDataGridView.GridColor = System.Drawing.SystemColors.ControlLight;
             this.customerDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.customerDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.customerDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.customerDataGridView.Name = "customerDataGridView";
             this.customerDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.customerDataGridView.RowHeadersVisible = false;
@@ -203,104 +203,6 @@
             this.customerDataGridView.TabIndex = 0;
             this.customerDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customerDataGridView_CellContentClick);
             this.customerDataGridView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.customerDataGridView_RowPostPaint);
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.customerDataGridView);
-            this.panel1.Location = new System.Drawing.Point(10, 149);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1110, 557);
-            this.panel1.TabIndex = 12;
-            // 
-            // searchTextBoxErrorLabel
-            // 
-            this.searchTextBoxErrorLabel.AutoSize = true;
-            this.searchTextBoxErrorLabel.Location = new System.Drawing.Point(69, 65);
-            this.searchTextBoxErrorLabel.Name = "searchTextBoxErrorLabel";
-            this.searchTextBoxErrorLabel.Size = new System.Drawing.Size(79, 17);
-            this.searchTextBoxErrorLabel.TabIndex = 76;
-            this.searchTextBoxErrorLabel.Text = "Error Label";
-            // 
-            // searchButton
-            // 
-            this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchButton.FlatAppearance.BorderSize = 0;
-            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.ForeColor = System.Drawing.Color.White;
-            this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
-            this.searchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.searchButton.Location = new System.Drawing.Point(306, 38);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(102, 24);
-            this.searchButton.TabIndex = 75;
-            this.searchButton.Text = "     Search";
-            this.searchButton.UseVisualStyleBackColor = false;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
-            // searchTextBox
-            // 
-            this.searchTextBox.Location = new System.Drawing.Point(72, 40);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(228, 22);
-            this.searchTextBox.TabIndex = 74;
-            // 
-            // contactRadioButton
-            // 
-            this.contactRadioButton.AutoSize = true;
-            this.contactRadioButton.Location = new System.Drawing.Point(227, 10);
-            this.contactRadioButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.contactRadioButton.Name = "contactRadioButton";
-            this.contactRadioButton.Size = new System.Drawing.Size(77, 21);
-            this.contactRadioButton.TabIndex = 73;
-            this.contactRadioButton.Text = "Contact";
-            this.contactRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // emailRadioButton
-            // 
-            this.emailRadioButton.AutoSize = true;
-            this.emailRadioButton.Location = new System.Drawing.Point(148, 10);
-            this.emailRadioButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.emailRadioButton.Name = "emailRadioButton";
-            this.emailRadioButton.Size = new System.Drawing.Size(63, 21);
-            this.emailRadioButton.TabIndex = 72;
-            this.emailRadioButton.Text = "Email";
-            this.emailRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // nameRadioButton
-            // 
-            this.nameRadioButton.AutoSize = true;
-            this.nameRadioButton.Checked = true;
-            this.nameRadioButton.Location = new System.Drawing.Point(71, 10);
-            this.nameRadioButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.nameRadioButton.Name = "nameRadioButton";
-            this.nameRadioButton.Size = new System.Drawing.Size(66, 21);
-            this.nameRadioButton.TabIndex = 71;
-            this.nameRadioButton.TabStop = true;
-            this.nameRadioButton.Text = "Name";
-            this.nameRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.searchButton);
-            this.groupBox1.Controls.Add(this.searchTextBoxErrorLabel);
-            this.groupBox1.Controls.Add(this.nameRadioButton);
-            this.groupBox1.Controls.Add(this.emailRadioButton);
-            this.groupBox1.Controls.Add(this.searchTextBox);
-            this.groupBox1.Controls.Add(this.contactRadioButton);
-            this.groupBox1.Location = new System.Drawing.Point(258, 47);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(419, 95);
-            this.groupBox1.TabIndex = 77;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Search";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -360,6 +262,104 @@
             // 
             this.customerBindingSource.DataSource = typeof(StockManagementSystem.Model.Customer);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.customerDataGridView);
+            this.panel1.Location = new System.Drawing.Point(10, 149);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1110, 557);
+            this.panel1.TabIndex = 12;
+            // 
+            // searchTextBoxErrorLabel
+            // 
+            this.searchTextBoxErrorLabel.AutoSize = true;
+            this.searchTextBoxErrorLabel.Location = new System.Drawing.Point(69, 65);
+            this.searchTextBoxErrorLabel.Name = "searchTextBoxErrorLabel";
+            this.searchTextBoxErrorLabel.Size = new System.Drawing.Size(79, 17);
+            this.searchTextBoxErrorLabel.TabIndex = 76;
+            this.searchTextBoxErrorLabel.Text = "Error Label";
+            // 
+            // searchButton
+            // 
+            this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.searchButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.searchButton.FlatAppearance.BorderSize = 0;
+            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.ForeColor = System.Drawing.Color.White;
+            this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
+            this.searchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.searchButton.Location = new System.Drawing.Point(306, 38);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(102, 24);
+            this.searchButton.TabIndex = 75;
+            this.searchButton.Text = "     Search";
+            this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(72, 40);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(228, 22);
+            this.searchTextBox.TabIndex = 74;
+            // 
+            // contactRadioButton
+            // 
+            this.contactRadioButton.AutoSize = true;
+            this.contactRadioButton.Location = new System.Drawing.Point(227, 10);
+            this.contactRadioButton.Margin = new System.Windows.Forms.Padding(4);
+            this.contactRadioButton.Name = "contactRadioButton";
+            this.contactRadioButton.Size = new System.Drawing.Size(77, 21);
+            this.contactRadioButton.TabIndex = 73;
+            this.contactRadioButton.Text = "Contact";
+            this.contactRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // emailRadioButton
+            // 
+            this.emailRadioButton.AutoSize = true;
+            this.emailRadioButton.Location = new System.Drawing.Point(148, 10);
+            this.emailRadioButton.Margin = new System.Windows.Forms.Padding(4);
+            this.emailRadioButton.Name = "emailRadioButton";
+            this.emailRadioButton.Size = new System.Drawing.Size(63, 21);
+            this.emailRadioButton.TabIndex = 72;
+            this.emailRadioButton.Text = "Email";
+            this.emailRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // nameRadioButton
+            // 
+            this.nameRadioButton.AutoSize = true;
+            this.nameRadioButton.Checked = true;
+            this.nameRadioButton.Location = new System.Drawing.Point(71, 10);
+            this.nameRadioButton.Margin = new System.Windows.Forms.Padding(4);
+            this.nameRadioButton.Name = "nameRadioButton";
+            this.nameRadioButton.Size = new System.Drawing.Size(66, 21);
+            this.nameRadioButton.TabIndex = 71;
+            this.nameRadioButton.TabStop = true;
+            this.nameRadioButton.Text = "Name";
+            this.nameRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.searchButton);
+            this.groupBox1.Controls.Add(this.searchTextBoxErrorLabel);
+            this.groupBox1.Controls.Add(this.nameRadioButton);
+            this.groupBox1.Controls.Add(this.emailRadioButton);
+            this.groupBox1.Controls.Add(this.searchTextBox);
+            this.groupBox1.Controls.Add(this.contactRadioButton);
+            this.groupBox1.Location = new System.Drawing.Point(258, 47);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(419, 95);
+            this.groupBox1.TabIndex = 77;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Search";
+            // 
             // CustomerUiController
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -375,10 +375,10 @@
             this.Load += new System.EventHandler(this.CustomerUiController_Load);
             this.topPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

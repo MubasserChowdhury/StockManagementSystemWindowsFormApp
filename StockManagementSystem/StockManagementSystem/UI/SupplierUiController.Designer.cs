@@ -37,6 +37,8 @@
             this.topPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.showDataGridView = new System.Windows.Forms.DataGridView();
+            this.Sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.contactRadioButton = new System.Windows.Forms.RadioButton();
             this.emailRadioButton = new System.Windows.Forms.RadioButton();
             this.nameRadioButton = new System.Windows.Forms.RadioButton();
@@ -44,8 +46,6 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +53,7 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contactPersonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -74,7 +74,7 @@
             this.showAllSupplierButton.Name = "showAllSupplierButton";
             this.showAllSupplierButton.Size = new System.Drawing.Size(135, 31);
             this.showAllSupplierButton.TabIndex = 66;
-            this.showAllSupplierButton.Text = "       All Supplier";
+            this.showAllSupplierButton.Text = "All Supplier";
             this.showAllSupplierButton.UseVisualStyleBackColor = false;
             this.showAllSupplierButton.Click += new System.EventHandler(this.showButton_Click);
             // 
@@ -92,7 +92,7 @@
             this.addSupplierButton.Name = "addSupplierButton";
             this.addSupplierButton.Size = new System.Drawing.Size(138, 31);
             this.addSupplierButton.TabIndex = 67;
-            this.addSupplierButton.Text = "       Add Supplier";
+            this.addSupplierButton.Text = "Add Supplier";
             this.addSupplierButton.UseVisualStyleBackColor = false;
             this.addSupplierButton.Click += new System.EventHandler(this.addSupplierButton_Click);
             // 
@@ -164,6 +164,21 @@
             this.showDataGridView.TabIndex = 0;
             this.showDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.showDataGridView_CellContentClick);
             this.showDataGridView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.showDataGridView_RowPostPaint);
+            // 
+            // Sl
+            // 
+            this.Sl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Sl.HeaderText = "#";
+            this.Sl.Name = "Sl";
+            this.Sl.Width = 43;
+            // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Edit.HeaderText = "Action";
+            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
+            this.Edit.Name = "Edit";
+            this.Edit.Width = 51;
             // 
             // contactRadioButton
             // 
@@ -250,17 +265,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search";
             // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataSource = typeof(StockManagementSystem.Model.Supplier);
-            // 
-            // Sl
-            // 
-            this.Sl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Sl.HeaderText = "#";
-            this.Sl.Name = "Sl";
-            this.Sl.Width = 43;
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -315,13 +319,9 @@
             this.contactPersonDataGridViewTextBoxColumn.Name = "contactPersonDataGridViewTextBoxColumn";
             this.contactPersonDataGridViewTextBoxColumn.Width = 128;
             // 
-            // Edit
+            // supplierBindingSource
             // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Edit.HeaderText = "Action";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 51;
+            this.supplierBindingSource.DataSource = typeof(StockManagementSystem.Model.Supplier);
             // 
             // SupplierUiController
             // 

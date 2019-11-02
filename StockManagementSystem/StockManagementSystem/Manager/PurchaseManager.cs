@@ -17,9 +17,9 @@ namespace StockManagementSystem.Manager
             return _purchaseRepository.GetLastPurchasesProductInfoById(id);
         }
 
-        public bool UniquePurchaseCode(Purchase purchase)
+        public bool UniquePurchaseCode(PurchaseDetails purchaseDetails)
         {
-            return _purchaseRepository.UniquePurchaseCode(purchase);
+            return _purchaseRepository.UniquePurchaseCode(purchaseDetails);
         }
 
         public bool AddPurchase(List<Purchase> purchases)
@@ -45,6 +45,11 @@ namespace StockManagementSystem.Manager
         public int GetTotalProductByIdAndStartAndEndDate(int id, string startDate, string endDate)
         {
             return _purchaseRepository.GetTotalProductByIdAndStartAndEndDate(id, startDate, endDate);
+        }
+
+        public List<Purchase> GetProductByPurchaseDetailsId(int id)
+        {
+            return _purchaseRepository.GetProductByPurchaseDetailsId(id);
         }
     }
 }

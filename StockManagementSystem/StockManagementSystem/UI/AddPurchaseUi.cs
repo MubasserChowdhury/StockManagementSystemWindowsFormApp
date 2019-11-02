@@ -14,17 +14,17 @@ namespace StockManagementSystem.UI
         ProductManager _productManager = new ProductManager();
         SupplierManager _supplierManager = new SupplierManager();
         SalesManager _salesManager=new SalesManager();
+       PurchaseDetailsManager _purchaseDetailsManager=new PurchaseDetailsManager();
+        public List<Purchase> _purchases = new List<Purchase>();
 
-        //List<Purchase> _purchases = new List<Purchase>();
 
-        private PurchaseUiController purchaseUiController;
-        public AddPurchaseUi(PurchaseUiController purchaseUiController2)
+        public AddPurchaseUi()
         {
             InitializeComponent();
-            purchaseUiController = purchaseUiController2;
+            
 
             ClearAllErrorLabel();
-            codeTextBox.Text=purchaseUiController.GeneratePurchaseCodeBeforeSubmit();
+            
 
             supplierComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             supplierComboBox.DataSource = _supplierManager.GetAllSupplierForComboBox();
@@ -32,18 +32,11 @@ namespace StockManagementSystem.UI
             categoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             categoryComboBox.DataSource = _categoryManager.GetAllCategoryForComboBox();
 
-            //int categoryId = Convert.ToInt32(categoryComboBox.SelectedValue);
-
-            //productComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            //productComboBox.DataSource = _productManager.GetAllProductForComboBox(categoryId);
-
-
-            
         }
         private void AddPurchaseUi_Load(object sender, EventArgs e)
         {
             ClearAllErrorLabel();
-
+            GeneratePurchaseCode();
         }
 
         private void closeCategoryUiButton_Click(object sender, EventArgs e)
@@ -59,32 +52,32 @@ namespace StockManagementSystem.UI
         private void addButton_Click(object sender, EventArgs e)
         {
             Purchase purchase = new Purchase();
-            purchase.InvoiceNo = billNoTextBox.Text;
+           
 
-            bool isFound = false;
+            //bool isFound = false;
 
             //check unique invoice in purchases list
-            foreach (var itemPurchase in purchaseUiController._purchases)
-            {
-                if (itemPurchase.InvoiceNo == billNoTextBox.Text)
-                {
-                    isFound = true;
-                    break;
-                }
-            }
+            //foreach (var itemPurchase in purchaseUiController._purchases)
+            //{
+            //    if (itemPurchase.InvoiceNo == billNoTextBox.Text)
+            //    {
+            //        isFound = true;
+            //        break;
+            //    }
+            //}
 
-            if (isFound)
-            {
-                invoiceNoErrorLabel.Text = @"Invoice no. already exist in current purchase list!";
-                billNoTextBox.Focus();
-                return;
-            }
-            if (_purchaseManager.UniquePurchaseCode(purchase))
-            {
-                invoiceNoErrorLabel.Text = @"Invoice no. already exist in database!";
-                billNoTextBox.Focus();
-                return;
-            }
+            //if (isFound)
+            //{
+            //    invoiceNoErrorLabel.Text = @"Invoice no. already exist in current purchase list!";
+            //    billNoTextBox.Focus();
+            //    return;
+            //}
+            //if (_purchaseManager.UniquePurchaseCode(purchaseDetails))
+            //{
+            //    invoiceNoErrorLabel.Text = @"Invoice no. already exist in database!";
+            //    billNoTextBox.Focus();
+            //    return;
+            //}
 
             if (String.IsNullOrEmpty(billNoTextBox.Text))
             {
@@ -145,11 +138,14 @@ namespace StockManagementSystem.UI
             if (addButton.Text == "Add")
             {
 
-                purchase.Date = purchaseDateTimePicker.Text;
-                purchase.InvoiceNo = billNoTextBox.Text;
-                purchase.SupplierId = Convert.ToInt32(supplierComboBox.SelectedValue);
+                //purchase.Date = purchaseDateTimePicker.Text;
+                //purchase.InvoiceNo = billNoTextBox.Text;
+                //purchase.SupplierId = Convert.ToInt32(supplierComboBox.SelectedValue);
+                //purchase.Code = codeTextBox.Text;
+
+                //purchase.PurchaseDetailsId = 1;
                 purchase.ProductId = Convert.ToInt32(productComboBox.SelectedValue);
-                purchase.Code = codeTextBox.Text;
+                purchase.Product = productComboBox.Text;
                 purchase.ManufacturedDate = manufacturedDateTimePicker.Text;
                 purchase.ExpireDate = expireDateTimePicker.Text;
                 purchase.Quantity = Convert.ToInt32(quantityTextBox.Text);
@@ -160,30 +156,31 @@ namespace StockManagementSystem.UI
                 purchase.Remarks = remarksTextBox.Text;
 
 
-                purchaseUiController._purchases.Add(purchase);
+                _purchases.Add(purchase);
 
 
             }
             else
             {
                 int index = 0;
-                foreach (var itemPurchase in purchaseUiController._purchases)
+                foreach (var itemPurchase in _purchases)
                 {
 
-                    if (itemPurchase.Code == codeTextBox.Text)
+                    if (itemPurchase.ProductId == Convert.ToInt32(productComboBox.SelectedValue))
                     {
-                        purchase = purchaseUiController._purchases.ElementAt(index);
+                        purchase = _purchases.ElementAt(index);
                         break;
                     }
                     index++;
 
                 }
 
-                purchase.Date = purchaseDateTimePicker.Text;
-                purchase.InvoiceNo = billNoTextBox.Text;
-                purchase.SupplierId = Convert.ToInt32(supplierComboBox.SelectedValue);
+                //purchase.Date = purchaseDateTimePicker.Text;
+                //purchase.InvoiceNo = billNoTextBox.Text;
+                //purchase.SupplierId = Convert.ToInt32(supplierComboBox.SelectedValue);
+                //purchase.Code = codeTextBox.Text;
                 purchase.ProductId = Convert.ToInt32(productComboBox.SelectedValue);
-                purchase.Code = codeTextBox.Text;
+                purchase.Product = productComboBox.Text;
                 purchase.ManufacturedDate = manufacturedDateTimePicker.Text;
                 purchase.ExpireDate = expireDateTimePicker.Text;
                 purchase.Quantity = Convert.ToInt32(quantityTextBox.Text);
@@ -196,22 +193,59 @@ namespace StockManagementSystem.UI
                 MessageBox.Show(@"Updated successfully");
                 addButton.Text = @"Add";
 
-                //after update close the form
-                Close();
+                
             }
 
             ClearAllTextBox();
 
-            //purchaseUiController.purchaseDataGridView.DataSource = null;
-            //purchaseUiController.purchaseDataGridView.DataSource = _purchases;
-            purchaseUiController.ShowAllPurchase();
+            ShowAllPurchase();
 
 
             //get next purchase code
-            codeTextBox.Text=purchaseUiController.GeneratePurchaseCodeBeforeSubmit();
+            GeneratePurchaseCode();
+        }
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult;
+            dialogResult = MessageBox.Show(@"Are you sure, you want to submit and save all this record?", @"Message Box", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                PurchaseDetails purchaseDetails = new PurchaseDetails();
+
+                purchaseDetails.InvoiceNo = billNoTextBox.Text;
+                purchaseDetails.Date = purchaseDateTimePicker.Text;
+                purchaseDetails.InvoiceNo = billNoTextBox.Text;
+                purchaseDetails.SupplierId = Convert.ToInt32(supplierComboBox.SelectedValue);
+                purchaseDetails.Code = codeTextBox.Text;
+
+                try
+                {
+                    if (_purchaseDetailsManager.AddPurchaseDetails(purchaseDetails) && _purchaseManager.AddPurchase(_purchases))
+                    {
+                        addPurchaseDataGridView.DataSource = null;
+                        MessageBox.Show(@"Saved SuccessFully", @"Message Box", MessageBoxButtons.OK);
+                        _purchases.Clear();
+                        //get next purchase code
+                        GeneratePurchaseCode();
+
+                        //after submit make the supplier details editable
+                        billNoTextBox.Enabled = true;
+                        supplierComboBox.Enabled = true;
+                        purchaseDateTimePicker.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(@"Not saved", @"Message Box", MessageBoxButtons.OK);
+                    }
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
+            }
         }
 
-       
         public void ClearAllErrorLabel()
         {
            
@@ -226,12 +260,12 @@ namespace StockManagementSystem.UI
         }
         public void ClearAllTextBox()
         {
-            purchaseDateTimePicker.CustomFormat = "yyyy-MM-dd";
-            billNoTextBox.Clear();
-            supplierComboBox.SelectedValue = 0;
+            //purchaseDateTimePicker.CustomFormat = "yyyy-MM-dd";
+            //billNoTextBox.Clear();
+            //supplierComboBox.SelectedValue = 0;
             categoryComboBox.SelectedValue = 0;
             productComboBox.SelectedValue = 0;
-            codeTextBox.Clear();
+            productCodeTextBox.Clear();
             availableQuantityTextBox.Clear();
             manufacturedDateTimePicker.CustomFormat = "yyyy-MM-dd";
             expireDateTimePicker.CustomFormat = "yyyy-MM-dd";
@@ -251,35 +285,57 @@ namespace StockManagementSystem.UI
             int categoryId = Convert.ToInt32(categoryComboBox.SelectedValue);
             productComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             productComboBox.DataSource = _productManager.GetAllProductForComboBox(categoryId);
+
+            // if category combobox select then make the supplier field not editable
+            if (Convert.ToInt32(categoryComboBox.SelectedValue)>0)
+            {
+                billNoTextBox.Enabled = false;
+                supplierComboBox.Enabled = false;
+                purchaseDateTimePicker.Enabled = false;
+            }
         }
 
         private void productComboBox_TextChanged(object sender, EventArgs e)
         {
 
-
             int productId = Convert.ToInt32(productComboBox.SelectedValue);
+            addButton.Enabled = true;
 
-            Purchase purchase = new Purchase();
-            purchase = _purchaseManager.GetLastPurchasesProductInfoById(productId);
+            //bool notExist = true;
+            foreach (var itemSale in _purchases)
+            {
+                if (itemSale.ProductId == productId && addButton.Text !=@"Update")
+                {
+                    MessageBox.Show(@"Selected product already added", @"Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //notExist = false;
+                    addButton.Enabled = false;
+                    break;
+                }
 
-            availableQuantityTextBox.Enabled = false;
-            previousUnitPriceTextbox.Enabled = false;
-            previousMRPTextBox.Enabled = false;
+            }
+            if (productId > 0)
+            {
+                Purchase purchase = new Purchase();
+                purchase = _purchaseManager.GetLastPurchasesProductInfoById(productId);
+
+                availableQuantityTextBox.Enabled = false;
+                previousUnitPriceTextbox.Enabled = false;
+                previousMRPTextBox.Enabled = false;
 
 
 
-            productCodeTextBox.Text = _productManager.GetCodedById(productId).ToString();
-            previousUnitPriceTextbox.Text = purchase.UnitPrice.ToString();
-            previousMRPTextBox.Text = purchase.MRP.ToString();
-            
+                productCodeTextBox.Text = _productManager.GetCodedById(productId).ToString();
+                previousUnitPriceTextbox.Text = purchase.UnitPrice.ToString();
+                previousMRPTextBox.Text = purchase.MRP.ToString();
 
 
-            int totalPurchaseQuantity = _purchaseManager.GetTotalProductById(productId,purchaseDateTimePicker.Text);
-            int totalSaleQuantity = _salesManager.GetTotalProductById(productId,purchaseDateTimePicker.Text);
 
-            int availableQuantity = totalPurchaseQuantity - totalSaleQuantity;
-            availableQuantityTextBox.Text = availableQuantity.ToString();
+                int totalPurchaseQuantity = _purchaseManager.GetTotalProductById(productId, purchaseDateTimePicker.Text);
+                int totalSaleQuantity = _salesManager.GetTotalProductById(productId, purchaseDateTimePicker.Text);
 
+                int availableQuantity = totalPurchaseQuantity - totalSaleQuantity;
+                availableQuantityTextBox.Text = availableQuantity.ToString();
+            }
 
         }
 
@@ -378,6 +434,127 @@ namespace StockManagementSystem.UI
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void GeneratePurchaseCode()
+        {
+            string code = "";
+            string lastPurchaseCode= _purchaseManager.GetLastPurchaseCode();
+            string year = DateTime.Parse(DateTime.Now.ToString()).Year.ToString();
+            if (lastPurchaseCode == "")
+            {
+                code = year + "-0001";
+            }
+            else
+            {
+                string[] afterSplit = lastPurchaseCode.Split('-');
+
+                string serialNo = afterSplit[afterSplit.Length - 1];
+                int number = int.Parse(serialNo);
+                code = year + "-" + (++number).ToString("D" + serialNo.Length);
+            }
+            //AddPurchaseUi addPurchaseUi2 = new AddPurchaseUi(this);
+            //addPurchaseUi2.codeTextBox.Text = code;
+            codeTextBox.Text = code;
+
+        }
+        public void ShowAllPurchase()
+        {
+            addPurchaseDataGridView.DataSource = null;
+            addPurchaseDataGridView.DataSource = _purchases;
+        }
+
+        private void addPurchaseDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (addPurchaseDataGridView.Columns[e.ColumnIndex].Name == "Edit")
+            {
+
+                try
+                {
+                    if (e.RowIndex >= 0)
+                    {
+
+                        if (addPurchaseDataGridView.CurrentRow != null) addPurchaseDataGridView.CurrentRow.Selected = true;
+
+                        addButton.Text = @"Update";
+                        //id
+                        // purchaseDateTimePicker.Text = purchaseDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        // billNoTextBox.Text = purchaseDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+
+                        //supplierComboBox.SelectedValue = Convert.ToInt32(purchaseDataGridView.Rows[e.RowIndex].Cells[4].Value);
+
+                        //product id
+                        int id = Convert.ToInt32(addPurchaseDataGridView.Rows[e.RowIndex].Cells[3].Value);
+
+                        //get category id by product id
+                        int catId = _categoryManager.GetCategoryIdByProductId(id);
+
+                        //set value to category combobox
+                        categoryComboBox.SelectedValue = catId;
+
+                        //set value to product combobox
+                        productComboBox.SelectedValue = id;
+
+
+                        // codeTextBox.Text = purchaseDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
+                        manufacturedDateTimePicker.Text = addPurchaseDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+                        expireDateTimePicker.Text = addPurchaseDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
+                        quantityTextBox.Text = addPurchaseDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
+                        unitPriceTextBox.Text = addPurchaseDataGridView.Rows[e.RowIndex].Cells[8].Value.ToString();
+                        totalPriceTextBox.Text = addPurchaseDataGridView.Rows[e.RowIndex].Cells[9].Value.ToString();
+                        mrpTextBox.Text = addPurchaseDataGridView.Rows[e.RowIndex].Cells[10].Value.ToString();
+                        remarksTextBox.Text = addPurchaseDataGridView.Rows[e.RowIndex].Cells[11].Value.ToString();
+                        //MessageBox.Show(Sl + "");
+
+
+                       
+
+                    }
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
+            }
+            if (addPurchaseDataGridView.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                DialogResult dialogResult;
+                dialogResult = MessageBox.Show(@"Are you sure, you want to delete this record?", @"Message Box", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    int id = Convert.ToInt32(addPurchaseDataGridView.Rows[e.RowIndex].Cells[3].Value);
+                    int index = 0;
+                    Purchase purchase1 = new Purchase();
+
+                    foreach (var itemPurchase in _purchases)
+                    {
+
+                        if (itemPurchase.ProductId == id)
+                        {
+                            purchase1 = _purchases.ElementAt(index);
+                            break;
+                        }
+                        index++;
+
+                    }
+                    _purchases.Remove(purchase1);
+                    addPurchaseDataGridView.DataSource = null;
+                    addPurchaseDataGridView.DataSource = _purchases;
+
+                    ClearAllTextBox();
+
+                    // get next purchase code
+                    GeneratePurchaseCode();
+                }
+
+
+            }
+        }
+
+        private void addPurchaseDataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            this.addPurchaseDataGridView.Rows[e.RowIndex].Cells["Sl"].Value = (e.RowIndex + 1).ToString();
         }
     }
 }

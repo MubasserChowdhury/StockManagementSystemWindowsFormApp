@@ -41,12 +41,12 @@
             this.addCategoryButton = new System.Windows.Forms.Button();
             this.categoryViewPanel = new System.Windows.Forms.Panel();
             this.categoryDataGridView = new System.Windows.Forms.DataGridView();
+            this.Sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.minimizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.topPanelCategory = new System.Windows.Forms.Panel();
             this.Search = new System.Windows.Forms.GroupBox();
-            this.Sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,7 +90,7 @@
             this.allCategoryButton.Location = new System.Drawing.Point(12, 108);
             this.allCategoryButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.allCategoryButton.Name = "allCategoryButton";
-            this.allCategoryButton.Size = new System.Drawing.Size(132, 31);
+            this.allCategoryButton.Size = new System.Drawing.Size(144, 31);
             this.allCategoryButton.TabIndex = 16;
             this.allCategoryButton.Text = "       All Category";
             this.allCategoryButton.UseVisualStyleBackColor = false;
@@ -100,7 +100,7 @@
             // 
             this.codeRadioButton.AutoSize = true;
             this.codeRadioButton.Location = new System.Drawing.Point(108, 36);
-            this.codeRadioButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.codeRadioButton.Margin = new System.Windows.Forms.Padding(4);
             this.codeRadioButton.Name = "codeRadioButton";
             this.codeRadioButton.Size = new System.Drawing.Size(62, 21);
             this.codeRadioButton.TabIndex = 15;
@@ -112,7 +112,7 @@
             // 
             this.nameRadioButton.AutoSize = true;
             this.nameRadioButton.Location = new System.Drawing.Point(19, 36);
-            this.nameRadioButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nameRadioButton.Margin = new System.Windows.Forms.Padding(4);
             this.nameRadioButton.Name = "nameRadioButton";
             this.nameRadioButton.Size = new System.Drawing.Size(66, 21);
             this.nameRadioButton.TabIndex = 14;
@@ -123,7 +123,7 @@
             // searchTextBox
             // 
             this.searchTextBox.Location = new System.Drawing.Point(178, 34);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(140, 22);
             this.searchTextBox.TabIndex = 13;
@@ -141,7 +141,7 @@
             this.addCategoryButton.Location = new System.Drawing.Point(12, 54);
             this.addCategoryButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.addCategoryButton.Name = "addCategoryButton";
-            this.addCategoryButton.Size = new System.Drawing.Size(132, 31);
+            this.addCategoryButton.Size = new System.Drawing.Size(144, 31);
             this.addCategoryButton.TabIndex = 17;
             this.addCategoryButton.Text = "       Add Category";
             this.addCategoryButton.UseVisualStyleBackColor = false;
@@ -216,6 +216,21 @@
             this.categoryDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.categoryDataGridView_CellContentClick);
             this.categoryDataGridView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.categoryDataGridView_RowPostPaint);
             // 
+            // Sl
+            // 
+            this.Sl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Sl.HeaderText = "#";
+            this.Sl.Name = "Sl";
+            this.Sl.Width = 43;
+            // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Edit.HeaderText = "Action";
+            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
+            this.Edit.Name = "Edit";
+            this.Edit.Width = 51;
+            // 
             // minimizeButton
             // 
             this.minimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -268,21 +283,6 @@
             this.Search.TabIndex = 19;
             this.Search.TabStop = false;
             this.Search.Text = "Search";
-            // 
-            // Sl
-            // 
-            this.Sl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Sl.HeaderText = "#";
-            this.Sl.Name = "Sl";
-            this.Sl.Width = 43;
-            // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Edit.HeaderText = "Action";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 51;
             // 
             // idDataGridViewTextBoxColumn
             // 
