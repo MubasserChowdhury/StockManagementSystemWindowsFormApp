@@ -52,46 +52,10 @@ namespace StockManagementSystem.UI
         private void addButton_Click(object sender, EventArgs e)
         {
             Purchase purchase = new Purchase();
+
+
+
            
-
-            //bool isFound = false;
-
-            //check unique invoice in purchases list
-            //foreach (var itemPurchase in purchaseUiController._purchases)
-            //{
-            //    if (itemPurchase.InvoiceNo == billNoTextBox.Text)
-            //    {
-            //        isFound = true;
-            //        break;
-            //    }
-            //}
-
-            //if (isFound)
-            //{
-            //    invoiceNoErrorLabel.Text = @"Invoice no. already exist in current purchase list!";
-            //    billNoTextBox.Focus();
-            //    return;
-            //}
-            //if (_purchaseManager.UniquePurchaseCode(purchaseDetails))
-            //{
-            //    invoiceNoErrorLabel.Text = @"Invoice no. already exist in database!";
-            //    billNoTextBox.Focus();
-            //    return;
-            //}
-
-            if (String.IsNullOrEmpty(billNoTextBox.Text))
-            {
-                invoiceNoErrorLabel.Text = @"Invoice no. required !";
-                billNoTextBox.Focus();
-                return;
-            }
-
-            if (Convert.ToInt32(supplierComboBox.SelectedValue)==0)
-            {
-                supplierComboBoxErrorLabel.Text = @"Select a supplier !";
-                supplierComboBox.Focus();
-                return;
-            }
 
             if (Convert.ToInt32(categoryComboBox.SelectedValue) == 0)
             {
@@ -206,6 +170,20 @@ namespace StockManagementSystem.UI
         }
         private void submitButton_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(billNoTextBox.Text))
+            {
+                invoiceNoErrorLabel.Text = @"Invoice no. required !";
+                billNoTextBox.Focus();
+                return;
+            }
+
+            if (Convert.ToInt32(supplierComboBox.SelectedValue) == 0)
+            {
+                supplierComboBoxErrorLabel.Text = @"Select a supplier !";
+                supplierComboBox.Focus();
+                return;
+            }
+
             DialogResult dialogResult;
             dialogResult = MessageBox.Show(@"Are you sure, you want to submit and save all this record?", @"Message Box", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);

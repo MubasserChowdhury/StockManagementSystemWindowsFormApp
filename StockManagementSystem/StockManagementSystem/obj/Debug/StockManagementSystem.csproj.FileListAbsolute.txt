@@ -167,3 +167,4 @@ D:\Project-01\New folder\StockManagementSystem\StockManagementSystem\obj\Debug\S
 D:\Project-01\New folder\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.exe
 D:\Project-01\New folder\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.pdb
 D:\Project-01\New folder\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.UI.PurchaseDetailsUi.resources
+D:\Project-01\New folder\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.csprojAssemblyReference.cache
